@@ -1,0 +1,174 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #0066ff;
+    --hover-blue: #0052cc;
+    --primary-yellow: #ffc107;
+    --hover-yellow: #eab000;
+    --text-dark: #333;
+    --text-muted: #666;
+    --bg-light: #f4f7f9;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* Helper para acessibilidade (leitores de tela) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Card Container */
+.login-card {
+    background: transparent; /* Seguindo a imagem original de fundo neutro */
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    text-align: center;
+}
+
+
+/* Header & Logo */
+.login-header h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.logo-circle {
+    background-color: #1a4559;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo-circle img {
+    width: 100%;
+    height: auto;
+}
+
+/* Input Styles */
+.input-group {
+    background: var(--white);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.field {
+    position: relative;
+}
+
+.field input:focus {
+    border: 2px solid rgba(0, 192, 192, 0.801);
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.575);
+}
+
+
+input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+.password-field {
+    display: flex;
+    align-items: center;
+}
+
+.btn-toggle-password {
+    background: none;
+    border: none;
+    color: #00acc1;
+    font-size: 0.85rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Buttons */
+.registration-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+}
+
+.btn-signup {
+    background-color: var(--primary-yellow);
+    color: #000;
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-signup:hover {
+    background-color: var(--hover-yellow);
+}
+
+.btn-login {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 0.9rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-login:hover {
+    background-color: var(--hover-blue);
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
