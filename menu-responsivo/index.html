@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <nav class="navegation">
+            <a class="logo" href="#">F<span>ood</span>P<span>ee</span>K</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#">Home</a></li>
+                <li class="nav-item"><a href="#">About</a></li>
+                <li class="nav-item"><a href="#">menu</a></li>
+                <li class="nav-item"><a href="#">Contact</a></li>
+                <span class="material-symbols-outlined">search</span>
+            </ul>
+            <div class="menu">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="home">
+            <div class="home-text">
+                <h4 class="text-h4">Welcome FooD PeeK</h4>
+                <h1 class="text-h1">Different spice for different tastes</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod earum commodi nulla voluptatibus natus veritatis odio ad tempora qui alias in exercitationem consequatur necessitatibus, modi ex dolores hic harum iusto?</p>
+                <a class="home-btn" href="#">order yours</a>
+            </div>
+            <div class="home-img">
+                <img src="images/hamburger.png" alt="hamburger">
+            </div>
+        </section>
+    </main>
+
+    
+    <script>
+        const menu = document.querySelector(".menu");
+        const navMenu = document.querySelector(".nav-menu");
+
+   
+        menu.addEventListener('click', () =>{
+            menu.classList.toggle('ativo');
+            navMenu.classList.toggle('ativo');
+        })
+    </script>
+</body>
+</html>
