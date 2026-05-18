@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    background:
+        linear-gradient(hsla(176, 100%, 10%, 0.80),
+            hsla(176, 100%, 6%, 0.95)),
+        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop');
+
+    background-size: cover;
+    background-position: center;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.register-box {
+    background: rgba(0, 63, 63, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    backdrop-filter: blur(18px);
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.register-header h1 {
+    color: white;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.register-header p {
+    color: #8ca5a5;
+    font-size: 0.95rem;
+}
+
+.register-header a {
+    color: #ffc400;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-top: 28px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 58px;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+
+    outline: none;
+
+    padding: 0 52px;
+
+    color: white;
+    font-size: 1rem;
+
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #00ffd5;
+    box-shadow: 0 0 0 4px rgba(0, 255, 213, 0.10);
+}
+
+.input-box label {
+    position: absolute;
+
+    left: 52px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #7d9a9a;
+    pointer-events: none;
+
+    transition: 0.3s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: 12px;
+    font-size: 0.75rem;
+    color: #00ffd5;
+}
+
+.icon-left {
+    position: absolute;
+
+    left: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 1rem;
+    color: #00ffd5;
+}
+
+.toggle-password {
+    position: absolute;
+
+    right: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+    user-select: none;
+
+    color: #7d9a9a;
+    font-size: 0.95rem;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 28px;
+
+    color: #a8bbbb;
+    font-size: 0.92rem;
+}
+
+.terms input {
+    accent-color: #00ffd5;
+    width: 16px;
+    height: 16px;
+}
+
+.btn-register {
+    width: 100%;
+    height: 56px;
+
+    border: none;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(135deg,
+            #00ffd5,
+            #00c9a7);
+
+    color: #003636;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 255, 213, 0.25);
+}
+
+.btn-register:active {
+    transform: scale(0.98);
+}
+
+.error-message {
+    margin-top: 18px;
+
+    text-align: center;
+
+    color: #ff9e9e;
+    font-size: 0.9rem;
+
+    display: none;
+}
+
+@media (max-width: 500px) {
+
+    .register-box {
+        padding: 28px 22px;
+    }
+
+    .register-header h1 {
+        font-size: 1.7rem;
+    }
+
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Gamer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+        
+        <link rel="stylesheet" href="assets/css/criar-conta.css">
+    
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <div class="register-box">
+
+            <div class="register-header">
+
+                <h1>Crie uma conta de jogo</h1>
+
+                <p>
+                    Já tem uma conta?
+                    <a href="#">
+                        Entrar
+                    </a>
+                </p>
+
+            </div>
+
+            <form id="registerForm">
+
+                <div class="form-group">
+
+                    <div class="input-box">
+
+                        <span class="icon-left">🇧🇷</span>
+
+                        <input
+                            type="tel"
+                            id="telefone"
+                            required>
+
+                        <label for="telefone">
+                            Telefone
+                        </label>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <span class="icon-left">🔒</span>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            required>
+
+                        <label for="senha">
+                            Senha
+                        </label>
+
+                        <span
+                            class="toggle-password"
+                            data-target="senha">
+                            👁
+                        </span>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <span class="icon-left">🔑</span>
+
+                        <input
+                            type="password"
+                            id="confirmarSenha"
+                            required>
+
+                        <label for="confirmarSenha">
+                            Confirmar senha
+                        </label>
+
+                        <span
+                            class="toggle-password"
+                            data-target="confirmarSenha">
+                            👁
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <label class="terms">
+
+                    <input type="checkbox" id="check">
+
+                    Confirmo que tenho pelo menos 21 anos de idade.
+
+                </label>
+
+                <button type="submit" class="btn-register">
+                    Registro
+                </button>
+
+                <div class="error-message" id="errorMessage">
+                    Verifique os campos e tente novamente.
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+   <script src="assets/js/criar-conta.js"></script>
+
+</body>
+
+</html>

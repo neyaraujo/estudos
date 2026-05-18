@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <title>Painel Login</title>
+    <link rel="stylesheet" href="assets/css/sytyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <div class="login-header">
+                <h1>Faça login</h1>
+                <p>
+                    Não possui uma conta?
+                    <a href="#">Registrar</a>
+                </p>
+            </div>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <div class="input-box">
+                        <span class="icon">📞</span>
+
+                        <input
+                            type="tel"
+                            id="telefone"
+                            required
+                        >
+
+                        <label for="telefone">
+                            Telefone
+                        </label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon">🔒</span>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            required
+                        >
+
+                        <label for="senha">
+                            Senha
+                        </label>
+
+                        <span class="toggle-password" id="togglePassword">
+                            👁
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="remember-forgot">
+
+                    <label>
+                        <input type="checkbox">
+                        Lembrar senha
+                    </label>
+
+                    <a href="#">
+                        Esqueceu a senha?
+                    </a>
+
+                </div>
+
+                <button type="submit" class="btn-login">
+                    Entrar
+                </button>
+
+                <div class="message" id="message">
+                    Preencha todos os campos corretamente.
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+   <script src="assets/js/index.js"></script>
+
+</body>
+</html>
