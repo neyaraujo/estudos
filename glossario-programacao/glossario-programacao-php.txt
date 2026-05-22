@@ -1,0 +1,490 @@
+===================================
+	MAPA MENTAL - PHP
+===================================
+
+#FUNDAMENTOS
+
+#VARIAVEIS
+
+#OPERADORES
+
+#CONDICOES
+
+#DECISÃO
+|---	If Simples
+		palavra chave:
+			decisão, condição
+		sintaxe
+			if (condição) {
+				// código
+			{
+		exemplo
+			$idade = 20;
+			if ($idade >= 18) {
+				echo "Maior de idade";
+			}
+		Verificar login
+			if ($logado == true) {
+				echo "Bem-vindo!";
+			}	
+		Verificar estoque
+			if ($estoque > 0) {
+				echo "Produto disponível";
+			}
+		Verificar upload
+			if ($_FILES['foto']['erro']) == 0 {
+				echo "Upload realizado";
+			}
+|-----	If Composto (if + else)
+		sintaxe
+			if (condição) {
+				// verdadeiro
+			} else {
+				// falso
+			}
+		exemplo 
+			if ($idade >= 18) {
+				echo "Maior de idade";
+			} else {
+				echo "Menor de idade";
+			}
+		sistema de login
+			if ($senha == "123") {
+				echo "Login realizado";
+			} else {
+				echo "Senha incorreta";
+			}
+		verifica nota
+			if ($nota >= 7) {
+				echo "Aprovado";
+			} else {
+				echo "Reprovado";
+			}
+		tema claro e escuro
+			if ($tema == "dark") {
+				echo "Tema escuro ativado";
+			} else {
+				echo "Tema claro ativado";
+			}
+|------	If Encadeado ( if / elseif / else)
+		sintaxe
+			if (condição) {
+				
+			} elseif (condição) {
+	
+			} else {
+
+			}
+		exemplo
+			if ($nota >= 9) {
+				echo "Excelente";
+			} elseif ($nota >= 7) {
+				echo "Aprovado";
+			} else {
+				echo "Reprovado";
+			}
+		Saudação por horário
+			$hora = date("H");
+			if ($hora < 12) {
+				echo "Bom dia";
+			} elseif ($hora < 18) {
+				echo "Boa tarde";
+			} else {
+				echo "Boa noite";
+			}
+
+		exemplo
+			if ($idade >= 18) {
+				echo "Maior";
+			} else {
+				echo "Menor";
+			}
+
+|-----	Operador Ternário
+		sintaxe
+			condição ? valor_se_verdadeiro : valor_se_falso;
+		exemplo
+			$idade = 20;
+			echo ($idade >= 18) ? "maior" : "Menor";
+
+		status
+			$status = ($online == true) ? "Online" : "Offline";
+
+		classe css dinâmica
+			$class = ($ativo) ? "btn-ativo" : "btn";
+
+		imagem padrão
+			$foto = ($usuarioFoto != "") ? $usuariofoto: "padrão.png";
+			
+
+
+
+#MANIPULAÇÃO DE TEXTO
+|---	Criar String
+		exemplo
+		   	$nome = "Ney";
+			$frase = 'Olá Mundo';
+	Concatenar textos
+		$nome = "Ney";
+		echo "Olá" . $nome; // Saida: Olá Ney
+
+	Contar caracteres
+		strlen()
+			exemplo
+				$texto = "PHP"
+				echo strlen($texto); // saida: 3
+	Converter maiuscula
+		palavra chave: 
+			maiuscula, caixa alta
+			
+	Converter minusculo
+		strtoupper()
+			echo strtoupper("php"); // saida: PHP
+
+	Tudo minusculo
+		palavra chave:
+			minuscula, minusculo, minuscula, caixa baixa
+		strtolower()
+			echo strtolower("PHP"); // saida: php
+
+	Primeira letra maiuscula
+		ucfirst()
+			echo ucfirst("ney"); // saida: Ney
+
+	Primeira letra de cada palavra
+		echo ucwords("ney araujo"); // saida: Ney Araujo
+
+	Trocar caracteres ou palavras
+		str_replace()
+			com palavras
+				$texto = " Olá João";
+				echo str_replace("João", "Maria", $texto); // saida: Olá Maria
+			com caracteres
+				echo str_replace("-", "/" "20-05-2026"); // saida: 20/05/2026
+
+	Procurar texto
+		$frase = "Aprendendo PHP";
+		echo strpos($frase, "PHP"); // saida: 12
+			obs: se não encontrar retorna false
+
+	Cortar texto
+		substr()
+			sintaxe
+				substr(texto, inicio, quantidade)
+			exemplo
+				$texto = "programação";
+				echo substr($texto, 0, 5); saida: progr
+
+	Remover espaços
+		trim()
+			$texto = "    PHP   ";
+			echo trim($texto); // saida: PHP
+				obs: removem os espaços do começo e fim
+
+	Repetir texto
+		str_repeat()
+			echo str_repeat("-", 10); // saida:  ----------
+	Quebrar texto em array
+		explode()
+			$nomes = "Ney,João,Maria";
+			$array = explode(",", $nomes);
+			print_r($array);
+			resultado:
+				array 
+				(
+					[0] => Ney
+					[1] => João
+					[2] => Maria
+				)
+	Juntar array em texto
+		implode()
+			$nomes = ["Ney", "João", "Maria"];
+			echo implode(" - ", $nome); // saida: Ney - João - Maria
+	Comparar texto
+		if ($senha == "123") {
+			echo "correta";
+		)
+	Comparação exata
+		strcmp()
+			echo strcmp("PHP", "PHP"); saida: 0
+	Verificar se contém texto
+		str_contains()
+			$texto = "curso de PHP";
+			if (str_contains($texto, "PHP") {
+				echo "Econtrado";
+			}
+	Inverter texto
+		strev()
+			echo strrev("ney"); saida: yen
+	Caracteres especiais
+		htmlspecialchars()
+			$texto = "<h1>PHP</h1>";
+			echo htmlspecialchars($texto);
+			//evita execução HTML
+	Strings Unicode e acentos
+		mb_strlen()
+			echo mb_strlen("ação");
+	Padrão comum no PHP moderno
+		muito usado em dados vindo de formularios
+			$texto = trim($_POST['nome']);
+			texto = strlower($texto);
+			texto = ucfirst($texto);
+			
+				
+	
+	
+		
+	
+	
+			
+			
+
+
+#CONTROLE DE FLUXO
+|------	die() e exit()
+	As duas funções fazem praticamente a mesna coisa: encerram imediatamente a execução
+	do script.
+	sintaxe
+		die("Mensagem");
+		exit("Mensagem");
+
+	exemplos
+		echo "Inicio";
+		die("Parou aqui!");
+		echo "Fim";
+	resultado
+		Início
+		Parou aqui! // Ocódigo após o die() não será executado.
+
+	...debug
+		echo "<pre>";
+		print_r($dados);
+		die();
+
+	...debug
+		echo "<pre>";
+		var_dump($_POST);
+		die();
+
+	...debug
+		var_dump($usuario);
+		exit;
+	
+	considerações
+		-verificar variáveis
+		-conferir arrays
+		-analisar retorno do banco
+		-interromper o sistema antes de continuar
+	exemplo com conexão
+		$conexao = mysqli_connect($host, $user, $password, $bdname);
+		if(!$conexao){
+		   die("Erro na conexão: " .mysqli_connect_error());
+		}
+		echo "Conectado!";
+
+|------	Return
+	Interrompe apenas parte do fluxo
+	exemplo
+		function testar(){
+			echo "Início";
+			return;
+			echo "Fim";
+		}
+		testar();
+	resultado
+		Início
+|------	break
+	Interrompe loops
+	exemplo
+		for($i = 0; $i < 10; $i++){
+		   if($i == 5){
+	 	     break;
+		   }
+		   echo $i;
+		}
+	resultado
+		01234
+|------	continue	
+	Pula uma repetição
+	exemplo
+		for($i = 0; $i < 5; $i++){
+		   if($i == 2){
+		   continue;
+		   }
+		   echo $i;
+		}
+	
+|------	Conexão com banco de dados
+		palavra chave
+			Fechar conexao, encerrar conexao, liberar recursos.
+		exemplo
+			mysqli_free_result($resultado); // fecha o resultado da consulta
+			mysqli_close($conexao); // fecha a conexao
+#LOOPS
+	FOREACH
+	O que é
+		Laço de de repetição
+	Sintaxe
+		forecach($array as $item)
+	Exemplo
+		foreach($nomes as $nome)
+	Observações
+		Muito usado com banco de dados
+	Erros comuns
+		esquecer o as
+	
+
+#FUNCOES
+	print_r
+		palavra-chave: 
+			imprimir, mostrar, exibir, visualizar, ler array, depurar, debug, saida de dados, estrutura array
+		categoria: 
+			Funções de saida, Debug
+	echo
+		palavra-chave:
+			imprimir, mostrar texto, saida
+	var_dump()
+		palavra-chava
+			debug, detalhar varíavel, tipo da variável
+	foreach
+		palavra-chave
+			repetir array, loop array, percorrer
+	isset()
+		palavra-chave
+			verificar existência, existe variável
+	empty()
+		palavra-chave
+			verificar vazio
+	ssession_start()
+		palavra-chave	
+			iniciar sessão, login, usuário conectado
+	include
+		palavra-chave
+			importar arquivo, reutilizar código
+	die()/exit()
+			parar código, interromper fluxo
+
+	header('Location:')
+		palavra-chave
+			redirecionar página, mudar de página, redirect, header location, 
+			enviar cabeçalho, navegação, redirect after login, redirecionar formulário, 
+			voltar página, encaminhar usuário, redirect com session, redirect login,
+			redirect crud, header location not working, erro headers already sent,
+			exit after header, controle de rotas
+		sintaxe
+			header("Location: pagina.php");
+			exit;
+		exemplo
+			if($login == true){
+		   	   header("Location: painel.php");
+			exit;
+			}
+		exemplo-02
+			$_SESSION['mensagem'] = "cadastro realizado!";
+			header("Location: index.php");
+			exit;
+		exemplo-03
+			header("Location: https://google.com");
+			exit;
+		Usado em
+			-Login de usuários
+			-Logout
+			-CRUD PHP
+			-Validação de formulários
+			-controle de permissões
+			-Painel administrativo
+			-Sistema de sessões
+			-Mensagens de sucesso/erro
+			-APIs e rotas
+		Observações importantes
+			Deve ser executado santes de qualquer saida HTML
+			muito usado junto com exit
+			pode ser usado com $_SESSION
+			trabalha com cabeçahos HTTP
+			Espaço ou echo antes do header causa erro
+		Principais erros
+			headers already sent
+				echo "Teste";
+				header("Location: index.php");
+			erro:
+				cannot modify header information - headers already sent
+
+			Esquecer o exit
+				header("Location: index.php");
+				// código continua executando
+	
+#ARRAYS
+
+#FORMULARIOS
+
+#SESSAO
+	O que é
+		Mecanismo para armazenar dados do usuário entre páginas
+		Permite manter informações enquanto o usuário navega no sistema
+
+	Função principal
+		session_start()
+
+	Sintaxe
+		session_start();
+		$_SESSION['chave'] = valor;
+
+	Exemplo
+		session_start();
+
+		$_SESSION['usuario'] = "Ney";
+		$_SESSION['nivel'] = "admin";
+
+		echo $_SESSION['usuario'];
+
+	Observações
+		Precisa iniciar a sessão antes de usar $_SESSION
+		Geralmente usado em login, carrinho e controle de usuário
+		A sessão funciona em todo o projeto enquanto estiver ativa
+		Os dados ficam armazenados no servidor
+
+	Funções importantes
+		session_start()
+			Inicia ou recupera uma sessão
+
+		session_destroy()
+			Destrói a sessão inteira
+
+		unset($_SESSION['chave'])
+			Remove um item específico da sessão
+
+		session_unset()
+			Limpa todas as variáveis da sessão
+
+	Erros comuns
+		Esquecer o session_start()
+		Enviar HTML antes do session_start()
+		Tentar acessar $_SESSION sem iniciar sessão
+		Confundir sessão com cookie
+
+	Exemplo de erro
+		echo "Olá";
+		session_start();
+
+	Problema
+		session_start() deve vir antes de qualquer saida HTML
+
+	Exemplo correto
+		session_start();
+		echo "Olá";
+
+#MYSQL
+
+#SEGURANCA
+
+ERROS-COMUNS
+
+
+===================================
+	MAPA MENTAL - CSS
+===================================
+
+
+
+
+
