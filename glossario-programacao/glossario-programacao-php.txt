@@ -7,6 +7,21 @@
 #VARIAVEIS
 
 #OPERADORES
+	Operado		Significado		Exemplo		Resultado
+	==		igual(valor)		5 == "5"	true
+	===		idêntico(valor + tipo)	5 === "5"	false
+	!=		diferente		5 != 3		true
+	<>		diferente		5 <> 3		true
+	!==		não idêntico		5 !== "5"	true
+	>		maior que		10 > 5		true
+	<		menor que		3 < 7		true
+	>=		maior ou igual		5 >= 5		true
+	<=		maenor ou igual		2 <= 4		true
+
+|---	Exemplo
+		5 == "5" 	// saida: true
+		5 === "5" 	// saida: false				 
+	
 
 #CONDICOES
 
@@ -101,6 +116,8 @@
 			}
 
 |-----	Operador Ternário
+		palavra chave
+			ternario, condição simples
 		sintaxe
 			condição ? valor_se_verdadeiro : valor_se_falso;
 		exemplo
@@ -412,6 +429,68 @@
 			Esquecer o exit
 				header("Location: index.php");
 				// código continua executando
+|----	empty()
+		Verifica se uma variável está vazia ou sem valor útil
+		retorna true para: "" | null | 0 | false | []
+
+		exemplo
+			if (empy($_POST['email'])) {
+				echo "Email obritário";
+			}
+		em formularios
+			$nome = !empty($_POST['nome']) ?? $_POST['nome'] : "sem nome";
+		importante
+			empty() NÃO dá erro mesmo se a variavel não existir.
+		empty($_POST['nome']); //seguro
+
+|---	Operador null coalescing (??) - verfica se EXISTE e se NÃO é null
+		valores que NAO ativam o ??
+			'' | 0 | '0' | false | []
+		valor que ativam o ??
+			inexistente, null
+
+		Substitui valores quando não existem ou são NULL
+		Exemplo
+			Sintaxe
+				$valor = $variavel ?? 'padrao'; // Se $variavel existir e não for null, use ela, senão use 'padrão'.
+			exemplo
+				$nome = $_POST['nome'] ?? 'visitante';
+			equivalente a
+				if(isset($_POST['nome'])) {
+					$nome = $_POST['nome'];
+				} else {
+					$nome = 'Visitante';
+				}
+				
+			exemplo
+				$nome = $_POST['nome'] ?? "teste";
+			equivalente a:
+				$nome = isset($_POST['nome']) ? $_POST['nome'] : "teste";
+
+|---	Operador Ternário Completo
+		Sintaxe	
+			condição ? valor_se_verdadeiro : valor_se_falso;
+		exemplo
+			$idade = 20
+			$resultado = $idade >= 18 ? 'Maior' ? 'Menor';
+			echo $resultado
+
+|---	Ternário Simplificado (?:) - verifica se o valor é verdadeiro ou falso
+		Valores falsos
+			false | 0 | 0.0 | '' | '0' | null | []
+		
+		Sintaxe
+			$valor = $variavel ?: 'padrão';
+			$nome = '' ?: 'Visitante'; // saida: Visitante;
+
+|---	Duvidas entre (??) & (?:)
+		com: (?? :)
+			$nome = $_POST['nome'] ?? 'Visitante'; // Se vier ""(vazio), resultado é ""(vazio ) por que existe.
+		com: (?:)
+			$nome = $_POST['nome'} ?: 'Visitante'; // Se vier ""(vazio), resultado é Visitante, por string vazia é falsa.
+			
+			
+		
 	
 #ARRAYS
 
