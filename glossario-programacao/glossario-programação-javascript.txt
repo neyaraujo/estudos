@@ -1,0 +1,98 @@
+
+
+
+#MÉTDOS DO DOM
+|---	ParentElement
+	palavra chave
+		Pega o pai do elemento, ancestrais
+		</> html
+			<div> classe"card">
+				<button id="btn"><clique</button>
+			</div>
+		</> javascript
+			const btn = document.getElementById('btn');
+			cont pai =  btn.parentElement;
+			pai.style.backgroundColor = 'lightblue';
+			//resultado: o <div class="card"> recebe o estilo
+
+	ParentNode
+		Parecido com parentelement, mas pode retornar nós que não são elementos HTML
+		const pai = btn.parentNode;
+	closest() forma moderna e recomendada
+		sobe na árvore procurando um ancestral específico.
+		exemplo
+			</>  html
+				<div class"container">
+					<div class"card">
+						<button class"btn">Salvar</button>
+					</div>
+				</div>
+			</> javascript
+				const botao = document.querySelector('.btn');
+				cont card = botao.closet('.card');
+				card.style.border = '2px solid red';
+|--	adicionar/remover classes
+		</> css
+			.ativo {
+				background-color: yellow;
+				border: 2px solid black;
+			}
+		</> javascript
+			card.classList.add('ativo'); // adiciona a classe 'ativo'
+
+		</> javascript
+			card.classList.remove('ativo'); // remove a classe 'ativo'
+		</> javascript
+			card.classList.toggle('ativo') // alterna a classe 'ativo'
+|----	Erros
+		</> javascript
+			const btn = document.querySelect('.btn');
+			btn.parentElement.style.color = 'red';
+			Cannot read properties of null // não foi encontrado
+|---	Forma segura
+		</> javascript
+			const btn = document.querySelector('.btn');
+			if (btn) {
+				      btn.parentElement.style.color = 'red';
+			}
+|--	querySelectorAll
+		</> javascript
+			document.querySelectorAll('.btn').forEach(btn => {
+				btn.addEventiListener('click', () => {
+					const card = btn.closest('.card');
+					card.classList.toggle('ativo');
+				});
+			});
+|---	classList.toggle
+		adiciona sempre
+		</> javascript
+			card.classList.toggle('ativo', true);
+
+		remove sempre
+		</> javascript
+			card.classList.toggle('ativo', false);
+
+|---	Sem o toggle
+		</> javascript
+			if (card.classList.contains('ativo')) {
+				card.classList.remove('ativo');
+		} else {
+			card.classList.add('ativo');
+		}
+|--	forma segura
+		if (card) {
+			card.classList.toggle('ativo');
+		{
+
+|--	Exemplo moderno com closest()
+		document.addEventListener('click', (e) => {
+			const btn = e.target.closest('.btn');
+			if (!btn) return;
+			const card = btn.closest('.card');
+			card.classList.toggle('ativo');
+		});
+
+				
+		
+
+
