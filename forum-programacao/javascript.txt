@@ -1,6 +1,33 @@
-
-
-
+#EVENTO PRINT
+|---	print()
+		palavra chave
+			imprimir, print
+		exemplo
+		</>html
+		<button id="btn-imprimir">
+			Imprimir
+		</button>
+		<script>
+			const = botao = document.getElementById('btn-imprimir');
+			botao.addEventListener('click', () => {
+				window.print();
+			});
+		</script>
+|---	@media print
+		palavra chave
+			esconder elementos, ocultar, imprimir
+		exemplo
+		</> html
+			<button class="no-print" onclick="window.print()">
+				Imprimir
+			</button>
+			<style>
+				@media print {
+					.no-print {
+						display: none;
+					}
+				}
+			</style>
 #MÉTDOS DO DOM
 |---	ParentElement
 	palavra chave
