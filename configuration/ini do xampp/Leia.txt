@@ -1,0 +1,1 @@
+quando for usar, substituir o 'php - data.ini' -> 'php.ini'
