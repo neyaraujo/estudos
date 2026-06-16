@@ -154,7 +154,7 @@
 		palavra chave: 
 			maiuscula, caixa alta
 			
-	Converter minusculo
+	tudo maiuscula
 		strtoupper()
 			echo strtoupper("php"); // saida: PHP
 
@@ -197,6 +197,21 @@
 			$texto = "    PHP   ";
 			echo trim($texto); // saida: PHP
 				obs: removem os espaços do começo e fim
+
+	remover todosos espaços do texto
+		$texto = "Olá Mundo PHP";
+		st_replace(' ', '', $texto);
+		echo $texto; // OláMundoPHP
+
+	substituir vários espaços por apenas um
+		$texto = "Olá    Mundo    PHP";
+		$texto = preg_replace('/\s/', ' ', $texto);
+		echo $texto; // Olá Mundo PHP
+
+	remover espaços de tabulação e quebras de linha
+		$texto = "olá \n Mundo \t PHP";
+		$texto = preg_replace('/\s+/', '', $texto);
+		echo $texto; // oláMundoPHP
 
 	Repetir texto
 		str_repeat()
@@ -370,8 +385,78 @@
 		palavra-chave
 			verificar existência, existe variável
 	empty()
+		Usada para verificar se uma variável está vazia, retorna true ou false
+		
 		palavra-chave
 			verificar vazio
+		sintaxe
+			empty($variavel);
+		retorna true para:
+			"" | 0 | 0.0 | "0" | false | null | []
+		exemplos
+			var_dump(empty("")); // true
+			var_dump(empty(0)); //true
+			var_dump(empty("0")); //true
+			var_dump(empty(false)); //true
+			var_dump(empty(null)); //true
+			var_dump(empty([])); //true
+
+		retorna false para
+			var_dump(empty("joão")); //false
+			var_dump(empty(10)); //false
+			var_dump(empty(true)); //false
+			var_dump(empty(1,2)); //false
+		validar campos
+			if (empty($_POST['nome'])) {
+				echo "Informe o nome.";
+			}
+		verificar arrays
+			if (empty($usuarios)) {
+				echo "Nenhum usuário encontrado.";
+			}
+		verifica sessão
+			if (empty($_SESSION['usuario'])) {
+				header('Location: login.php');
+				exit;
+			}
+		principais erros no empty()
+			considerar o "0" valor preeenchido
+				$valor = "0";
+				if (empty($valor) {
+					echo "vazio"; // vazio	
+				}
+		Quando o zero é um valor válido
+			exemplo
+				if ($valor === "") {
+					echo "String vazia";
+				}
+			exemplo	
+				if (!isset($valor) || $valor === "") {
+					echo "Sem valor";
+				}
+			exemplo
+				$idade = 0;
+				if (empty($idade)) {
+					echo "Idade não informada";
+				}
+				//Resultado incorreto, pois a idade foi informada com 0.
+			exemplo
+				if ($idade === null) {
+					echo "Idade não informada";
+				}
+		Confundir empty com isset()
+			$nome = "";
+			if (isset($nome)) {
+				echo "Existe"; // Existe
+			}
+			
+			if (empty($nome)) {
+				echo "Está vazio"; // Estpa vazio
+			}	
+				
+				
+				
+		
 	ssession_start()
 		palavra-chave	
 			iniciar sessão, login, usuário conectado
