@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        :root {
+        --verde-50:  #f0fdf4;
+        --verde-100: #dcfce7;
+        --verde-200: #bbf7d0;
+        --verde-300: #86efac;
+        --verde-400: #4ade80;
+        --verde-500: #22c55e;
+        --verde-600: #16a34a;
+        --verde-700: #15803d;
+        --verde-800: #166534;
+        --verde-900: #14532d;            
+        }
         * {
             margin: 0;
             padding: 0;
@@ -14,15 +26,60 @@
         body {
             max-width: 1080px;
             margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
         }
         .header {
             
         }
         .header__container, 
-        .hero__container,
-        .input__container{
+        .hero{
             width: 100%;
         }
+        .form {
+            max-width: 100%;
+            border: 1px solid var(--verde-900);
+            border-radius: 5px;
+            margin: 0 30px;
+            padding: 5px;
+
+            display: flex;  
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+        .form__placar {
+            
+        }
+
+        .form__label {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--verde-900);
+        }
+        .form__vs {
+            color: #16683a;
+        }
+        .form__input {
+            width: 100px;
+            padding: 5px;
+            border-radius: 5px;
+
+            text-align: center;
+            color: var(--verde-900);
+        }
+        .form__submit {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            background: var(--verde-800);
+            color: var(--verde-100);
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+        }
+
+
         .header__photo, 
         .hero__photo,
         .input__photo {
@@ -38,12 +95,19 @@
         <div class="header__container">
             <img class="header__photo" src="img/header-1080x400.jpg" alt="">
         </div>
-        <div class="hero__container">
+        <div class="hero">
             <img class="hero__photo" src="img/hero-1080x250.jpg" alt="">
         </div>
-        <div class="input__container">
-            <img class="input__photo" src="img/imput-1080x166.jpg" alt="">
-        </div>
+        <form class="form">
+            <div class="form__placar">
+                <label class="form__label" for="">BRASIL</label>
+                <input class="form__input" type="number">
+                <span class="form__vs">X</span>
+                <input class="form__input" type="number">
+                <label class="form__label" for="">CROÁCIA</label>
+            </div>
+            <input class="form__submit" type="submit" value="APOSTAR">
+        </form>
     </header>
     <main>
 
