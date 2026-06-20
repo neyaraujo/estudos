@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Formatação Personalizada no Excel - Máscaras</title>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        margin: 40px;
+        background: #f5f7fa;
+        color: #333;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 35px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #1f4e79;
+        border-bottom: 3px solid #1f4e79;
+        padding-bottom: 15px;
+    }
+
+    h2 {
+        color: #2f75b5;
+        margin-top: 35px;
+    }
+
+    h3 {
+        color: #555;
+        margin-top: 25px;
+    }
+
+    .bloco {
+        margin-left: 20px;
+        padding: 15px;
+        border-left: 4px solid #2f75b5;
+        background: #f8f9fb;
+    }
+
+    .codigo {
+        background: #222;
+        color: #eee;
+        padding: 12px;
+        font-family: Consolas, monospace;
+        border-radius: 5px;
+        margin: 10px 0;
+    }
+
+    ul {
+        margin-left: 25px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background: #e8eef7;
+    }
+
+    .exemplo {
+        background: #eef7ee;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 14px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Formatação Personalizada no Excel como Máscara de Dados</h1>
+
+<p>
+A formatação personalizada do Excel permite controlar a forma como os dados são exibidos,
+sem modificar o valor original armazenado na célula.
+</p>
+
+<h2>1. Conceito de Máscara</h2>
+
+<div class="bloco">
+<p>
+Uma máscara funciona como uma camada visual aplicada ao conteúdo.
+Ela organiza números, códigos e informações para melhorar leitura e padronização.
+</p>
+
+<div class="exemplo">
+Valor armazenado: 12345678901<br>
+Máscara: 000"."000"."000"-"00<br>
+Resultado: 123.456.789-01
+</div>
+</div>
+
+
+<h2>2. Símbolo 0 - Número Obrigatório</h2>
+
+<div class="bloco">
+
+<p>
+O símbolo <strong>0</strong> força a exibição de um número naquela posição.
+Caso não exista valor, o Excel completa com zero.
+</p>
+
+<div class="codigo">00000</div>
+
+<p>
+Entrada: 125<br>
+Saída: 00125
+</p>
+
+<h3>Aplicações reais:</h3>
+<ul>
+<li>Código de produtos</li>
+<li>Matrículas</li>
+<li>Protocolos</li>
+<li>Número de clientes</li>
+</ul>
+
+</div>
+
+
+<h2>3. Símbolo # - Número Opcional</h2>
+
+<div class="bloco">
+
+<p>
+O símbolo <strong>#</strong> exibe números somente quando eles existem.
+Ele não adiciona zeros extras.
+</p>
+
+<div class="codigo">###.###</div>
+
+<p>
+5000 → 5.000<br>
+50 → 50
+</p>
+
+<h3>Aplicações:</h3>
+<ul>
+<li>Relatórios financeiros</li>
+<li>Quantidade de produtos</li>
+<li>Indicadores</li>
+</ul>
+
+</div>
+
+
+<h2>4. Diferença entre 0 e #</h2>
+
+<table>
+<tr>
+<th>Formato</th>
+<th>Valor</th>
+<th>Resultado</th>
+</tr>
+<tr>
+<td>00000</td>
+<td>25</td>
+<td>00025</td>
+</tr>
+<tr>
+<td>#####</td>
+<td>25</td>
+<td>25</td>
+</tr>
+</table>
+
+
+<h2>5. Uso das Aspas ""</h2>
+
+<div class="bloco">
+
+<p>
+As aspas adicionam textos fixos junto ao valor.
+</p>
+
+<div class="codigo">0 "kg"</div>
+
+<p>
+Entrada: 25<br>
+Resultado: 25 kg
+</p>
+
+<p>
+Aplicações:
+Estoque, peso, medidas e produtos.
+</p>
+
+</div>
+
+
+<h2>6. Símbolo @ - Texto</h2>
+
+<div class="bloco">
+
+<p>
+Representa qualquer texto digitado pelo usuário.
+</p>
+
+<div class="codigo">"Cliente: "@</div>
+
+<p>
+Entrada: João Silva<br>
+Resultado: Cliente: João Silva
+</p>
+
+</div>
+
+
+<h2>7. Exemplos Profissionais</h2>
+
+<ul>
+<li><strong>Estoque:</strong> 000000 → 000125</li>
+<li><strong>Peso:</strong> 0,00 "kg" → 12,50 kg</li>
+<li><strong>Percentual:</strong> 0,00% → 15,50%</li>
+<li><strong>Moeda:</strong> R$ #.##0,00 → R$ 25.450,90</li>
+</ul>
+
+
+<h2>8. Resumo dos Símbolos</h2>
+
+<table>
+<tr>
+<th>Símbolo</th>
+<th>Função</th>
+</tr>
+<tr><td>0</td><td>Número obrigatório</td></tr>
+<tr><td>#</td><td>Número opcional</td></tr>
+<tr><td>.</td><td>Separador de milhares</td></tr>
+<tr><td>,</td><td>Casas decimais</td></tr>
+<tr><td>" "</td><td>Texto fixo</td></tr>
+<tr><td>@</td><td>Texto digitado</td></tr>
+<tr><td>%</td><td>Percentual</td></tr>
+</table>
+
+
+<h2>Conclusão</h2>
+
+<p>
+A formatação personalizada transforma planilhas comuns em documentos profissionais,
+permitindo padronização de dados em sistemas administrativos, financeiros,
+estoques e relatórios.
+</p>
+
+<footer>
+Material de estudo - Excel / Formatação Personalizada
+</footer>
+
+</div>
+
+</body>
+</html>

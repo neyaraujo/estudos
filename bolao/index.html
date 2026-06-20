@@ -49,11 +49,13 @@
             align-items: center;
         }
         .form__placar {
-            
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .form__label {
-            font-size: 12px;
+            font-size: 16px;
             font-weight: bold;
             color: var(--verde-900);
         }
@@ -64,10 +66,12 @@
             width: 100px;
             padding: 5px;
             border-radius: 5px;
+            font-size: 16px;
 
             text-align: center;
             color: var(--verde-900);
         }
+        
         .submit {
             display: block;
             width: 100%;
@@ -109,11 +113,52 @@
             <div class="submit" id="btn-apostar">
                 <img class="submit__btn" src="img/btn-submit.jpg" alt="">
             </div>
-            
         </form>
     </header>
+    <style>
+        main {
+            margin: 30px;
+            max-width: 800px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #14532d;
+            
+        }
+        thead {
+            background: yellow;
+        }
+        th, td {
+            
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
     <main>
-
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>NOME</th>
+                    <th>BRASIL</th>
+                    <th>X</th>
+                    <th>CROÁCIA</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>QUELIANE</td>
+                    <td>1</td>
+                    <td>x</td>
+                    <td>3</td>
+                    <td>PD</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
     <footer>
 
@@ -128,8 +173,11 @@
         function apostar() {
         const placar_brasil = document.getElementById('placar-brasil');
         const placar_adversario = document.getElementById('placar-adversario');
+        let telefone = '5598988508348';
+        let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Croácia`;
+        let url = `https:\\wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, "_blanck");
 
-            alert("Brasil " + placar_brasil.value + " X " + placar_adversario.value + " Adversario");
         }
     </script>
 </body>
