@@ -68,16 +68,16 @@
             text-align: center;
             color: var(--verde-900);
         }
-        .form__submit {
+        .submit {
             display: block;
             width: 100%;
-            padding: 5px;
-            background: var(--verde-800);
-            color: var(--verde-100);
-            font-weight: bold;
-            border-radius: 5px;
-            border: none;
+            position: relative;
         }
+        .submit__btn {
+            width: 100%;
+            cursor: pointer;
+        }
+
 
 
         .header__photo, 
@@ -106,7 +106,10 @@
                 <input class="form__input" type="number">
                 <label class="form__label" for="">CROÁCIA</label>
             </div>
-            <input class="form__submit" type="submit" value="APOSTAR">
+            <div class="submit" id="btn-apostar">
+                <img class="submit__btn" src="img/btn-submit.jpg" alt="">
+            </div>
+            
         </form>
     </header>
     <main>
@@ -115,5 +118,15 @@
     <footer>
 
     </footer>
+    <script>
+        const btn_apostar = document.getElementById('btn-apostar');
+
+        btn_apostar.addEventListener("click",apostar);
+
+
+        function apostar() {
+            alert('tudo certo');
+        }
+    </script>
 </body>
 </html>
