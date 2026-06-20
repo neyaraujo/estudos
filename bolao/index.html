@@ -101,9 +101,9 @@
         <form class="form">
             <div class="form__placar">
                 <label class="form__label" for="">BRASIL</label>
-                <input class="form__input" type="number">
+                <input id="placar-brasil" class="form__input" type="number">
                 <span class="form__vs">X</span>
-                <input class="form__input" type="number">
+                <input id="placar-adversario" class="form__input" type="number">
                 <label class="form__label" for="">CROÁCIA</label>
             </div>
             <div class="submit" id="btn-apostar">
@@ -121,11 +121,15 @@
     <script>
         const btn_apostar = document.getElementById('btn-apostar');
 
+
         btn_apostar.addEventListener("click",apostar);
 
 
         function apostar() {
-            alert('tudo certo');
+        const placar_brasil = document.getElementById('placar-brasil');
+        const placar_adversario = document.getElementById('placar-adversario');
+
+            alert("Brasil " + placar_brasil.value + " X " + placar_adversario.value + " Adversario");
         }
     </script>
 </body>
