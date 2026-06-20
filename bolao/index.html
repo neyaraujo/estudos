@@ -104,11 +104,11 @@
         </div>
         <form class="form">
             <div class="form__placar">
-                <label class="form__label" for="">BRASIL</label>
+                <label class="form__label" for="placar-brasil">BRASIL</label>
                 <input id="placar-brasil" class="form__input" type="number">
                 <span class="form__vs">X</span>
                 <input id="placar-adversario" class="form__input" type="number">
-                <label class="form__label" for="">CROÁCIA</label>
+                <label class="form__label" for="placar-adversario">CROÁCIA</label>
             </div>
             <div class="submit" id="btn-apostar">
                 <img class="submit__btn" src="img/btn-submit.jpg" alt="">
@@ -165,8 +165,6 @@
     </footer>
     <script>
         const btn_apostar = document.getElementById('btn-apostar');
-
-
         btn_apostar.addEventListener("click",apostar);
 
 
@@ -176,7 +174,7 @@
         let telefone = '5598988508348';
         let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Croácia`;
         let url = `https:\\wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-        window.open(url, "_blanck");
+        window.open(url, "_blank");
 
         }
     </script>
