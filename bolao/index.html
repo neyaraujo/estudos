@@ -34,12 +34,46 @@
         .header__container {
             width: 100%;
         }
+        .header__photo {
+            width: 100%;
+        }
+
+        /* HERO */
         .hero {
             width: 100%;
         }
-        .header__photo {
-            width: 50%;
+        .hero {
+            width: 100%;
         }
+
+        .hero__photo {
+            margin: 0 auto;
+            display: block;
+            padding: 20px;
+            
+            width: 90%;
+        }
+
+        /* NIMAÇÃO */
+        @keyframes anima {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+        .hero__photo {
+            animation: anima; 
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        
+
+
+        /* FORM */
 
         .form {
             max-width: 100%;
@@ -79,6 +113,8 @@
             text-align: center;
             color: var(--verde-900);
         }
+
+        /* SUBMIT */
         
         .submit {
             display: block;
@@ -89,23 +125,6 @@
             width: 100%;
             cursor: pointer;
         }
-        .header__photo {
-            width: 100%;
-        }
-        .hero {
-            width: 100%;
-        }
-        .input__photo {
-            width: 100%;
-        }
-        .hero__photo {
-            margin: 0 auto;
-            display: block;
-            padding: 20px;
-            
-            width: 100%;
-        }
-
         
         .erro {
             display: block;
@@ -118,21 +137,7 @@
             display: none;
         }
 
-        @keyframes anima {
-            0% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1.05);
-            }
-        }
-        .hero__photo {
-            animation: anima; 
-            animation-duration: 0.5s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
-        }
+
     </style>
 </head>
 <body>
@@ -179,6 +184,10 @@
             padding: 5px;
             text-align: center;
         }
+        .btn__link {
+            cursor: pointer;
+            color: red;
+        }
     </style>
     <main>
         <table>
@@ -196,10 +205,10 @@
                 <tr>
                     <td>1</td>
                     <td>QUELIANE</td>
-                    <td>1</td>
+                    <td>2</td>
                     <td>x</td>
-                    <td>3</td>
-                    <td>PD</td>
+                    <td>1</td>
+                    <td class="btn__link" onclick="pagar()">Pagar</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -207,7 +216,7 @@
                     <td>2</td>
                     <td>x</td>
                     <td>0</td>
-                    <td>PG</td>
+                    <td>OK</td>
                 </tr>
             </tbody>
         </table>
@@ -250,6 +259,13 @@
 
             placar_brasil.value = '';
             placar_adversario.value = '';
+
+            window.open(url, "_blank");
+        }
+        function pagar () {
+            let telefone = '5598988508348';
+            let mensagem = 'Quero pagar minha aposta';
+            let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
 
             window.open(url, "_blank");
         }
