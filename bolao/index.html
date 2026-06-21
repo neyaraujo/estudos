@@ -29,12 +29,18 @@
             font-family: Arial, Helvetica, sans-serif;
         }
         .header {
-            
-        }
-        .header__container, 
-        .hero{
             width: 100%;
         }
+        .header__container {
+            width: 100%;
+        }
+        .hero {
+            width: 100%;
+        }
+        .header__photo {
+            width: 50%;
+        }
+
         .form {
             max-width: 100%;
             border: 1px solid var(--verde-900);
@@ -83,17 +89,24 @@
             width: 100%;
             cursor: pointer;
         }
-
-
-
-        .header__photo, 
-        .hero__photo,
-        .input__photo {
+        .header__photo {
             width: 100%;
         }
         .hero {
-
+            width: 100%;
         }
+        .input__photo {
+            width: 100%;
+        }
+        .hero__photo {
+            margin: 0 auto;
+            display: block;
+            padding: 20px;
+            
+            width: 100%;
+        }
+
+        
         .erro {
             display: block;
             color: orange;
@@ -103,6 +116,22 @@
         }
         .erro.ativo {
             display: none;
+        }
+
+        @keyframes anima {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+        .hero__photo {
+            animation: anima; 
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
         }
     </style>
 </head>
@@ -120,7 +149,7 @@
                 <input id="placar-brasil" class="form__input" type="number">
                 <span class="form__vs">X</span>
                 <input id="placar-adversario" class="form__input" type="number">
-                <label class="form__label" for="placar-adversario">CROÁCIA</label>
+                <label class="form__label" for="placar-adversario">Escócia</label>
             </div>
 
             <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
@@ -159,7 +188,7 @@
                     <th>NOME</th>
                     <th>BRASIL</th>
                     <th>X</th>
-                    <th>CROÁCIA</th>
+                    <th>Escócia</th>
                     <th>STATUS</th>
                 </tr>
             </thead>
@@ -183,8 +212,17 @@
             </tbody>
         </table>
     </main>
-    <footer>
-
+    <style>
+        .footer {
+            padding: 10px;
+        }
+        .footer__copyright {
+            color: #565656;
+            text-align: center;
+        }
+    </style>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; Franciney Araújo. Todos os direitos reservados</p>
     </footer>
     <script>
         const btn_apostar = document.getElementById('btn-apostar');
@@ -207,8 +245,11 @@
             }
 
             let telefone = '5598988508348';
-            let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Croácia`;
+            let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Escócia`;
             let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+            placar_brasil.value = '';
+            placar_adversario.value = '';
 
             window.open(url, "_blank");
         }
