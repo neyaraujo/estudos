@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         body {
-            max-width: 1080px;
+            max-width: 450px;
             margin: 0 auto;
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -21,11 +21,104 @@
         .header__photo {
             width: 100%;
         }
+        .main {
+            max-width: 1080px;
+            padding: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        thead {
+            background: yellow;
+        }
+        th, td {
+            text-align: center;
+            font-size: 10px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <img class="header__photo" src="img/header-ganhadores-1080.jpg" alt="">
     </header>
+    <main class="main">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ganhadores</th>
+                        <th>Apostas</th>
+                        <th>Valor</th>
+                        <th>Taxa</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>20%</td>
+                        <td>40,00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="ganhadores">
+                <thead class="ganhadores__header">
+                    <tr>
+                        <th>Nº</th>
+                        <th>NOME</th>
+                        <th>PRÊMIO</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>FRANCINEY</td>
+                        <td class="premiado"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>QUELIANE</td>
+                        <td class="premiado"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td>""</td>
+                        <td class="total"></td>
+                    </tr>
+                </tfoot>
+            </table>
+    </main>
+    <script>
+
+
+
+        let ganhadores = document.querySelectorAll('.premiado').length;
+        let apostas = 10;
+        let valor_aposta = 5;
+        let taxa = 20/100;
+        let total = apostas * valor_aposta
+        let premiacao = (((total - (total * taxa)) / ganhadores).toFixed(2))
+
+        alert(ganhadores);
+        alert(`R$ ${valor_aposta},00`)
+        alert(`R$ ${premiacao.toString().replace(".",",")}`)
+
+        let premiado = document.querySelectorAll('.premiado')
+            premiado.forEach(elemento => {
+            elemento.textContent = premiacao;
+        });
+        document.querySelector('.total').textContent = (premiacao * ganhadores).toFixed(2);
+
+
+
+    </script>
 </body>
 </html>
