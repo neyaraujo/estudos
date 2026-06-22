@@ -313,6 +313,60 @@ $html = '
     }
     $html .='<table>';
 $html .='
+
+    <style>
+        .footer {
+            font-size: 12px;
+            padding: 10px;
+        }
+        .footer__copyright {
+            color: #565656;
+            text-align: center;
+        }
+    </style>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; Franciney Araújo. Todos os direitos reservados</p>
+    </footer>
+    <script>
+        const btn_apostar = document.getElementById("btn-apostar");
+        btn_apostar.addEventListener("click",apostar);
+
+
+        function apostar() {
+            const placar_brasil = document.getElementById("placar-brasil");
+            const placar_adversario = document.getElementById("placar-adversario");
+            let msg = document.getElementById("msg-erro");
+
+            if (placar_brasil.value ==="" || isNaN(placar_brasil.value)) {
+                msg.classList.remove("ativo");
+                return;
+            } else if (placar_adversario.value ==="" || isNaN(placar_adversario.value)) {
+                msg.classList.remove("ativo");
+                return;
+            } else {
+                msg.classList.add("ativo");
+            }
+
+            let telefone = "5598988508348";
+            let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Escócia`;
+            let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+            placar_brasil.value = "";
+            placar_adversario.value = "";
+
+            window.open(url, "_blank");
+        }
+        function pagar () {
+            let telefone = "5598988508348";
+            let mensagem = "Quero pagar minha aposta";
+            let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+            window.open(url, "_blank");
+        }
+    </script>
+
+
+
 </body>
 </html>
 ';

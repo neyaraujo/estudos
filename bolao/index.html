@@ -182,5 +182,59 @@
             </tr>
         </thead>
     <tr><td>1</td><td>Franciane</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>2</td><td>Chagas</td><td>2</td><td>x</td><td>1</td><td><span style="color:red">PD</span></td></tr><tr><td>3</td><td>Chagas</td><td>1</td><td>x</td><td>2</td><td><span style="color:green">PG</span></td></tr><tr><td>4</td><td>Queliane</td><td>3</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>5</td><td>Franciney</td><td>1</td><td>x</td><td>0</td><td><span style="color:red">PD</span></td></tr><tr><td>6</td><td>Ygor</td><td>1</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>29</td><td>Lenir</td><td>2</td><td>x</td><td>0</td><td><span style="color:red">PD</span></td></tr><tr><td>31</td><td>Márcia</td><td>5</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><table>
+
+    <style>
+        .footer {
+            font-size: 12px;
+            padding: 10px;
+        }
+        .footer__copyright {
+            color: #565656;
+            text-align: center;
+        }
+    </style>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; Franciney Araújo. Todos os direitos reservados</p>
+    </footer>
+    <script>
+        const btn_apostar = document.getElementById("btn-apostar");
+        btn_apostar.addEventListener("click",apostar);
+
+
+        function apostar() {
+            const placar_brasil = document.getElementById("placar-brasil");
+            const placar_adversario = document.getElementById("placar-adversario");
+            let msg = document.getElementById("msg-erro");
+
+            if (placar_brasil.value ==="" || isNaN(placar_brasil.value)) {
+                msg.classList.remove("ativo");
+                return;
+            } else if (placar_adversario.value ==="" || isNaN(placar_adversario.value)) {
+                msg.classList.remove("ativo");
+                return;
+            } else {
+                msg.classList.add("ativo");
+            }
+
+            let telefone = "5598988508348";
+            let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Escócia`;
+            let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+            placar_brasil.value = "";
+            placar_adversario.value = "";
+
+            window.open(url, "_blank");
+        }
+        function pagar () {
+            let telefone = "5598988508348";
+            let mensagem = "Quero pagar minha aposta";
+            let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+            window.open(url, "_blank");
+        }
+    </script>
+
+
+
 </body>
 </html>
