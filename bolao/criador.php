@@ -1,10 +1,86 @@
+<?php 
+session_start();
+// CONEXAO
+require_once 'acoes/conexao.php';
 
+$time_casa = "Brasil";
+$time_visitante = "Croácia";
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <body>
+        
+    
+
+<style>
+    body {
+        max-width: 450px;
+        height: 100vh;
+        margin: 0 auto;
+
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        gap: 5px;
+        
+    }
+    .form__label {
+
+    }
+    .form__input {
+
+    }
+    form input[type="number"] {
+        width: 50px;
+    }
+    .form__placar {
+        align-self: center;
+    }
+    table {
+        margin: 0 auto;
+        width: 450px;
+    }
+    th, td {
+        text-align: center;
+    }
+
+</style>
+
+<form action="" method="post">
+    <label for="nome">Digite seu nome</label>
+    <input type="text" name="nome" id="nome">
+    <div class="form__placar">
+        <label class="form__label" for="time_casa"><?= $time_casa ?></label>
+        <input class="form__input" type="number" name="time_casa" id="time_casa">
+        <span class="form__vs">x</span>
+        <input class="form__input" type="number" name="time_visitante" id="time_visitante">
+        <label class="form__label" for="time_visitante"><?= $time_visitante ?></label>
+    </div>
+    <input type="submit" value="Cadastrar" name="btn_cadastrar">
+</form>
+</body>
+</html>
 
 <?php 
-echo "Esta pagina está sendo usada para criar um arquivo html";
+    // CRIAR PARTICIPANTE
+    require_once 'acoes/cadastrar-participante.php';
+    // CONSULTA
+    require_once 'acoes/consulta-participantes.php';
+    
+?>
 
-$brasil = 'BRASIL';
-
+<?php
 $html = '
 <!DOCTYPE html>
 <html lang="en">
@@ -158,7 +234,18 @@ $html = '
                 <img class="submit__btn" src="img/btn-submit.jpg" alt="">
             </div>
         </form>
-    </header>
+    </header>';
+?>
+<?php 
+    require_once 'acoes/conexao.php';    
+    $sql = "SELECT * FROM participantes";
+    $resultado = mysqli_query($con, $sql);  
+
+    $html .= '$resultado';
+?>
+    
+<?php 
+$html .='
 </body>
 </html>
 ';
