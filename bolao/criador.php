@@ -1,10 +1,13 @@
-<?php 
+<?php
+
+use LDAP\Result;
+
 session_start();
 // CONEXAO
 require_once 'acoes/conexao.php';
 
-$nome_casa = "Brasil";
-$nome_visitante = "Croácia";
+$nome_casa = "BRASIL";
+$nome_visitante = "CROÁCIA";
 
 
 ?>
@@ -21,6 +24,7 @@ $nome_visitante = "Croácia";
 
 <style>
     body {
+        padding: 10px;
         max-width: 450px;
         height: 100vh;
         margin: 0 auto;
@@ -48,24 +52,46 @@ $nome_visitante = "Croácia";
         align-self: center;
     }
     table {
+        border-collapse: collapse;
         margin: 0 auto;
-        width: 450px;
+        width: 100%;
     }
     th, td {
+        border: 1px solid #ccc;
         text-align: center;
     }
 
 </style>
 
+<?php 
+    if(isset($_GET['id'])) {
+        $_SESSION['id'] = $_GET['id'];
+
+        $id_logado = $_GET['id'];
+        $sql = "SELECT * FROM participantes
+        WHERE id = '$id_logado'";
+        $resultado = mysqli_query($con, $sql);
+        $dados = mysqli_fetch_assoc($resultado);
+        $nome = $dados['nome']; 
+    }
+?>
+
 <form action="" method="post">
     <label for="nome">Digite seu nome</label>
-    <input type="text" name="nome" id="nome">
+    <input type="text" name="nome" id="nome" value="<?= ($nome)?? '' ?>">
     <div class="form__placar">
         <label class="form__label" for="time_casa"><?= $nome_casa ?></label>
         <input class="form__input" type="number" name="time_casa" id="time_casa">
         <span class="form__vs">x</span>
         <input class="form__input" type="number" name="time_visitante" id="time_visitante">
         <label class="form__label" for="time_visitante"><?= $nome_visitante ?></label>
+    </div>
+    <div>
+        <label for="pagamento">Pagou?</label>
+        <select name="pagamento" id="pagamento">
+            <option value="nao">Não</option>
+            <option value="sim">Sim</option>
+        </select>
     </div>
     <input type="submit" value="Cadastrar" name="btn_cadastrar">
 </form>
@@ -105,9 +131,11 @@ $html = '
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            // outline: 1px solid red;
         }
         body {
-            max-width: 1080px;
+            padding: 10px;
+            max-width: 450px;
             margin: 0 auto;
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -211,14 +239,15 @@ $html = '
         }  
             
         table {
-            margin: 10px;
+            margin: 0 auto;
             width: 100%;
             border-collapse: collapse;
             color: #14532d;
-            font-size: 12px;
+            font-size: 11px;
         }
         thead {
             background: yellow;
+            
         }
         th, td {
         border: 1px solid #ccc;
@@ -259,6 +288,7 @@ $html = '
                 <th>'.$nome_casa.'</th>
                 <th>X</th>
                 <th>'.$nome_visitante.'</th>
+                <th>STATUS</th>
             </tr>
         </thead>
     ';
@@ -270,12 +300,15 @@ $html = '
         $nome = $dados['nome'];
         $time_casa = $dados['time_casa'];
         $time_visitante = $dados['time_visitante'];
+        $pagamento = pagamento($dados['pagamento']);
+
         $html .= '<tr>';
         $html .= '<td>'.$id.'</td>';
         $html .= '<td>'.$nome.'</td>';
         $html .= '<td>'.$time_casa.'</td>';
         $html .= '<td>x</td>';
         $html .= '<td>'.$time_visitante.'</td>';
+        $html .= '<td>'.$pagamento.'</td>';
         $html .= '</tr>';
     }
     $html .='<table>';
@@ -284,5 +317,5 @@ $html .='
 </html>
 ';
 
-file_put_contents('index2.html', $html);
+file_put_contents('index.html', $html);
 ?>

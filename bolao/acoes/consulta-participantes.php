@@ -7,9 +7,10 @@ $sql = "SELECT * FROM participantes";
             <tr>
                 <th>Nº</th>
                 <th>NOME</th>
-                <th>BRASIL</th>
+                <th>$nome_casa</th>
                 <th>X</th>
-                <th>CROÁCIA</th>
+                <th>$nome_visitante</th>
+                <th>STATUS</th>
             </tr>";
 
             while ($dados = mysqli_fetch_assoc($resultado)) {
@@ -17,6 +18,7 @@ $sql = "SELECT * FROM participantes";
                 $nome = $dados['nome'];
                 $time_casa = $dados['time_casa'];
                 $time_visitante = $dados['time_visitante'];
+                $pagamento = pagamento($dados['pagamento']);
 
                 echo "
                     <tr>
@@ -24,7 +26,8 @@ $sql = "SELECT * FROM participantes";
                         <td>$nome</td>
                         <td>$time_casa</td>
                         <td>X</td>
-                        <td>$time_visitante<td>
+                        <td>$time_visitante</td>
+                        <td><a href='criador.php?id=$id'>$pagamento</a></td>
                     </tr>
                 ";
             }
@@ -32,4 +35,14 @@ $sql = "SELECT * FROM participantes";
     echo "
         </table>
     ";
+
+    function pagamento($tipo) {
+        if($tipo === 'nao') {
+            return '<span style="color:red">PD</span>';
+        }elseif($tipo ==='sim'){
+            return '<span style="color:green">PG</span>';
+        }else {
+            return $tipo;
+        }
+    }
 ?>
