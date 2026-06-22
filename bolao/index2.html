@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,7 +125,23 @@
         }
         .erro.ativo {
             display: none;
-        }                       
+        }  
+            
+        table {
+            margin: 10px;
+            width: 100%;
+            border-collapse: collapse;
+            color: #14532d;
+            font-size: 12px;
+        }
+        thead {
+            background: yellow;
+        }
+        th, td {
+        border: 1px solid #ccc;
+        padding: 5px;
+        text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -144,13 +160,23 @@
                 <input class="form__input" id="placar-adversario"></input>
                 <label class="form__label">ESCÓCIA</label>
             </div>
-
             <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
 
             <div class="submit" id="btn-apostar">
                 <img class="submit__btn" src="img/btn-submit.jpg" alt="">
             </div>
         </form>
-    </header>$resultado
+    </header>
+        <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>Brasil</th>
+                <th>X</th>
+                <th>Croácia</th>
+            </tr>
+        </thead>
+    <tr><td>1</td><td>Franciane</td><td>2</td><td>x</td><td>0</td></tr><tr><td>2</td><td>Chagas</td><td>2</td><td>x</td><td>1</td></tr><tr><td>3</td><td>Chagas</td><td>1</td><td>x</td><td>2</td></tr><tr><td>4</td><td>Queliane</td><td>3</td><td>x</td><td>1</td></tr><tr><td>5</td><td>Franciney</td><td>1</td><td>x</td><td>0</td></tr><tr><td>6</td><td>Ygor</td><td>1</td><td>x</td><td>0</td></tr><tr><td>29</td><td>Lenir</td><td>2</td><td>x</td><td>0</td></tr><table>
 </body>
 </html>

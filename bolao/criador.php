@@ -3,8 +3,8 @@ session_start();
 // CONEXAO
 require_once 'acoes/conexao.php';
 
-$time_casa = "Brasil";
-$time_visitante = "Croácia";
+$nome_casa = "Brasil";
+$nome_visitante = "Croácia";
 
 
 ?>
@@ -61,11 +61,11 @@ $time_visitante = "Croácia";
     <label for="nome">Digite seu nome</label>
     <input type="text" name="nome" id="nome">
     <div class="form__placar">
-        <label class="form__label" for="time_casa"><?= $time_casa ?></label>
+        <label class="form__label" for="time_casa"><?= $nome_casa ?></label>
         <input class="form__input" type="number" name="time_casa" id="time_casa">
         <span class="form__vs">x</span>
         <input class="form__input" type="number" name="time_visitante" id="time_visitante">
-        <label class="form__label" for="time_visitante"><?= $time_visitante ?></label>
+        <label class="form__label" for="time_visitante"><?= $nome_visitante ?></label>
     </div>
     <input type="submit" value="Cadastrar" name="btn_cadastrar">
 </form>
@@ -83,7 +83,7 @@ $time_visitante = "Croácia";
 <?php
 $html = '
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -208,7 +208,23 @@ $html = '
         }
         .erro.ativo {
             display: none;
-        }                       
+        }  
+            
+        table {
+            margin: 10px;
+            width: 100%;
+            border-collapse: collapse;
+            color: #14532d;
+            font-size: 12px;
+        }
+        thead {
+            background: yellow;
+        }
+        th, td {
+        border: 1px solid #ccc;
+        padding: 5px;
+        text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -227,7 +243,6 @@ $html = '
                 <input class="form__input" id="placar-adversario"></input>
                 <label class="form__label">ESCÓCIA</label>
             </div>
-
             <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
 
             <div class="submit" id="btn-apostar">
@@ -235,16 +250,35 @@ $html = '
             </div>
         </form>
     </header>';
-?>
-<?php 
+    $html .= '
+        <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOME</th>
+                <th>'.$nome_casa.'</th>
+                <th>X</th>
+                <th>'.$nome_visitante.'</th>
+            </tr>
+        </thead>
+    ';
     require_once 'acoes/conexao.php';    
     $sql = "SELECT * FROM participantes";
     $resultado = mysqli_query($con, $sql);  
-
-    $html .= '$resultado';
-?>
-    
-<?php 
+    while ($dados = mysqli_fetch_assoc($resultado)) {
+        $id = $dados['id'];
+        $nome = $dados['nome'];
+        $time_casa = $dados['time_casa'];
+        $time_visitante = $dados['time_visitante'];
+        $html .= '<tr>';
+        $html .= '<td>'.$id.'</td>';
+        $html .= '<td>'.$nome.'</td>';
+        $html .= '<td>'.$time_casa.'</td>';
+        $html .= '<td>x</td>';
+        $html .= '<td>'.$time_visitante.'</td>';
+        $html .= '</tr>';
+    }
+    $html .='<table>';
 $html .='
 </body>
 </html>
