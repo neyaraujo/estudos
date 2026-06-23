@@ -283,8 +283,8 @@ $html = '
     <form action="" method="$_GET">
         <div class="form__placar">
             <label for="placar_casa">'.$nome_casa.'</label>
-            <input value="'.$placar_casa.'" type="number" name="placar_casa">
-            <input value="'.$placar_visitante.'" type="number" name="placar_visitante">
+            <input disabled value="'.$placar_casa.'" type="number" name="placar_casa">
+            <input disabled value="'.$placar_visitante.'" type="number" name="placar_visitante">
             <label for="placar_casa">'.$nome_visitante.'</label>
         </div>
     </form>
