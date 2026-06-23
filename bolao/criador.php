@@ -7,7 +7,7 @@ session_start();
 require_once 'acoes/conexao.php';
 
 $nome_casa = "BRASIL";
-$nome_visitante = "CROÁCIA";
+$nome_visitante = "ESCOCIA";
 
 
 ?>
@@ -55,10 +55,12 @@ $nome_visitante = "CROÁCIA";
         border-collapse: collapse;
         margin: 0 auto;
         width: 100%;
+        font-size: 11px;
     }
     th, td {
         border: 1px solid #ccc;
         text-align: center;
+        padding: 5px;
     }
 
 </style>
