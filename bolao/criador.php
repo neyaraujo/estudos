@@ -270,7 +270,7 @@ $html = '
                 <input class="form__input" id="placar-brasil" type="number"></input>
                 <span class="form__vs">X<span>
                 <input class="form__input" id="placar-adversario"></input>
-                <label class="form__label">ESCÓCIA</label>
+                <label class="form__label">ESCOCIA</label>
             </div>
             <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
 
