@@ -15,6 +15,8 @@ require_once 'times.php';
     $ganhadores = "";
     $jogo = false;
     $msg = "";
+    $placar_casa = "";
+    $placar_visitante = "";
 
 if (isset($_GET['btn_ganhadores'])) {
     $placar_casa = mysqli_escape_string($con, $_GET['placar_casa']);
@@ -106,6 +108,7 @@ if (isset($_GET['btn_ganhadores'])) {
             display: none;
         }
     </style>
+    <?php require_once 'header.php';?>
 
     <div class="header">
         <img class="header__photo" src="img/header-ganhadores-1080.jpg" alt="">
@@ -199,6 +202,7 @@ echo "<main>
     </main>
 ";
 ?>
+<a href="ganhadores.html">Visão dos usuários</a>
 </body>
 </html>
 <?php
@@ -339,6 +343,5 @@ $html .='
 </html>
 ';
 
-
-file_put_contents('ganhadores2.html', $html);
+file_put_contents('ganhadores.html', $html);
 ?>
