@@ -17,19 +17,15 @@ $nome_visitante = "ESCOCIA";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <body>
-        
-    
-
-<style>
+    <style>
     body {
+        margin: 0 auto;
         padding: 10px;
         max-width: 450px;
         height: 100vh;
-        margin: 0 auto;
 
     }
+
 
     form {
         width: 100%;
@@ -40,10 +36,10 @@ $nome_visitante = "ESCOCIA";
         
     }
     .form__label {
-
+        font-size: 12px;
     }
     .form__input {
-
+        font-size: 12px;
     }
     form input[type="number"] {
         width: 50px;
@@ -52,19 +48,40 @@ $nome_visitante = "ESCOCIA";
         align-self: center;
     }
     table {
+        margin-top: 10px;
         border-collapse: collapse;
-        margin: 0 auto;
         width: 100%;
         font-size: 11px;
+
+        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
     }
     th, td {
         border: 1px solid #ccc;
         text-align: center;
         padding: 5px;
     }
+    .header__title {
+        text-align: center;
+    }
+    .submit {
+        width: 100%;
+        background: green;
+        padding: 5px;
+        border-radius: 5px;
+        color:#fff;
+        cursor: pointer;
+
+    }
 
 </style>
+    <title>Cadastro de Participantes</title>
+    <body>
 
+    <!-- CABEÇALHO -->
+    <?php require_once 'header.php';?>
+    
+
+<h2 class="header__title">Cadastro de Participantes</h2>
 <?php 
     if(isset($_GET['id'])) {
         $_SESSION['id'] = $_GET['id'];
@@ -79,23 +96,24 @@ $nome_visitante = "ESCOCIA";
 ?>
 
 <form action="" method="post">
-    <label for="nome">Digite seu nome</label>
-    <input type="text" name="nome" id="nome" value="<?= ($nome)?? '' ?>">
-    <div class="form__placar">
-        <label class="form__label" for="time_casa"><?= $nome_casa ?></label>
-        <input class="form__input" type="number" name="time_casa" id="time_casa">
-        <span class="form__vs">x</span>
-        <input class="form__input" type="number" name="time_visitante" id="time_visitante">
-        <label class="form__label" for="time_visitante"><?= $nome_visitante ?></label>
-    </div>
-    <div>
+        <label for="nome">Digite seu nome</label>
+        <input type="text" name="nome" id="nome" value="<?= ($nome)?? '' ?>">
+        <div class="form__placar">
+            <label class="form__label" for="time_casa"><?= $nome_casa ?></label>
+            <input class="form__input" type="number" name="time_casa" id="time_casa">
+            <span class="form__vs">x</span>
+            <input class="form__input" type="number" name="time_visitante" id="time_visitante">
+            <label class="form__label" for="time_visitante"><?= $nome_visitante ?></label>
+        </div>
+        <div>
         <label for="pagamento">Pagou?</label>
         <select name="pagamento" id="pagamento">
             <option value="nao">Não</option>
             <option value="sim">Sim</option>
         </select>
-    </div>
-    <input type="submit" value="Cadastrar" name="btn_cadastrar">
+        </div>
+        <input class="submit" type="submit" value="Cadastrar" name="btn_cadastrar">
+    
 </form>
 </body>
 </html>
@@ -285,7 +303,7 @@ $html = '
         <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Nº</th>
                 <th>NOME</th>
                 <th>'.$nome_casa.'</th>
                 <th>X</th>
@@ -296,7 +314,9 @@ $html = '
     ';
     require_once 'acoes/conexao.php';    
     $sql = "SELECT * FROM participantes";
-    $resultado = mysqli_query($con, $sql);  
+    $resultado = mysqli_query($con, $sql);
+    
+    $numero = 1;
     while ($dados = mysqli_fetch_assoc($resultado)) {
         $id = $dados['id'];
         $nome = $dados['nome'];
@@ -305,13 +325,15 @@ $html = '
         $pagamento = pagamento($dados['pagamento']);
 
         $html .= '<tr>';
-        $html .= '<td>'.$id.'</td>';
+        $html .= '<td>'.$numero.'</td>';
         $html .= '<td>'.$nome.'</td>';
         $html .= '<td>'.$time_casa.'</td>';
         $html .= '<td>x</td>';
         $html .= '<td>'.$time_visitante.'</td>';
         $html .= '<td>'.$pagamento.'</td>';
         $html .= '</tr>';
+
+        $numero++;
     }
     $html .='<table>';
 $html .='

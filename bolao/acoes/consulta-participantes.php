@@ -13,6 +13,7 @@ $sql = "SELECT * FROM participantes";
                 <th>STATUS</th>
             </tr>";
 
+            $numero = 1;
             while ($dados = mysqli_fetch_assoc($resultado)) {
                 $id = $dados['id'];
                 $nome = $dados['nome'];
@@ -22,7 +23,7 @@ $sql = "SELECT * FROM participantes";
 
                 echo "
                     <tr>
-                        <td>$id</td>
+                        <td>$numero</td>
                         <td>$nome</td>
                         <td>$time_casa</td>
                         <td>X</td>
@@ -30,6 +31,7 @@ $sql = "SELECT * FROM participantes";
                         <td><a href='criador.php?id=$id'>$pagamento</a></td>
                     </tr>
                 ";
+                $numero++;
             }
 
     echo "
