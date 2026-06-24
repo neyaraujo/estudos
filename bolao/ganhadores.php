@@ -11,7 +11,7 @@ require_once 'times.php';
 // DADOS DO JOGO
     $valor_aposta = 5;
     $taxa = 20/100;
-    $total = ($valor_aposta * $apostas) * (1 - $taxa); 
+    $total = number_format(($valor_aposta * $apostas) * (1 - $taxa),2); 
     $ganhadores = "";
     $jogo = false;
     $msg = "";
@@ -37,7 +37,7 @@ if (isset($_GET['btn_ganhadores'])) {
         $ganhadores = $resultado->num_rows;  
         
         if ($resultado->num_rows > 0) {
-            $premio = $total / $ganhadores;
+            $premio = number_format(($total / $ganhadores),2);
         }else {
 
         }
