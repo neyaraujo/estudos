@@ -274,6 +274,9 @@ $html = '
         padding: 5px;
         text-align: center;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -284,7 +287,7 @@ $html = '
         <div class="hero">
             <img class="hero__photo" src="img/hero-1080x250.jpg" alt="">
         </div>
-        <form class="form">
+        <form class="form hidden">
             <div class="form__placar">
                 <label class="form__label">BRASIL</label>
                 <input class="form__input" id="placar-brasil" type="number"></input>
