@@ -333,7 +333,7 @@ $html = '
 $html .='
         </table>
         <div>
-            <p>Lista dos <a href="https://neyaraujo.github.io/estudos/bolao/index.html">Participantes</a><p>
+            <p>Lista dos <a href="index.html">Participantes</a><p>
         </div>
     </main>
     <footer>
