@@ -242,7 +242,7 @@ $html = '
         }
         .submit__btn {
             width: 100%;
-            cursor: pointer;
+            cursor: pointer;    
         }
         
         .erro {
