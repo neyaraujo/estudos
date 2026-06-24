@@ -287,6 +287,21 @@ $html = '
         <div class="hero">
             <img class="hero__photo" src="img/hero-1080x250.jpg" alt="">
         </div>
+        <style>
+            .status__title {
+                font-size: 16px;
+                padding: 10px;
+                text-align: center;
+            }
+            .status__link {
+                color: blue;
+
+            }
+        </style>
+        <h2 class="status__title">
+            <a class="status__link" href="#">Aguardando o Resultado...</a>
+        </h2>
+
         <form class="form hidden">
             <div class="form__placar">
                 <label class="form__label">BRASIL</label>
