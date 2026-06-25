@@ -299,7 +299,7 @@ $html = '
             }
         </style>
         <h2 class="status__title">
-            <a class="status__link" href="aguardando.html">Aguardando o Resultado..</a>
+            <a class="status__link" href="ganhadores.html">Aguardando o Resultado..</a>
         </h2>
 
         <form class="form hidden">
