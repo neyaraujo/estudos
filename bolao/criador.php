@@ -377,6 +377,9 @@ $html .='
             padding: 10px;
         }
         .footer__copyright {
+            position: absolute;
+            bottom: 0;
+            padding: 20px;
             color: #565656;
             text-align: center;
         }
