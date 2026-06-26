@@ -1,133 +1,4 @@
-<?php
 
-use LDAP\Result;
-
-session_start();
-// CONEXAO
-require_once 'acoes/conexao.php';
-
-$nome_casa = "BRASIL";
-$nome_visitante = "ESCOCIA";
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    body {
-        margin: 0 auto;
-        padding: 10px;
-        max-width: 450px;
-        height: 100vh;
-
-    }
-
-
-    form {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        gap: 5px;
-        
-    }
-    .form__label {
-        font-size: 12px;
-    }
-    .form__input {
-        font-size: 12px;
-    }
-    form input[type="number"] {
-        width: 50px;
-    }
-    .form__placar {
-        align-self: center;
-    }
-    table {
-        margin-top: 10px;
-        border-collapse: collapse;
-        width: 100%;
-        font-size: 11px;
-
-        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
-    }
-    th, td {
-        border: 1px solid #ccc;
-        text-align: center;
-        padding: 5px;
-    }
-    .header__title {
-        text-align: center;
-    }
-    .submit {
-        width: 100%;
-        background: green;
-        padding: 5px;
-        border-radius: 5px;
-        color:#fff;
-        cursor: pointer;
-
-    }
-
-</style>
-    <title>Cadastro de Participantes</title>
-    <body>
-
-    <!-- CABEÇALHO -->
-    <?php require_once 'header.php';?>
-    
-
-<h2 class="header__title">Cadastro de Participantes</h2>
-<?php 
-    if(isset($_GET['id'])) {
-        $_SESSION['id'] = $_GET['id'];
-
-        $id_logado = $_GET['id'];
-        $sql = "SELECT * FROM participantes
-        WHERE id = '$id_logado'";
-        $resultado = mysqli_query($con, $sql);
-        $dados = mysqli_fetch_assoc($resultado);
-        $nome = $dados['nome']; 
-    }
-?>
-
-<form action="" method="post">
-        <label for="nome">Digite seu nome</label>
-        <input type="text" name="nome" id="nome" value="<?= ($nome)?? '' ?>">
-        <div class="form__placar">
-            <label class="form__label" for="time_casa"><?= $nome_casa ?></label>
-            <input class="form__input" type="number" name="time_casa" id="time_casa">
-            <span class="form__vs">x</span>
-            <input class="form__input" type="number" name="time_visitante" id="time_visitante">
-            <label class="form__label" for="time_visitante"><?= $nome_visitante ?></label>
-        </div>
-        <div>
-        <label for="pagamento">Pagou?</label>
-        <select name="pagamento" id="pagamento">
-            <option value="nao">Não</option>
-            <option value="sim">Sim</option>
-        </select>
-        </div>
-        <input class="submit" type="submit" value="Cadastrar" name="btn_cadastrar">
-    
-</form>
-</body>
-</html>
-
-<?php 
-    // CRIAR PARTICIPANTE
-    require_once 'acoes/cadastrar-participante.php';
-    // CONSULTA
-    require_once 'acoes/consulta-participantes.php';
-    
-?>
-
-<?php
-$html = '
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -154,8 +25,6 @@ $html = '
             // outline: 1px solid red;
         }
         body {
-            color: #fff;
-            background: #000;
             padding: 10px;
             max-width: 450px;
             margin: 0 auto;
@@ -284,10 +153,10 @@ $html = '
 <body>
     <header class="header">
         <div class="header__container">
-            <img class="header__photo" src="img/header-1080x400.png" alt="">
+            <img class="header__photo" src="img/header-1080x400.jpg" alt="">
         </div>
         <div class="hero">
-            <img class="hero__photo" src="img/hero-1080x250.png" alt="">
+            <img class="hero__photo" src="img/hero-1080x250.jpg" alt="">
         </div>
         <style>
             .status__title {
@@ -304,7 +173,7 @@ $html = '
             <a class="status__link" href="ganhadores.html">RESULTADO CLIQUI AQUI</a>
         </h2>
 
-        <form class="form">
+        <form class="form hidden">
             <div class="form__placar">
                 <label class="form__label">BRASIL</label>
                 <input class="form__input" id="placar-brasil" type="number"></input>
@@ -318,45 +187,19 @@ $html = '
                 <img class="submit__btn" src="img/btn-submit.jpg" alt="">
             </div>
         </form>
-    </header>';
-    $html .= '
+    </header>
         <table>
         <thead>
             <tr>
                 <th>Nº</th>
                 <th>NOME</th>
-                <th>'.$nome_casa.'</th>
+                <th>BRASIL</th>
                 <th>X</th>
-                <th>'.$nome_visitante.'</th>
+                <th>ESCOCIA</th>
                 <th>STATUS</th>
             </tr>
         </thead>
-    ';
-    require_once 'acoes/conexao.php';    
-    $sql = "SELECT * FROM participantes";
-    $resultado = mysqli_query($con, $sql);
-    
-    $numero = 1;
-    while ($dados = mysqli_fetch_assoc($resultado)) {
-        $id = $dados['id'];
-        $nome = $dados['nome'];
-        $time_casa = $dados['time_casa'];
-        $time_visitante = $dados['time_visitante'];
-        $pagamento = pagamento($dados['pagamento']);
-
-        $html .= '<tr>';
-        $html .= '<td>'.$numero.'</td>';
-        $html .= '<td>'.$nome.'</td>';
-        $html .= '<td>'.$time_casa.'</td>';
-        $html .= '<td>x</td>';
-        $html .= '<td>'.$time_visitante.'</td>';
-        $html .= '<td>'.$pagamento.'</td>';
-        $html .= '</tr>';
-
-        $numero++;
-    }
-    $html .='<table>';
-$html .='
+    <tr><td>1</td><td>Franciane</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>2</td><td>Chagas</td><td>2</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>3</td><td>Chagas</td><td>1</td><td>x</td><td>2</td><td><span style="color:green">PG</span></td></tr><tr><td>4</td><td>Queliane</td><td>3</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>5</td><td>Franciney</td><td>1</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>6</td><td>Ygor</td><td>1</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>7</td><td>Lenir</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>8</td><td>Márcia</td><td>5</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>9</td><td>Robson</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>10</td><td>Fernanda</td><td>3</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>11</td><td>Vadico</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>12</td><td>Vadico</td><td>3</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>13</td><td>Moises</td><td>3</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>14</td><td>Moises</td><td>4</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>15</td><td>Welligton</td><td>1</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>16</td><td>Welligton</td><td>0</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>17</td><td>Jassy</td><td>2</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>18</td><td>Talita</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>19</td><td>Thaty</td><td>3</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>20</td><td>Ferdinan</td><td>0</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>21</td><td>Leonardo</td><td>1</td><td>x</td><td>0</td><td><span style="color:red">PD</span></td></tr><tr><td>22</td><td>Eduardo</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>23</td><td>Potência</td><td>3</td><td>x</td><td>2</td><td><span style="color:green">PG</span></td></tr><tr><td>24</td><td>Potência</td><td>3</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>25</td><td>Potência</td><td>1</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>26</td><td>Potência</td><td>0</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>27</td><td>Niel</td><td>4</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>28</td><td>Niel</td><td>3</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>29</td><td>Chagas</td><td>1</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>30</td><td>Cici</td><td>2</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>31</td><td>João victor</td><td>2</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>32</td><td>Marquinho</td><td>3</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>33</td><td>Marquinho</td><td>1</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>34</td><td>Sandra</td><td>2</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>35</td><td>Sandra</td><td>3</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>36</td><td>Liz</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>37</td><td>Chutuca</td><td>0</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>38</td><td>Chutuca</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>39</td><td>Miúdo </td><td>4</td><td>x</td><td>2</td><td><span style="color:green">PG</span></td></tr><tr><td>40</td><td>Miúdo </td><td>1</td><td>x</td><td>3</td><td><span style="color:green">PG</span></td></tr><tr><td>41</td><td>Talita</td><td>3</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>42</td><td>Edealdo</td><td>3</td><td>x</td><td>0</td><td><span style="color:red">PD</span></td></tr><tr><td>43</td><td>Donaldson</td><td>3</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>44</td><td>Donaldson</td><td>4</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><tr><td>45</td><td>Maria Antonia</td><td>2</td><td>x</td><td>1</td><td><span style="color:green">PG</span></td></tr><tr><td>46</td><td>Maria Antonia</td><td>2</td><td>x</td><td>0</td><td><span style="color:green">PG</span></td></tr><table>
 
     <style>
         .footer {
@@ -413,7 +256,3 @@ $html .='
 
 </body>
 </html>
-';
-
-file_put_contents('index.html', $html);
-?>

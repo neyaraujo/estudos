@@ -154,8 +154,6 @@ $html = '
             // outline: 1px solid red;
         }
         body {
-            color: #fff;
-            background: #000;
             padding: 10px;
             max-width: 450px;
             margin: 0 auto;
@@ -284,10 +282,10 @@ $html = '
 <body>
     <header class="header">
         <div class="header__container">
-            <img class="header__photo" src="img/header-1080x400.png" alt="">
+            <img class="header__photo" src="img/header-1080x400.jpg" alt="">
         </div>
         <div class="hero">
-            <img class="hero__photo" src="img/hero-1080x250.png" alt="">
+            <img class="hero__photo" src="img/hero-1080x250.jpg" alt="">
         </div>
         <style>
             .status__title {
@@ -304,7 +302,7 @@ $html = '
             <a class="status__link" href="ganhadores.html">RESULTADO CLIQUI AQUI</a>
         </h2>
 
-        <form class="form">
+        <form class="form hidden">
             <div class="form__placar">
                 <label class="form__label">BRASIL</label>
                 <input class="form__input" id="placar-brasil" type="number"></input>

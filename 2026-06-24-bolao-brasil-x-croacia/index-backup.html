@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+        --verde-50:  #f0fdf4;
+        --verde-100: #dcfce7;
+        --verde-200: #bbf7d0;
+        --verde-300: #86efac;
+        --verde-400: #4ade80;
+        --verde-500: #22c55e;
+        --verde-600: #16a34a;
+        --verde-700: #15803d;
+        --verde-800: #166534;
+        --verde-900: #14532d;            
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* outline: 1px solid red; */
+        }
+        body {
+            max-width: 1080px;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .header {
+            width: 100%;
+        }
+        .header__container {
+            width: 100%;
+        }
+        .header__photo {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            width: 100%;
+        }
+
+        .hero__photo {
+            margin: 0 auto;
+            display: block;
+            padding: 20px;
+            
+            width: 90%;
+        }
+
+        /* ANIMAÇÃO */
+        @keyframes anima {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+        .hero__photo {
+            animation: anima; 
+            animation-duration: 0.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        
+
+
+        /* FORM */
+
+        .form {
+            max-width: 100%;
+            border: 1px solid var(--verde-900);
+            border-radius: 5px;
+            margin: 0 30px;
+            padding: 5px;
+
+            display: flex;  
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+
+            position: relative;
+        }
+        .form__placar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form__label {
+            font-size: 10px;
+            font-weight: bold;
+            color: var(--verde-900);
+        }
+        .form__vs {
+            color: #16683a;
+        }
+        .form__input {
+            width: 70px;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+
+            text-align: center;
+            color: var(--verde-900);
+        }
+
+        /* SUBMIT */
+        
+        .submit {
+            display: block;
+            width: 100%;
+            position: relative;
+        }
+        .submit__btn {
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .erro {
+            display: block;
+            color: orange;
+            text-align: center;
+            position: absolute;
+            top: -16px;
+            font-size: 12px;
+            
+        }
+        .erro.ativo {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <img class="header__photo" src="img/header-1080x400.jpg" alt="">
+        </div>
+        <div class="hero">
+            <img class="hero__photo" src="img/hero-1080x250.jpg" alt="">
+        </div>
+        <form class="form">
+            <div class="form__placar">
+                <label class="form__label" for="placar-brasil">BRASIL</label>
+                <input id="placar-brasil" class="form__input" type="number">
+                <span class="form__vs">X</span>
+                <input id="placar-adversario" class="form__input" type="number">
+                <label class="form__label" for="placar-adversario">ESCÓCIA</label>
+            </div>
+
+            <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
+
+            <div class="submit" id="btn-apostar">
+                <img class="submit__btn" src="img/btn-submit.jpg" alt="">
+            </div>
+        </form>
+    </header>
+    <style>
+        main {
+            margin: 30px;
+            max-width: 800px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #14532d;
+            font-size: 12px;
+            
+        }
+        thead {
+            background: yellow;
+        }
+        th, td {
+            
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+        }
+        .btn__link {
+            cursor: pointer;
+            color: red;
+        }
+        .btn__link.pago {
+            color: #14532d;
+        }
+    </style>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>NOME</th>
+                    <th>BRASIL</th>
+                    <th>X</th>
+                    <th>Escócia</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>FRANCIANE</td>
+                    <td>2</td>
+                    <td>x</td>
+                    <td>0</td>
+                    <td class="btn__link pago" onclick="pagar()">Pg</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>CHAGAS</td>
+                    <td>2</td>
+                    <td>x</td>
+                    <td>1</td>
+                    <td class="btn__link" onclick="pagar()">Pagar</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>CHAGAS</td>
+                    <td>1</td>
+                    <td>x</td>
+                    <td>2</td>
+                    <td class="btn__link pago" onclick="pagar()">Pg</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>QUELIANE</td>
+                    <td>3</td>
+                    <td>x</td>
+                    <td>1</td>
+                    <td class="btn__link pago" onclick="pagar()">Pg</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>FRANCINEY</td>
+                    <td>1</td>
+                    <td>x</td>
+                    <td>0</td>
+                    <td class="btn__link" onclick="pagar()">Pagar</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>YGOR</td>
+                    <td>1</td>
+                    <td>x</td>
+                    <td>0</td>
+                    <td class="btn__link pago" onclick="pagar()">Pg</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>LENIR</td>
+                    <td>2</td>
+                    <td>x</td>
+                    <td>0</td>
+                    <td class="btn__link" onclick="pagar()">Pagar</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>MARCIA</td>
+                    <td>5</td>
+                    <td>x</td>
+                    <td>1</td>
+                    <td class="btn__link pago" onclick="pagar()">Pg</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <style>
+        .footer {
+            font-size: 12px;
+            padding: 10px;
+        }
+        .footer__copyright {
+            color: #565656;
+            text-align: center;
+        }
+    </style>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; Franciney Araújo. Todos os direitos reservados</p>
+    </footer>
+    <script>
+        const btn_apostar = document.getElementById('btn-apostar');
+        btn_apostar.addEventListener("click",apostar);
+
+
+        function apostar() {
+            const placar_brasil = document.getElementById('placar-brasil');
+            const placar_adversario = document.getElementById('placar-adversario');
+            let msg = document.getElementById('msg-erro');
+
+            if (placar_brasil.value ==='' || isNaN(placar_brasil.value)) {
+                msg.classList.remove('ativo');
+                return;
+            } else if (placar_adversario.value ==='' || isNaN(placar_adversario.value)) {
+                msg.classList.remove('ativo');
+                return;
+            } else {
+                msg.classList.add('ativo');
+            }
+
+            let telefone = '5598988508348';
+            let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Escócia`;
+            let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+            placar_brasil.value = '';
+            placar_adversario.value = '';
+
+            window.open(url, "_blank");
+        }
+        function pagar () {
+            let telefone = '5598988508348';
+            let mensagem = 'Quero pagar minha aposta';
+            let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>
