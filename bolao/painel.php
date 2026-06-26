@@ -16,8 +16,9 @@
             margin: 0 auto;
             max-width: 450px;
             height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
         }
-        .container {
+        .painel {
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -27,25 +28,51 @@
             gap: 20px;
             padding: 20px;
             
+            
         }
-        .container__item {
+        .painel__item {
             padding: 10px;
             flex: 1 1 150px;
-            height: 200px;
+            height: 150px;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 10px;
 
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
             transition: transform 0.3s ease-in-out;
         }
 
-        .container__item:hover {
+        .painel__item:hover {
             transform: scale(1.1);
         }
-        .container__item.um {
+        .painel__item.um {
             background: blue;
+        }
+        .painel__item.dois {
+            background: green;
+        }
+        .painel__item.tres {
+            background: yellow;
+        }
+        .painel__item.quatro {
+            background: darkorchid;
+        }
+        .painel__link {
+            padding: 20px;
+            text-decoration: none;
+        }
+        .um a {
+            color: #fff;
+        }
+        .dois a {
+            color: #fff;
+        }
+        .tres a {
+            color: #000;
+        }
+        .quatro a {
             color: #fff;
         }
 
@@ -53,12 +80,20 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="container__item um">Cadastrar/Editar</div>
-        <div class="container__item dois">Ganhadores</div>
-        <div class="container__item tres">Participantes</div>
-        <div class="container__item quatro">Participantes</div>
-    </div>
+    <ul class="painel">
+        <li class="painel__item um">
+            <a class="painel__link" href="criador.php">Cadastrar/Editar</a>
+        </li>
+        <li class="painel__item dois">
+            <a class="painel__link" href="index.html">Participantes</a>
+        </li>
+        <li class="painel__item tres">
+            <a class="painel__link" href="#"></a>
+        </li>
+        <li class="painel__item quatro">
+            <a class="painel__link" href="#"></a>
+        </li>
+</ul>
     
 </body>
 </html>

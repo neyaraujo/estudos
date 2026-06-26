@@ -33,6 +33,8 @@ $nome_visitante = "JAPÃO";
         flex-direction: column;
         align-content: center;
         gap: 5px;
+
+        
         
     }
     .form__label {
@@ -270,11 +272,12 @@ $html = '
             width: 100%;
             border-collapse: collapse;
             // color: #14532d;
-            color: #ffee00;
+            // color: #ffee00;
             font-size: 11px;
         }
         thead {
-            background: yellow;
+            // background: yellow;
+            color: #ffee00
             
         }
         th, td {
@@ -314,7 +317,7 @@ $html = '
             }
             .regra__texto {
                 font-size: 10px;
-                text-align: justify;
+                text-align: center;
             }
         </style>
         <h2 class="status__title hidden">
@@ -401,16 +404,17 @@ $html .='
 
     <style>
         .footer {
-            width: 100%;
-            font-size: 12px;
-            padding: 10px;
-        }
-        .footer__copyright {
             position: absolute;
             bottom: 0;
-            padding: 20px;
-            color: #565656;
+            left: 50%;
+            transform: translateX(-50%);
+            
+        }
+        .footer__copyright {
+            color: #818181;
+            font-size: 11px;
             text-align: center;
+            padding: 20px;
         }
     </style>
     <footer class="footer">

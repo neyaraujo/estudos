@@ -17,12 +17,7 @@
     </style>
     <header class="header">
         <nav class="navegation">
-            <a class="navegation__menu" href="#">Painel</a>
-            <ul class="navegation__list">
-                <li class="navegation__item"><a href="criador.php">Cadastrar</a></li>
-                <li class="navegation__item"><a href="ganhadores.php">Ganhadores</a></li>
-                <li class="navegation__item"><a href="index.html">Participantes</a></li>
-            </ul>
+            <a class="navegation__menu" href="painel.php">Painel</a>
         </nav>
 
     </header>
