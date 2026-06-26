@@ -218,7 +218,8 @@ $html = '
         .form__label {
             font-size: 10px;
             font-weight: bold;
-            color: var(--verde-900);
+            // color: var(--verde-900);
+            color: #ffee00;
         }
         .form__vs {
             color: #16683a;
@@ -435,7 +436,7 @@ $html .='
             }
 
             let telefone = "5598988508348";
-            let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Escócia`;
+            let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Japão`;
             let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
 
             placar_brasil.value = "";
