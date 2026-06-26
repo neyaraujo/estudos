@@ -7,7 +7,7 @@ session_start();
 require_once 'acoes/conexao.php';
 
 $nome_casa = "BRASIL";
-$nome_visitante = "ESCOCIA";
+$nome_visitante = "JAPÃO";
 
 
 ?>
@@ -174,9 +174,9 @@ $html = '
             width: 100%;
         }
         .hero__photo {
-            margin: 0 auto;
+            margin: 0 auto 10px;
             display: block;
-            padding: 20px;
+            // padding: 20px;
 
             width: 90%;
         }
@@ -200,22 +200,19 @@ $html = '
         .form {
             max-width: 100%;
             border: 1px solid var(--verde-900);
-            border-radius: 5px;
-            margin: 0 30px;
+            border-radius: 10px;
             padding: 5px;
 
             display: flex;  
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            flex-wrap: wrap;
             align-items: center;
-
             position: relative;
         }
         .form__placar {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 20px;
         }
 
         .form__label {
@@ -239,12 +236,14 @@ $html = '
         
         .submit {
             display: block;
-            width: 100%;
+            width: 200px;
             position: relative;
+            margin: 0 auto;
         }
         .submit__btn {
             width: 100%;
-            cursor: pointer;    
+            cursor: pointer;
+            text-aling: center;
         }
         
         .erro {
@@ -297,27 +296,41 @@ $html = '
             }
             .status__link {
                 color: blue;
-
             }
         </style>
-        <h2 class="status__title">
+        <h2 class="status__title hidden">
             <a class="status__link" href="ganhadores.html">RESULTADO CLIQUI AQUI</a>
         </h2>
 
         <form class="form">
             <div class="form__placar">
-                <label class="form__label">BRASIL</label>
-                <input class="form__input" id="placar-brasil" type="number"></input>
-                <span class="form__vs">X<span>
-                <input class="form__input" id="placar-adversario"></input>
-                <label class="form__label">ESCOCIA</label>
+                <label class="form__label">'.$nome_casa.'</label>
+                <input 
+                    class="form__input" 
+                    id="placar-brasil" 
+                    type="number"
+                    min="0"
+                    max="99"
+                    maxlength="2">
+                </input>
+
+                <input 
+                    class="form__input" 
+                    id="placar-adversario"
+                    type="number"
+                    min="0"
+                    max="99"
+                    maxlength="2">
+                </input>
+                <label class="form__label">'.$nome_visitante.'</label>
+
             </div>
-            <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
+                <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
+            </form>
 
             <div class="submit" id="btn-apostar">
-                <img class="submit__btn" src="img/btn-submit.jpg" alt="">
+                <img class="submit__btn" src="img/btn-submit.png" alt="">
             </div>
-        </form>
     </header>';
     $html .= '
         <table>
