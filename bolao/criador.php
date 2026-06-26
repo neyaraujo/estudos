@@ -382,7 +382,7 @@ $html .='
         }
     </style>
     <footer class="footer">
-        <p class="footer__copyright">&copy; Franciney Araújo. Todos os direitos reservados</p>
+        <p class="footer__copyright">&copy; Franciney de J. Araújo. Todos os direitos reservados</p>
     </footer>
     <script>
         const btn_apostar = document.getElementById("btn-apostar");
