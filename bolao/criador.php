@@ -269,7 +269,8 @@ $html = '
             margin: 0 auto;
             width: 100%;
             border-collapse: collapse;
-            color: #14532d;
+            // color: #14532d;
+            color: #ffee00;
             font-size: 11px;
         }
         thead {
