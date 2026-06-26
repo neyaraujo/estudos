@@ -134,6 +134,7 @@ $html = '
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="60">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
@@ -326,7 +327,7 @@ $html = '
 
         <div class="regra">
             <h2 class="regra__titulo">
-                Regra do Bolão
+               >> Regra do Bolão <<
             </h2>
             <p class="regra__texto">
                 Todo palpite registrado será considerado definitivo. Não será permitido efetuar o pagamento de apostas pendentes após o início da partida.
