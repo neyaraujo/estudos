@@ -326,7 +326,7 @@ $html = '
                 Regra do Bolão
             </h2>
             <p class="regra__texto">
-                Todo palpite registrado será considerado definitivo. Não será permitido efetuar o pagamento de apostas pendentes após a bola rolar. Essas regras valem para todos os participantes, sem exceção.
+                Todo palpite registrado será considerado definitivo. Não será permitido efetuar o pagamento de apostas pendentes após o início da partida.
             </p>
         </div>
 
