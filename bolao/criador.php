@@ -1,5 +1,23 @@
 <?php
 
+if(!isset($_SESSION['visitou'])){
+
+    $arquivo = "contador.txt";
+
+    // LÉ O VALOR ATUAL
+    $acessos = file_get_contents($arquivo);
+
+    // SOMA 1 ACESSO
+    $acessos++;
+
+    // SALVA O NOVO VALOR
+    file_put_contents($arquivo, $acessos);
+
+    $_SESSION['visitou']= true;
+}
+
+
+
 use LDAP\Result;
 
 session_start();
