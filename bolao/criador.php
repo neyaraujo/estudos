@@ -244,6 +244,11 @@ $html = '
             width: 100%;
             cursor: pointer;
             text-aling: center;
+            transition: transform 0.1s ease-in-out;
+        }
+
+        .submit__btn:hover {
+            transform: scale(1.2);
         }
         
         .erro {
@@ -271,7 +276,7 @@ $html = '
             
         }
         th, td {
-        border: 1px solid #ccc;
+        border: 1px solid #03b300;
         padding: 5px;
         text-align: center;
         }
@@ -297,10 +302,31 @@ $html = '
             .status__link {
                 color: blue;
             }
+            .regra {
+                width: 100%;
+                margin: 20px 0;
+            }
+            .regra__titulo {
+                font-size: 14px;
+                text-align: center;
+            }
+            .regra__texto {
+                font-size: 10px;
+                text-align: justify;
+            }
         </style>
         <h2 class="status__title hidden">
             <a class="status__link" href="ganhadores.html">RESULTADO CLIQUI AQUI</a>
         </h2>
+
+        <div class="regra">
+            <h2 class="regra__titulo">
+                Regra do Bolão
+            </h2>
+            <p class="regra__texto">
+                Todo palpite registrado será considerado definitivo. Não será permitido efetuar o pagamento de apostas pendentes após a bola rolar. Essas regras valem para todos os participantes, sem exceção.
+            </p>
+        </div>
 
         <form class="form">
             <div class="form__placar">
@@ -373,6 +399,7 @@ $html .='
 
     <style>
         .footer {
+            width: 100%;
             font-size: 12px;
             padding: 10px;
         }
