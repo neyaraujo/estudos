@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-contadorAcessos();
 
 function contadorAcessos() {
     if(!isset($_SESSION['visitou'])){
@@ -22,7 +21,7 @@ function contadorAcessos() {
 
 }
 
-echo "Visitas " . file_get_contents("contador.txt");
+// echo "Visitas " . file_get_contents("contador.txt");
 
 use LDAP\Result;
 
