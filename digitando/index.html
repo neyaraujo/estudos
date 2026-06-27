@@ -170,7 +170,9 @@ let area = document.getElementById('area');
 // se botao iniciar não foi clicado, então o texto fica oculto.
 
 
+
     palavra.textContent = "horta";
+    palavra.style.display = "none";
 
 
 let palavras = [
@@ -213,11 +215,20 @@ function stop() {
 let y = 10;
 function start() {
 
+    
     y = 10;
     // impede criar outro intervalo
     if (interval !== null) {
         return;
     }
+    // escolhe uma palavra aleatoria
+    novaPalavra();
+
+    // mostra a palavra
+    palavra.style.display = "block";
+
+    // coloca o cursor no input
+    entrada.focus();
 
     // inicia o interval caso não tenha sido criado
     interval = setInterval(()=> {
