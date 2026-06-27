@@ -112,10 +112,18 @@
                 background: #DBF0AE;
                 border: 2px solid #ccc;                
             }
+            .palavra {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 22px;
+                padding: 10px;
+            }
         </style>
 
         <div class="area" id="area">
-            <h2 class="palavra" id="palavra">horta</h2>
+            <h2 class="palavra" id="palavra">molho;</h2>
         </div>
 
         <style>
@@ -152,60 +160,50 @@
 let palavra = document.getElementById('palavra');
 let entrada = document.getElementById('entrada');
 let iniciar = document.getElementById('iniciar');
-let parar = document.getElementById('parar')
+let parar = document.getElementById('parar');
+let area = document.getElementById('area');
 
-stop.addEventListener('click', pausar);
 
-function pausar() {
+let y = 0;
+
+setInterval(()=> {
+    y += 2;
+    palavra.style.top = y + "px";
+
+    if(y >= area.offsetHeight -35) {
+        // alert("Gamer Over");
+        // interromper();
+        // location.reload();
+        y -= 500;
+    }
+},30)
+
+entrada.addEventListener("keydown", (event)=>{
+    if(event.key==="Enter") {
+        if(entrada.value === palavra.textContent) {
+            y -= 60;
+
+            if(y<0) {
+                y = 0;
+            }
+            entrada.value = "";
+        }
+
+    }
+})
+
+
+
+parar.addEventListener('click', interromper);
+
+function interromper() {
     clearInterval(intervalo);
 
+
 }
 
 
-iniciar.addEventListener('click', iniciar);
 
-let y = 10;
-
-// define posição inicial uma vez
-chave.style.position = "absolute";
-chave.style.left = "50%"
-chave.style.top = "0"
-chave.style.transform = "translateX(-50%)"
-
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-
-        if (text.value === chave.innerText) {
-            text.value = "";
-
-            // sobe 10px ao acertar
-            y -= 50;
-
-            // aplica imediatamente
-            chave.style.top = y + "px";
-
-            if (y <= 0) {
-                alert ("parabens")
-            } 
-
-        }
-    }
-});
-
-if (parseInt(chave.style.top) >= 50) {
-    alert('perdeu');
-}
-
-estado =  true
-function iniciar() {
-    if (estado) {
-        intervalo = setInterval(function() {
-            y += 25; // cai 50px por segundo
-            chave.style.top = y + "px";
-        }, 1000);
-    }
-    estado = false
-}
 
     </script>
 </body>

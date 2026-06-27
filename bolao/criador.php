@@ -427,11 +427,7 @@ $html .='
 
     <style>
         .footer {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            
+            display:block;
         }
         .footer__copyright {
             color: #818181;
