@@ -166,13 +166,22 @@ let entrada = document.getElementById('entrada');
 let iniciar = document.getElementById('iniciar');
 let parar = document.getElementById('parar');
 let area = document.getElementById('area');
+let pontos = document.getElementById('pontos');
+let nivel = document.getElementById('nivel');
+nivel.textContent = 1;
+let nivel_atual = nivel.textContent;
+pontos.textContent = 0;
 
-// se botao iniciar não foi clicado, então o texto fica oculto.
+let velocidade = velocidadePorNivel(nivel_atual);
+alert(velocidade);
+function velocidadePorNivel(nivel_atual) {
+    if(nivel_atual === 1) return 100;
+    if(nivel_atual === 2) return 80;
+}
 
 
-
-    palavra.textContent = "horta";
-    palavra.style.display = "none";
+palavra.textContent = "horta";
+palavra.style.display = "none";
 
 
 let palavras = [
@@ -215,7 +224,6 @@ function stop() {
 let y = 10;
 function start() {
 
-    
     y = 10;
     // impede criar outro intervalo
     if (interval !== null) {
@@ -240,7 +248,7 @@ function start() {
             y = 10;
         }
 
-    },100)
+    },velocidade)
 
 
 }
@@ -248,6 +256,13 @@ function start() {
 entrada.addEventListener("keydown", (event)=>{
     if(event.key==="Enter") {
         if(entrada.value === palavra.textContent) {
+
+            // adiciona pontos
+            pontos.textContent++;
+
+            // sobe nivel
+
+            nivel.textContent = Math.floor(pontos.textContent / 10) + 1
 
             // volta para o top
             y = 10;
