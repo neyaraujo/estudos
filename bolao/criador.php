@@ -1,26 +1,31 @@
 <?php
+session_start();
 
-if(!isset($_SESSION['visitou'])){
+contadorAcessos();
 
-    $arquivo = "contador.txt";
+function contadorAcessos() {
+    if(!isset($_SESSION['visitou'])){
 
-    // LÉ O VALOR ATUAL
-    $acessos = file_get_contents($arquivo);
+        $arquivo = "contador.txt";
 
-    // SOMA 1 ACESSO
-    $acessos++;
+        // LÉ O VALOR ATUAL
+        $acessos = file_get_contents($arquivo);
 
-    // SALVA O NOVO VALOR
-    file_put_contents($arquivo, $acessos);
+        // SOMA 1 ACESSO
+        $acessos++;
 
-    $_SESSION['visitou']= true;
+        // SALVA O NOVO VALOR
+        file_put_contents($arquivo, $acessos);
+
+        $_SESSION['visitou']= true;
+    }
+
 }
 
-
+echo "Visitas " . file_get_contents("contador.txt");
 
 use LDAP\Result;
 
-session_start();
 // CONEXAO
 require_once 'acoes/conexao.php';
 
