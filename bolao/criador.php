@@ -40,6 +40,11 @@ $nome_visitante = "JAPÃO";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
     body {
         margin: 0 auto;
         padding: 10px;
@@ -48,7 +53,6 @@ $nome_visitante = "JAPÃO";
 
     }
 
-
     form {
         width: 100%;
         display: flex;
@@ -56,8 +60,9 @@ $nome_visitante = "JAPÃO";
         align-content: center;
         gap: 5px;
 
-        
-        
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
     }
     .form__label {
         font-size: 12px;
@@ -67,15 +72,23 @@ $nome_visitante = "JAPÃO";
     }
     form input[type="number"] {
         width: 50px;
+        padding: 5px;
+        text-align: center;
+    }
+    form input[type="text"] {
+        padding: 5px;
     }
     .form__placar {
         align-self: center;
+    }
+    select {
+        padding: 5px;
     }
     table {
         margin-top: 10px;
         border-collapse: collapse;
         width: 100%;
-        font-size: 11px;
+        font-size:14px;
 
         box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
     }
@@ -90,12 +103,15 @@ $nome_visitante = "JAPÃO";
     .submit {
         width: 100%;
         background: green;
-        padding: 5px;
+        padding: 10px;
         border-radius: 5px;
         color:#fff;
         cursor: pointer;
+        margin: 20px 0;
+        font-size: 20px;
 
     }
+
 
 </style>
     <title>Cadastro de Participantes</title>
@@ -120,14 +136,17 @@ $nome_visitante = "JAPÃO";
 ?>
 
 <form action="" method="post">
-        <label for="nome">Digite seu nome</label>
+        <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" value="<?= ($nome)?? '' ?>">
         <div class="form__placar">
             <label class="form__label" for="time_casa"><?= $nome_casa ?></label>
-            <input class="form__input" type="number" name="time_casa" id="time_casa">
+            <input class="form__input" type="number" name="time_casa" id="time_casa" placeholder="?">
             <span class="form__vs">x</span>
-            <input class="form__input" type="number" name="time_visitante" id="time_visitante">
+            <input class="form__input" type="number" name="time_visitante" id="time_visitante" placeholder="?">
             <label class="form__label" for="time_visitante"><?= $nome_visitante ?></label>
+
+            <input type="hidden" name="" id="id_usuario" value="<?= $_SESSION['id'] ?>">
+
         </div>
         <div>
         <label for="pagamento">Pagou?</label>
@@ -137,8 +156,10 @@ $nome_visitante = "JAPÃO";
         </select>
         </div>
         <input class="submit" type="submit" value="Cadastrar" name="btn_cadastrar">
-    
 </form>
+
+<script>
+</script>
 </body>
 </html>
 

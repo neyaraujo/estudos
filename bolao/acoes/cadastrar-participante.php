@@ -11,7 +11,7 @@
             SET 
                 pagamento   = '$pagamento',
                 nome        = '$nome'
-            WHERE id = '$id_logado'";
+            WHERE id        = '$id_logado'";
 
             mysqli_query($con, $sql);
             header('Location: cadastro.php');
