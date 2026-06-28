@@ -169,14 +169,18 @@ let area = document.getElementById('area');
 let pontos = document.getElementById('pontos');
 let nivel = document.getElementById('nivel');
 nivel.textContent = 1;
-let nivel_atual = nivel.textContent;
 pontos.textContent = 0;
 
-let velocidade = velocidadePorNivel(nivel_atual);
-alert(velocidade);
+let velocidade = 100;
+
 function velocidadePorNivel(nivel_atual) {
-    if(nivel_atual === 1) return 100;
-    if(nivel_atual === 2) return 80;
+    if(nivel_atual == 1) return '100';
+    if(nivel_atual == 2) return '50';
+    if(nivel_atual == 3) return '30';
+    if(nivel_atual == 4) return '20';
+    if(nivel_atual == 5) return '10';
+    if(nivel_atual == 6) return '1';
+
 }
 
 
@@ -245,6 +249,7 @@ function start() {
 
         if(y >= area.offsetHeight - 35) {
             alert("Gamer Over");
+            entrada.value= "";
             y = 10;
         }
 
@@ -262,7 +267,23 @@ entrada.addEventListener("keydown", (event)=>{
 
             // sobe nivel
 
+            nivel_antigo = nivel.textContent;
             nivel.textContent = Math.floor(pontos.textContent / 10) + 1
+
+            
+
+                if(nivel_antigo !== nivel.textContent) {
+                    nivel_antigo = nivel.textContent
+                    velocidade = velocidadePorNivel(nivel.textContent);
+
+                    console.log(nivel_antigo);
+                    console.log(nivel.textContent);
+
+                    stop()
+                    start()
+                }
+
+
 
             // volta para o top
             y = 10;
