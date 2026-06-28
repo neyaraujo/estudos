@@ -145,8 +145,6 @@ $nome_visitante = "JAPÃO";
             <input class="form__input" type="number" name="time_visitante" id="time_visitante" placeholder="?">
             <label class="form__label" for="time_visitante"><?= $nome_visitante ?></label>
 
-            <input type="hidden" name="" id="id_usuario" value="<?= $_SESSION['id'] ?>">
-
         </div>
         <div>
         <label for="pagamento">Pagou?</label>
@@ -158,8 +156,6 @@ $nome_visitante = "JAPÃO";
         <input class="submit" type="submit" value="Cadastrar" name="btn_cadastrar">
 </form>
 
-<script>
-</script>
 </body>
 </html>
 
