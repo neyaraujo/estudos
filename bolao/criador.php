@@ -369,7 +369,7 @@ $html = '
                >> Regra do Bolão <<
             </h2>
             <p class="regra__texto">
-                Todo palpite registrado será considerado definitivo. Não será permitido efetuar o pagamento de apostas pendentes após o início da partida.
+                Todo palpite registrado será considerado definitivo. Não será permitido efetuar o pagamento de apostas pendentes após o início da partida. Será considerado apenas o placar dos 90 minutos, incluindo os acréscimos.
             </p>
         </div>
 
