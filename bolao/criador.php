@@ -140,9 +140,9 @@ $nome_visitante = "JAPÃO";
         <input type="text" name="nome" id="nome" value="<?= ($nome)?? '' ?>">
         <div class="form__placar">
             <label class="form__label" for="time_casa"><?= $nome_casa ?></label>
-            <input class="form__input" type="number" name="time_casa" id="time_casa" placeholder="?">
+            <input class="form__input" type="number" name="time_casa" id="time_casa" placeholder="">
             <span class="form__vs">x</span>
-            <input class="form__input" type="number" name="time_visitante" id="time_visitante" placeholder="?">
+            <input class="form__input" type="number" name="time_visitante" id="time_visitante" placeholder="">
             <label class="form__label" for="time_visitante"><?= $nome_visitante ?></label>
 
         </div>
