@@ -9,9 +9,11 @@ require_once 'times.php';
     $apostas = $resultado2->num_rows;   
 
 // DADOS DO JOGO
-    $valor_aposta = 10;
-    $taxa = 20/100;
-    $total = number_format(($valor_aposta * $apostas) * (1 - $taxa),2); 
+    $valor_aposta = number_format(10,2);
+    $taxa = 30/100;
+    $total = number_format(($valor_aposta * $apostas) ,2);
+    $premio_total = number_format(($valor_aposta * $apostas) * (1 - $taxa),2); 
+    $retorno = number_format(($total - $premio_total) ,2);
     $ganhadores = "";
     $jogo = false;
     $msg = "";
@@ -28,6 +30,7 @@ if (isset($_GET['btn_ganhadores'])) {
         $msg = "Preencha o resultado do jogo.";
 
     } else {
+
     // GANHADORES
         $sql = "SELECT * FROM participantes
         WHERE pagamento = 'sim'
@@ -37,7 +40,7 @@ if (isset($_GET['btn_ganhadores'])) {
         $ganhadores = $resultado->num_rows;  
         
         if ($resultado->num_rows > 0) {
-            $premio = number_format(($total / $ganhadores),2);
+            $premio = number_format(($premio_total / $ganhadores),2);
         }else {
 
         }
@@ -145,6 +148,7 @@ echo "
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            font-size: 12px;
         }
         th, td {
             border: 1px solid #ccc;
@@ -158,9 +162,11 @@ echo "<main>
             <thead>
                 <tr>
                     <th>Ganhadores</th>
-                    <th>Apostas</th>
-                    <th>Valor</th>
+                    <th>Apostadores</th>
+                    <th>Aposta</th>
                     <th>Taxa</th>
+                    <th>Retorno</th>
+                    <th>Premio</th>
                     <th>Total</th>
                 </tr>
             </thead>
@@ -169,6 +175,8 @@ echo "<main>
                 <td>$apostas</td>
                 <td>$valor_aposta</td>
                 <td>$taxa</td>
+                <td>$retorno</td>
+                <td>$premio_total</td>
                 <td>$total</td>
             </tbody>
             
@@ -304,7 +312,7 @@ $html = '
                 <td>'.$apostas.'</td>
                 <td>'.$valor_aposta.'</td>
                 <td>'.$taxa.'</td>
-                <td>'.$total.'</td>
+                <td>'.$premio_total.'</td>
             </tbody>
             <table>
                 <thead>
