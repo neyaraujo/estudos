@@ -377,7 +377,7 @@ $html = '
         </style>
 
         <h2 class="status__title">
-            <a class="status__link hidden" href="ganhadores.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
+            <a class="status__link" href="aguardando.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
         </h2>
 
         <div class="regra">
@@ -389,7 +389,7 @@ $html = '
             </p>
         </div>
 
-        <form class="form">
+        <form class="form hidden">
             <div class="form__placar">
                 <label class="form__label">'.$nome_casa.'</label>
                 <input 
@@ -415,7 +415,8 @@ $html = '
                 <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
             </form>
 
-            <div class="submit" id="btn-apostar">
+            
+            <div class="submit hidden" id="btn-apostar">
                 <img class="submit__btn" src="img/btn-submit.png" alt="">
             </div>
     </header>';
