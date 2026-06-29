@@ -328,7 +328,10 @@ $html = '
         .hidden {
             display: none;
         }
+        
+        prin
     </style>
+
 </head>
 <body>
     <header class="header">
