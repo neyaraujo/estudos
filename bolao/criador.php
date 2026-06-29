@@ -328,7 +328,16 @@ $html = '
         .hidden {
             display: none;
         }
-        
+
+        // IMPRESSÃO
+        @media print {
+         .header {
+            display: none;
+         }
+            table, th {
+                color: #000;
+            }
+        }
     </style>
 
 </head>
