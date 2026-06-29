@@ -91,7 +91,7 @@
             <a class="painel__link" href="https://www.google.com/search?q=tabela+dos+jogos+da+copa+do+mundo+2026&oq=tabela+dos+jogos&gs_lcrp=EgZjaHJvbWUqDQgAEAAYgwEYsQMYgAQyDQgAEAAYgwEYsQMYgAQyBggBEEUYOTINCAIQABiDARixAxiABDINCAMQABiDARixAxiABDINCAQQABiDARixAxiABDIGCAUQABgDMg0IBhAAGIMBGLEDGIAEMg0IBxAAGIMBGLEDGIAEMg0ICBAAGIMBGLEDGIAEMgYICRAAGAPSAQk5NTk2ajBqMTWoAgCwAgA&sourceid=chrome&ie=UTF-8#sie=lg;/m/0r4xs1m;2;/m/030q7;br;fp;1;;;;-1" target="_blank">Jogos</a>
         </li>
         <li class="painel__item quatro">
-            <a class="painel__link" href="https://www.youtube.com/watch?v=7kdzXhc90xw" target="_blank">Ao Vivo</a>
+            <a class="painel__link" href="ganhadores.php" target="_blank">Gestão</a>
         </li>
 
 </ul>

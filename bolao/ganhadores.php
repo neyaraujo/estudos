@@ -9,7 +9,7 @@ require_once 'times.php';
     $apostas = $resultado2->num_rows;   
 
 // DADOS DO JOGO
-    $valor_aposta = 5;
+    $valor_aposta = 10;
     $taxa = 20/100;
     $total = number_format(($valor_aposta * $apostas) * (1 - $taxa),2); 
     $ganhadores = "";
