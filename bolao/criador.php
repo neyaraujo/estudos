@@ -359,9 +359,15 @@ $html = '
                 font-size: 10px;
                 text-align: center;
             }
+
+            .status__link {
+                color: yellow;
+                text-decoration: none;
+            }
         </style>
-        <h2 class="status__title hidden">
-            <a class="status__link" href="ganhadores.html">RESULTADO CLIQUI AQUI</a>
+
+        <h2 class="status__title">
+            <a class="status__link hidden" href="ganhadores.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
         </h2>
 
         <div class="regra">
