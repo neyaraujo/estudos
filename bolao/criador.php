@@ -377,7 +377,7 @@ $html = '
         </style>
 
         <h2 class="status__title">
-            <a class="status__link" href="aguardando.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
+            <a class="status__link" href="ganhadores.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
         </h2>
 
         <div class="regra">
