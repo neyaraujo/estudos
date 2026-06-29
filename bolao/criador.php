@@ -329,7 +329,6 @@ $html = '
             display: none;
         }
 
-        // IMPRESSÃO
         @media print {
          .header {
             display: none;
