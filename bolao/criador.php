@@ -329,7 +329,6 @@ $html = '
             display: none;
         }
         
-        prin
     </style>
 
 </head>
