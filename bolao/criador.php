@@ -241,6 +241,7 @@ $html = '
             animation-direction: alternate;
         }
         .form {
+
             max-width: 100%;
             border: 1px solid var(--verde-900);
             border-radius: 10px;
@@ -253,6 +254,11 @@ $html = '
             position: relative;
         }
         .form__placar {
+            border: 1px solid white;
+            padding: 5px;
+            border-radius: 5px;
+
+            margin-top: 10px;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -304,7 +310,7 @@ $html = '
             color: red ;
             text-align: center;
             position: absolute;
-            top: -16px;
+            top: -5px;
             font-size: 12px;
             
         }
