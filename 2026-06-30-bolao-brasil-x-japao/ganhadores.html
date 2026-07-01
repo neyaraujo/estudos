@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            heigth: 100vh;
+            max-width: 450px;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .header {
+            width: 100%;
+        }
+        .header__photo {
+            width: 100%;
+        }
+        .main {
+            max-width: 1080px;
+            padding: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        thead {
+            background: yellow;
+        }
+        table {
+            margin: 10px 0;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            text-align: center;
+            font-size: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .form__placar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .form__placar input {
+            width: 50px;
+            text-align: center;
+        }
+        footer {
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img class="header__photo" src="img/header-ganhadores-1080.jpg" alt="">
+    </header>
+    <div class="msg__container">
+
+    </div>
+
+    <form action="" method="$_GET">
+        <div class="form__placar">
+            <label for="placar_casa">BRASIL</label>
+            <input disabled value="" type="number" name="placar_casa">
+            <input disabled value="" type="number" name="placar_visitante">
+            <label for="placar_casa">JAPÃO</label>
+        </div>
+    </form>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ganhadores</th>
+                    <th>Apostas</th>
+                    <th>Valor</th>
+                    <th>Taxa</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td></td>
+                <td>36</td>
+                <td>10.00</td>
+                <td>0.3</td>
+                <td>252.00</td>
+            </tbody>
+            <table>
+                <thead>
+                    <tr>
+                        <th>NOME</th>
+                        <th>PRÊMIO</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </table>
+        <div>
+            <p>Lista dos <a href="index.html">Participantes</a><p>
+        </div>
+    </main>
+    <footer>
+        &copy; Franciney de J. Araujo, Todos os direitos revervados.
+    </footer>
+</body>
+</html>

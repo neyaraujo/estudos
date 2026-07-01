@@ -27,9 +27,10 @@ use LDAP\Result;
 
 // CONEXAO
 require_once 'acoes/conexao.php';
+require_once 'times.php';
 
-$nome_casa = "BRASIL";
-$nome_visitante = "JAPÃO";
+// $nome_casa = "BRASIL";
+// $nome_visitante = "JAPÃO";
 
 
 ?>
@@ -173,7 +174,7 @@ $html = '
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="60">
+    <!-- <meta http-equiv="refresh" content="60"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
@@ -197,7 +198,7 @@ $html = '
         }
         body {
             color: #fff;
-            background: #000;
+            background:var(--verde-900);
             padding: 10px;
             max-width: 450px;
             margin: 0 auto;
@@ -252,7 +253,9 @@ $html = '
             position: relative;
         }
         .form__placar {
+            width: 100%;
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 20px;
         }
@@ -278,32 +281,34 @@ $html = '
  /* SUBMIT */
         
         .submit {
-            display: block;
-            width: 200px;
-            position: relative;
-            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         .submit__btn {
-            width: 100%;
+            width: 200px;
             cursor: pointer;
-            text-aling: center;
             transition: transform 0.1s ease-in-out;
         }
 
         .submit__btn:hover {
             transform: scale(1.2);
         }
+
+
+
         
-        .erro {
+        .erro__text {
             display: block;
-            color: orange;
+            background: yellow;
+            color: red ;
             text-align: center;
             position: absolute;
             top: -16px;
             font-size: 12px;
             
         }
-        .erro.ativo {
+        .erro__text.ativo {
             display: none;
         }  
             
@@ -348,18 +353,59 @@ $html = '
         <div class="hero">
             <img class="hero__photo" src="img/hero-1080x250.png" alt="">
         </div>
+    </header>
+
+    <!-- SLIDERS -->
+
+    <link rel="stylesheet" href="assets/css/slider.css">
+
+    <section class="slider">
+        <article class="slides">
+
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+
+            <div class="slide first">
+                <img src="img/slide1.jpg"/>
+            </div>
+
+            <div class="slide">
+                <img src="img/slide6.jpg"/>
+            </div>
+
+            <div class="slide">
+                <img src="img/slide7.jpg"/>
+            </div>
+
+
+            <article class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </article>
+
+            <article class="manual-navigation">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </article>
+
+        </article>
+    </section>
+    <script src="assets/js/slider.js"></script>
+
         <style>
-            .status__title {
+            .result__title {
                 font-size: 16px;
                 padding: 10px;
                 text-align: center;
             }
-            .status__link {
+            .result__link {
                 color: blue;
             }
             .regra {
                 width: 100%;
-                margin: 20px 0;
             }
             .regra__titulo {
                 font-size: 14px;
@@ -370,56 +416,67 @@ $html = '
                 text-align: center;
             }
 
-            .status__link {
+            .result__link {
                 color: yellow;
                 text-decoration: none;
             }
+
+            .destaque {
+                color: yellow;
+            }
         </style>
 
-        <h2 class="status__title">
-            <a class="status__link" href="ganhadores.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
-        </h2>
+        <!-- LINK A LISTA DE GANHADORES -->
 
-        <div class="regra">
+        <section class="result">
+            <h2 class="result__title">
+                <a class="result__link" href="ganhadores.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
+            </h2>
+        </section>
+
+        <!-- REGRAS DO BOLLAO -->
+
+        <div class="regra hidden">
             <h2 class="regra__titulo">
                >> Regra do Bolão <<
             </h2>
+
             <p class="regra__texto">
-                Todo palpite registrado será considerado definitivo. Não será permitido efetuar o pagamento de apostas pendentes após o início da partida. Será considerado apenas o placar dos 90 minutos, incluindo os acréscimos.
+                <span class="destaque">Todo palpite</span> registrado será considerado <span class="destaque">definitivo</span>.<span class="destaque"> Não será permitido</span> efetuar o pagamento de apostas pendentes <span class="destaque">após o início da partida</span>. Será considerado apenas o placar dos <span class="destaque">90 minutos, incluindo os acréscimos</span>.
             </p>
         </div>
 
-        <form class="form hidden">
-            <div class="form__placar">
-                <label class="form__label">'.$nome_casa.'</label>
-                <input 
-                    class="form__input" 
-                    id="placar-brasil" 
-                    type="number"
-                    min="0"
-                    max="99"
-                    maxlength="2">
-                </input>
+        <!-- AREA DE VOTAÇÃO-->
+        <section class="votacao">
+            <form class="form">
+                <div class="form__placar">
+                    <label class="form__label">'.$nome_casa.'</label>
+                    <input 
+                        class="form__input" 
+                        id="placar-brasil" 
+                        type="number"
+                        min="0"
+                        max="99"
+                        maxlength="2">
+                    </input>
 
-                <input 
-                    class="form__input" 
-                    id="placar-adversario"
-                    type="number"
-                    min="0"
-                    max="99"
-                    maxlength="2">
-                </input>
-                <label class="form__label">'.$nome_visitante.'</label>
-
-            </div>
-                <a class="erro ativo" id="msg-erro">Você precisa especificar o placar</a>
+                    <input 
+                        class="form__input" 
+                        id="placar-adversario"
+                        type="number"
+                        min="0"
+                        max="99"
+                        maxlength="2">
+                    </input>
+                    <label class="form__label">'.$nome_visitante.'</label>
+                </div class="erro">
+                    <a class="erro__text ativo" id="msg-erro">>>> Você precisa especificar o placar <<<</a>
             </form>
 
-            
-            <div class="submit hidden" id="btn-apostar">
+            <div class="submit" id="btn-apostar">
                 <img class="submit__btn" src="img/btn-submit.png" alt="">
             </div>
-    </header>';
+        </section>';
     $html .= '
         <table>
         <thead>
@@ -464,7 +521,7 @@ $html .='
             display:block;
         }
         .footer__copyright {
-            color: #818181;
+            color: yellow;
             font-size: 11px;
             text-align: center;
             padding: 20px;
@@ -476,7 +533,6 @@ $html .='
     <script>
         const btn_apostar = document.getElementById("btn-apostar");
         btn_apostar.addEventListener("click",apostar);
-
 
         function apostar() {
             const placar_brasil = document.getElementById("placar-brasil");
@@ -494,7 +550,7 @@ $html .='
             }
 
             let telefone = "5598988508348";
-            let mensagem = `Brasil ${placar_brasil.value} x ${placar_adversario.value} Japão`;
+            let mensagem = `' .$nome_casa. '${placar_brasil.value} x ${placar_adversario.value} ' . $nome_visitante . ' `;
             let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
 
             placar_brasil.value = "";

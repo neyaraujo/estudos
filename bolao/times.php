@@ -1,5 +1,5 @@
 <?php 
     $nome_casa = 'BRASIL';
-    $nome_visitante = "JAPÃO";
+    $nome_visitante = "NORUEGA";
 
 ?>

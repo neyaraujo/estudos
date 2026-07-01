@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/06/2026 às 21:04
+-- Tempo de geração: 30/06/2026 às 21:49
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -40,52 +40,46 @@ CREATE TABLE `participantes` (
 --
 
 INSERT INTO `participantes` (`id`, `nome`, `time_casa`, `time_visitante`, `pagamento`) VALUES
-(1, 'Franciane', '2', '0', 'sim'),
-(2, 'Chagas', '2', '1', 'sim'),
-(3, 'Chagas', '1', '2', 'sim'),
-(4, 'Queliane', '3', '1', 'sim'),
-(5, 'Franciney', '1', '0', 'sim'),
-(6, 'Ygor', '1', '0', 'sim'),
-(29, 'Lenir', '2', '0', 'sim'),
-(31, 'Márcia', '5', '1', 'sim'),
-(35, 'Robson', '2', '0', 'sim'),
-(36, 'Fernanda', '3', '0', 'sim'),
-(37, 'Vadico', '2', '0', 'sim'),
-(38, 'Vadico', '3', '1', 'sim'),
-(39, 'Moises', '3', '1', 'sim'),
-(40, 'Moises', '4', '0', 'sim'),
-(41, 'Welligton', '1', '1', 'sim'),
-(42, 'Welligton', '0', '0', 'sim'),
-(43, 'Jassy', '2', '1', 'sim'),
-(44, 'Talita', '2', '0', 'sim'),
-(45, 'Thaty', '3', '0', 'sim'),
-(46, 'Ferdinan', '0', '0', 'sim'),
-(47, 'Leonardo', '1', '0', 'nao'),
-(48, 'Eduardo', '2', '0', 'sim'),
-(49, 'Potência', '3', '2', 'sim'),
-(50, 'Potência', '3', '1', 'sim'),
-(51, 'Potência', '1', '1', 'sim'),
-(52, 'Potência', '0', '1', 'sim'),
-(53, 'Niel', '4', '1', 'sim'),
-(54, 'Niel', '3', '0', 'sim'),
-(55, 'Chagas', '1', '1', 'sim'),
-(56, 'Cici', '2', '1', 'sim'),
-(57, 'João victor', '2', '1', 'sim'),
-(58, 'Marquinho', '3', '0', 'sim'),
-(59, 'Marquinho', '1', '1', 'sim'),
-(60, 'Sandra', '2', '1', 'sim'),
-(61, 'Sandra', '3', '1', 'sim'),
-(62, 'Liz', '2', '0', 'sim'),
-(63, 'Chutuca', '0', '1', 'sim'),
-(64, 'Chutuca', '2', '0', 'sim'),
-(65, 'Miúdo ', '4', '2', 'sim'),
-(66, 'Miúdo ', '1', '3', 'sim'),
-(67, 'Talita', '3', '1', 'sim'),
-(68, 'Edealdo', '3', '0', 'nao'),
-(69, 'Donaldson', '3', '1', 'sim'),
-(70, 'Donaldson', '4', '0', 'sim'),
-(71, 'Maria Antonia', '2', '1', 'sim'),
-(72, 'Maria Antonia', '2', '0', 'sim');
+(74, 'Gabriel', '2', '1', 'nao'),
+(75, 'Betinho', '1', '0', 'sim'),
+(76, 'Carlos Artes', '2', '1', 'sim'),
+(77, 'Jucileide', '2', '1', 'sim'),
+(78, 'Franciane', '1', '1', 'sim'),
+(79, 'Wagner', '3', '1', 'sim'),
+(80, 'Moises', '2', '0', 'sim'),
+(81, 'Moises', '3', '1', 'sim'),
+(82, 'Lissandra', '2', '1', 'sim'),
+(83, 'Idealberto', '2', '1', 'nao'),
+(84, 'Francisca', '2', '1', 'sim'),
+(85, 'Chagas', '1', '1', 'sim'),
+(86, 'Chagas', '2', '1', 'sim'),
+(87, 'Chagas', '0', '1', 'sim'),
+(88, 'Manoel', '3', '1', 'sim'),
+(89, 'Arnaldo', '3', '1', 'sim'),
+(90, 'Ribinha', '1', '2', 'nao'),
+(91, 'Shirley', '4', '2', 'sim'),
+(92, 'Lenir', '2', '1', 'sim'),
+(93, 'Lenir', '4', '2', 'sim'),
+(94, 'Antônio José ', '1', '0', 'sim'),
+(95, 'Yan', '3', '1', 'sim'),
+(96, 'Robson', '3', '2', 'sim'),
+(97, 'Wellington', '0', '0', 'sim'),
+(98, 'Welligton', '2', '2', 'sim'),
+(99, 'Junalia', '2', '1', 'nao'),
+(100, 'Jassy', '2', '0', 'sim'),
+(101, 'Robson', '3', '3', 'sim'),
+(102, 'Idealberto', '1', '0', 'sim'),
+(103, 'Niel', '3', '0', 'sim'),
+(104, 'Carlinhos', '3', '2', 'sim'),
+(105, 'Carlinhos', '0', '0', 'sim'),
+(106, 'Nice', '2', '1', 'sim'),
+(107, 'Edna', '3', '0', 'sim'),
+(108, 'Marcia', '1', '1', 'sim'),
+(109, 'Ferdinan', '2', '0', 'sim'),
+(110, 'Alison', '4', '0', 'sim'),
+(111, 'Potencia', '2', '1', 'sim'),
+(112, 'Ribinha', '2', '1', 'sim'),
+(115, 'Potencia', '3', '0', 'sim');
 
 --
 -- Índices para tabelas despejadas
@@ -105,7 +99,7 @@ ALTER TABLE `participantes`
 -- AUTO_INCREMENT de tabela `participantes`
 --
 ALTER TABLE `participantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

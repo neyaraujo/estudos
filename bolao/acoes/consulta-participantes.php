@@ -40,9 +40,9 @@ $sql = "SELECT * FROM participantes";
 
     function pagamento($tipo) {
         if($tipo === 'nao') {
-            return '<span style="color:red">PD</span>';
+            return '<span style="color:red; background: yellow">PD</span>';
         }elseif($tipo ==='sim'){
-            return '<span style="color:green">PG</span>';
+            return '<span style="color:green; background: #fff">PG</span>';
         }else {
             return $tipo;
         }

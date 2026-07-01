@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/consultar-placar.css">
+</head>
+<body>
+    <table id="tabela">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Casa</th>
+            <th>x</th>
+            <th>Convidado</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Ney</td>
+            <td>1</td>
+            <td>x</td>
+            <td>1</td>
+            <td>pago</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>ygor</td>
+            <td>1</td>
+            <td>x</td>
+            <td>1</td>
+            <td>pago</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Queliane</td>
+            <td>2</td>
+            <td>x</td>
+            <td>2</td>
+            <td>pago</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Chagas</td>
+            <td>1</td>
+            <td>x</td>
+            <td>2</td>
+            <td>falta</td>
+        </tr>
+    </table>
+
+    <style>
+       
+    </style>
+
+<section class="simulation">
+    <h2 class="simulation__title hidden">
+        Consultar Placar
+    </h2>
+    <p class="simulation__description">
+        Verifique quantas pessoas já escolherem este placar.
+    </p>
+
+    <form class="simulation__form">
+        <fieldset class="simulation__fieldset">
+            <legend class="simulation__legend">
+                Consultar Placar
+            </legend>
+            <label class="simulation__label" for="campo_casa">
+                Brasil
+                <input 
+                    class="simulation__input" 
+                    id="campo_casa" 
+                    type="number"
+                >
+            </label>
+
+            <label class="simulation__label" for="campo_convidado">
+                <input 
+                    class="simulation__input" 
+                    id="campo_convidado" 
+                    type="number"
+                >
+                Japão
+            </label>
+            <input 
+                class="simulation__button material-symbols-outlined"  
+                id="filtro" 
+                type="submit" 
+                value="search"
+            >
+        </fieldset>
+    </form>
+    <table class="simulation__table">
+            <thead class="simulation__thead">
+                <tr>
+                    <th>Ganhadores</th>
+                    <th>Apostadores</th>
+                    <th>Aposta</th>
+                    <th>Taxa</th>
+                    <th>Prêmio</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody class="simulation__tbody">
+                <tr>
+                    <td id="ganhadores" style="color: orange;"></td>
+                    <td id="apostadores"></td>
+                    <td id="aposta"></td>
+                    <td id="taxa"></td>
+                    <td id="premio"></td>
+                    <td id="total"></td>
+                </tr>
+            </tbody>
+    </table>
+
+    <p class="simulation__messege" id="messege"></p>
+    <div class="simulation__result" id="resultado">
+    </div>
+</section>
+
+<script src="../assets/js/consulta-placar.js"></script>
+</body>
+</html>
