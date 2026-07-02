@@ -180,7 +180,7 @@ $html = '
     0">
     <link rel="shortcut icon" href="img/cbf.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bolao.css"?v=1></link>
-    <title>Document</title>
+    <title>Bolão Brasil</title>
     <style>
        
     </style>
