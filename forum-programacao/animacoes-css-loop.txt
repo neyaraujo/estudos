@@ -1,0 +1,119 @@
+Sim. Com CSS puro é possível criar animações que ficam em loop infinito,
+sem precisar de JavaScript. Para isso, utiliza-se a regra @keyframes
+juntamente com a propriedade animation.
+
+Exemplo básico
+
+    .caixa {
+        width: 100px;
+        height: 100px;
+        background: red;
+        animation: mover 2s linear infinite;
+    }
+
+    @keyframes mover {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(300px);
+        }
+    }
+
+Neste exemplo: - 2s → duração da animação. - linear → velocidade
+constante. - infinite → repete para sempre.
+
+Exemplo de fade (aparecer e desaparecer)
+
+    .texto {
+        animation: fade 3s infinite;
+    }
+
+    @keyframes fade {
+        0%, 100% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+Exemplo de rotação
+
+    .loading {
+        animation: girar 1s linear infinite;
+    }
+
+    @keyframes girar {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+Exemplo para um slider automático
+
+    .slides {
+        display: flex;
+        width: 300%;
+        animation: slider 9s infinite;
+    }
+
+    @keyframes slider {
+
+        0%, 30% {
+            transform: translateX(0%);
+        }
+
+        33%, 63% {
+            transform: translateX(-33.333%);
+        }
+
+        66%, 96% {
+            transform: translateX(-66.666%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+Propriedades da animação
+
+    animation-name: mover;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+
+Ou de forma resumida:
+
+    animation: mover 3s ease 1s infinite alternate;
+
+Limitações do CSS
+
+O CSS consegue fazer muito sozinho:
+
+-   Loops infinitos.
+-   Fade.
+-   Zoom.
+-   Rotação.
+-   Movimento.
+-   Slider automático.
+-   Efeito de digitação.
+-   Pulsação.
+-   Animações de hover.
+
+Mas ele tem limitações quando é necessário:
+
+-   Controlar a animação por eventos complexos.
+-   Pausar, voltar ou avançar em momentos específicos com lógica.
+-   Buscar dados externos.
+-   Sincronizar a animação com outras ações da página.
+
+Nesses casos, o JavaScript é a melhor escolha.
+
+Para animações visuais repetitivas e decorativas, o CSS costuma ser
+suficiente e oferece excelente desempenho.

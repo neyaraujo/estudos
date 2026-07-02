@@ -233,7 +233,9 @@ $html = '
 
         </article>
     </section>
+    
     <script src="assets/js/slider.js"></script>
+    
 
         <style>
             .result__title {
@@ -367,9 +369,11 @@ $html .='
             padding: 20px;
         }
     </style>
+
     <footer class="footer">
         <p class="footer__copyright">&copy; Franciney de J. Araújo. Todos os direitos reservados</p>
     </footer>
+
     <script>
         const btn_apostar = document.getElementById("btn-apostar");
         btn_apostar.addEventListener("click",apostar);
