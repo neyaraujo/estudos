@@ -4,7 +4,7 @@ document.getElementById("radio1").checked = true;
 
 let intervalCarrossel = setInterval( function(){
     nextImage();
-},5000);
+},3000);
 
 function nextImage() {
     count++;

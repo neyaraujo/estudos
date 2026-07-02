@@ -1,8 +1,8 @@
 .slider {
-
     bottom: 0;
     overflow: hidden;
     max-width: 450px;
+    /* outline: 1px solid red; */
 }
 
 .slides {
@@ -25,20 +25,20 @@
 }
 
 .slide img {
-    width: 450px;
+    width: 100%;
     height: 85px;
-    /* object-fit: cover; */
+    object-fit: cover;
 }
 
 .manual-navigation {
 
     position: absolute;
-    width: 450px;
+    max-width: 450px;
     margin-top: 70px;
     display: flex;
     justify-content: center;
 
-    /* display: none; */
+    display: none;
 }
 
 .manual-btn {
@@ -60,15 +60,15 @@
 }
 
 #radio1:checked ~ .first {
-    margin-left: 10px;
+    margin-left: 0;
     transition: margin-left 1s;
 }
 #radio2:checked ~ .first {
-    margin-left: -420px;
+    margin-left: -100%;
     transition: margin-left 1s;
 }
 #radio3:checked ~ .first {
-    margin-left: -870px;
+    margin-left: -200%;
     transition: margin-left 1s;
 }
 
@@ -88,7 +88,7 @@
     display: flex;
     justify-content: center;
 
-    /* display: none; */
+    display: none;
 }
 .navigation-auto div:not(:last-child) {
     margin-right: 20px;
