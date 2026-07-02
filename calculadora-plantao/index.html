@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantão do Servidor</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+    <section class="shift-calculator">
+
+        <h2 class="shift-calculator__title">
+            Calculadora de Plantão
+        </h2>
+
+        <div class="shift-calculator__group">
+
+            <label class="shift-calculator__label" for="dia">
+                Dia da semana
+            </label>
+
+            <select
+                id="dia"
+                class="shift-calculator__select">
+
+                <option value="0">Domingo</option>
+                <option value="1">Segunda-feira</option>
+                <option value="2">Terça-feira</option>
+                <option value="3">Quarta-feira</option>
+                <option value="4">Quinta-feira</option>
+                <option value="5">Sexta-feira</option>
+                <option value="6">Sábado</option>
+
+            </select>
+
+        </div>
+
+        <div class="shift-calculator__group">
+
+            <label class="shift-calculator__label" for="hora">
+                Hora de entrada
+            </label>
+
+            <input
+                id="hora"
+                class="shift-calculator__input"
+                type="time">
+
+        </div>
+
+        <div class="shift-calculator__group">
+
+            <label class="shift-calculator__label" for="plantao">
+                Horas do plantão
+            </label>
+
+            <input
+                id="plantao"
+                class="shift-calculator__input"
+                type="number"
+                value="40"
+                min="1">
+
+        </div>
+
+        <button
+            class="shift-calculator__button"
+            onclick="calcular()">
+
+            Calcular
+
+        </button>
+
+        <div class="shift-calculator__result">
+
+            <h3 class="shift-calculator__result-title">
+                Resultado
+            </h3>
+
+            <p
+                id="resultado"
+                class="shift-calculator__result-text">
+            </p>
+
+        </div>
+
+    </section>
+
+<script>
+
+const dias = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado"
+];
+
+function calcular(){
+
+    const diaSemana = Number(document.getElementById("dia").value);
+
+    const hora = document.getElementById("hora").value;
+
+    const horasPlantao = Number(document.getElementById("plantao").value);
+
+    const [h, m] = hora.split(":").map(Number);
+
+    // Data base: Domingo (05/07/2026)
+    const inicio = new Date(2026, 6, 5);
+
+    // Ajusta para o dia escolhido
+    inicio.setDate(inicio.getDate() + diaSemana);
+
+    // Ajusta horário
+    inicio.setHours(h);
+    inicio.setMinutes(m);
+    inicio.setSeconds(0);
+
+    // Soma as horas do plantão
+    const fim = new Date(inicio.getTime() + horasPlantao * 60 * 60 * 1000);
+
+    document.getElementById("resultado").innerHTML =
+    `
+    Entrada: ${dias[inicio.getDay()]} às ${String(inicio.getHours()).padStart(2,"0")}:${String(inicio.getMinutes()).padStart(2,"0")}<br>
+    Liberação: ${dias[fim.getDay()]} às ${String(fim.getHours()).padStart(2,"0")}:${String(fim.getMinutes()).padStart(2,"0")}
+    `;
+}
+
+</script>
+
+    </script>
+</body>
+</html>

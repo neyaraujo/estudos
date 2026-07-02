@@ -1,0 +1,209 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* BODY */
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#eef2f7;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
+}
+
+/* BLOCO */
+
+.shift-calculator{
+
+    width:100%;
+    max-width:500px;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.10);
+
+}
+
+/* TÍTULO */
+
+.shift-calculator__title{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:#1f2937;
+
+    font-size:30px;
+
+}
+
+/* GRUPO */
+
+.shift-calculator__group{
+
+    display:flex;
+    flex-direction:column;
+
+    margin-bottom:20px;
+
+}
+
+/* LABEL */
+
+.shift-calculator__label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+/* INPUT E SELECT */
+
+.shift-calculator__input,
+.shift-calculator__select{
+
+    width:100%;
+
+    padding:12px 14px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    outline:none;
+
+    background:#fff;
+
+}
+
+.shift-calculator__input:focus,
+.shift-calculator__select:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+/* BOTÃO */
+
+.shift-calculator__button{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.shift-calculator__button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.shift-calculator__button:active{
+
+    transform:scale(.98);
+
+}
+
+/* RESULTADO */
+
+.shift-calculator__result{
+
+    margin-top:30px;
+
+    background:#f8fafc;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:10px;
+
+    padding:20px;
+
+}
+
+/* TÍTULO DO RESULTADO */
+
+.shift-calculator__result-title{
+
+    margin-bottom:12px;
+
+    color:#1f2937;
+
+    font-size:20px;
+
+}
+
+/* TEXTO */
+
+.shift-calculator__result-text{
+
+    font-size:16px;
+
+    line-height:1.7;
+
+    color:#374151;
+
+}
+
+/* RESPONSIVO */
+
+@media (max-width:600px){
+
+    .shift-calculator{
+
+        padding:20px;
+
+    }
+
+    .shift-calculator__title{
+
+        font-size:24px;
+
+    }
+
+}
