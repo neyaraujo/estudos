@@ -176,8 +176,7 @@ $html = '
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="60">
-    <meta name="viewport" content="width=device-width, initial-scale=1.
-    0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/cbf.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bolao.css"?v=1></link>
     <title>Bolão Brasil</title>
