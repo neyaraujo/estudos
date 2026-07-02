@@ -205,16 +205,21 @@ $html = '
             font-family: Arial, Helvetica, sans-serif;
         }
         .header {
+
             width: 100%;
+
         }
         .header__container {
             width: 100%;
+            box-shadow: 0 2px 0 #00ff2f32;
+        
         }
         .header__photo {
             width: 100%;
-        }
+            }
         .hero {
             width: 100%;
+            margin-top: 10px;
         }
         .hero__photo {
             margin: 0 auto 10px;
