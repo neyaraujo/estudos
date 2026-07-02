@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        margin: 0 auto;
+        max-width: 800px;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container {
+        position: relative;
+    }
+
+    #img1 {
+        animation: fade1 6s infinite;
+    }
+
+    #img2 {
+        animation: fade2 6s infinite;
+
+        position: absolute;
+        top: 0;
+        left: 0;  
+    }
+
+    @keyframes fade1 {
+        0%, 45% {
+            opacity: 0;
+        }
+        50%, 95% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+        @keyframes fade2 {
+        0%, 45% {
+            opacity: 1;
+        }
+        50%, 95% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <img class="item" id="img1" src="img/img1.jpg" alt="">
+        <img class="item" id="img2" src="img/img2.jpg" alt="">
+    </div>
+</body>
+
+
+</html>
