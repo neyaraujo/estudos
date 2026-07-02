@@ -354,7 +354,7 @@ $html = '
 <body>
     <header class="header">
         <div class="header__container">
-            <img class="header__photo" src="img/header-1080x400.png" alt="">
+            <img class="header__photo" src="img/logo-bolao.png" alt="">
         </div>
         <div class="hero">
             <img class="hero__photo" src="img/hero-1080x250.png" alt="">
@@ -436,7 +436,7 @@ $html = '
 
         <section class="result">
             <h2 class="result__title">
-                <a class="result__link" href="ganhadores.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
+                <a class="result__link" href="comerciais.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
             </h2>
         </section>
 
