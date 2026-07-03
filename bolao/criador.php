@@ -374,7 +374,20 @@ $html .='
             text-align: center;
             padding: 20px;
         }
+
+        .confronto {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .confronto__img {
+            width: 100%;
+            border: 2px solid #fff;
+        }
     </style>
+
+    <section class="confronto">
+        <img class="confronto__img" src="img/confronto.jpg">
+    </seciont>
 
     <footer class="footer">
         <p class="footer__copyright">&copy; Franciney de J. Araújo. Todos os direitos reservados</p>
