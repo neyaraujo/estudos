@@ -197,7 +197,7 @@ $html = '
 
     <!-- SLIDERS -->
 
-    <link rel="stylesheet" href="assets/css/slider.css">
+    <link rel="stylesheet" href="assets/css/slider.css"?=v1>
 
     <section class="slider">
         <article class="slides">
