@@ -21,6 +21,7 @@
 
 }
 body {
+    margin: 0 auto;
     height: 100vh;
     max-width: 480px;
     font-family: Arial, Helvetica, sans-serif;

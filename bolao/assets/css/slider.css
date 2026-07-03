@@ -71,6 +71,10 @@
     margin-left: -200%;
     transition: margin-left 1s;
 }
+#radio4:checked ~ .first {
+    margin-left: -300%;
+    transition: margin-left 1s;
+}
 
 .navigation-auto div {
     border: 2px solid #20a6ff;
@@ -101,6 +105,10 @@
     background-color: #fff;
 }
 #radio3:checked ~ .navigation-auto .auto-btn3 {
+    background-color: #fff;
+
+}
+#radio4:checked ~ .navigation-auto .auto-btn4 {
     background-color: #fff;
 
 }
