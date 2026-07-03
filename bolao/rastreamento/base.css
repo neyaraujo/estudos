@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+:root {
+
+    /* Verde */
+    --green-50:  #f1fdf0;
+    --green-100: #d8f8d3;
+    --green-200: #b2f0a8;
+    --green-300: #82e574;
+    --green-400: #55d74a;
+    --green-500: #2a9f00; /* Cor principal */
+    --green-600: #248900;
+    --green-700: #1d7000;
+    --green-800: #175900;
+    --green-900: #103d00;
+
+}
+body {
+    height: 100vh;
+    max-width: 480px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    box-shadow: 3px 3px 3px #00000052;
+}
+
+.header__menu-button {
+    background: none;
+    color: var(--green-500);
+    border: none;
+    font-size: 1.2rem;
+}
+
+.main {
+    /* height: 100%; */
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tracking {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+.tracking__label {
+    display: none;
+}
+.tracking__title {
+    font-size: 30px;
+    color: var(--green-500);
+    text-align: center;
+}
+.tracking__form {
+    display: flex;
+}
+.tracking__input {
+    width: 100%;
+    padding: 10px;
+}
+.maps {
+    padding: 10px;
+    width: 100%;
+}
+
+
