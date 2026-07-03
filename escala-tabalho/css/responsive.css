@@ -1,0 +1,52 @@
+@media(max-width:992px){
+
+    .schedule{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .page__header{
+
+        text-align:center;
+
+    }
+
+    .schedule-form__actions{
+
+        flex-direction:column;
+
+    }
+
+    .schedule-table__header{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        align-items:flex-start;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .schedule__panel,
+    .schedule__content{
+
+        padding:16px;
+
+    }
+
+    .schedule-table__table{
+
+        min-width:500px;
+
+    }
+
+}
