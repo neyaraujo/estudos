@@ -1,0 +1,40 @@
+body{
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    background:var(--color-background);
+
+    color:var(--color-text);
+
+    line-height:1.5;
+
+}
+
+.page__container{
+
+    width:min(95%,var(--container));
+
+    margin:auto;
+
+}
+
+h1,h2,h3{
+
+    font-weight:600;
+
+}
+
+p{
+
+    color:var(--color-text-light);
+
+}
+
+button{
+
+    transition:.3s;
+
+}
