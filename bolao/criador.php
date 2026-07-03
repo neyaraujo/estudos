@@ -199,7 +199,7 @@ $html = '
 
     <link rel="stylesheet" href="assets/css/slider.css"?=v1>
 
-    <section class="slider">
+    <section class="slider hidden">
         <article class="slides">
 
             <input type="radio" name="radio-btn" id="radio1">
