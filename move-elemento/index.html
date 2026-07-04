@@ -8,10 +8,11 @@
 
         #container {
             position: relative;
-            max-width: 450px;
-            max-height: 450px;
+            /* max-width: 450px; */
+            /* max-height: 450px; */
             background: rgb(238, 255, 0);            
         }
+        
         #box {
             width: 50px;
             height: 50px;
@@ -19,6 +20,12 @@
             position: absolute;
             top: 100px;
             left: 100px;
+
+            cursor: grab;
+        }
+
+        #box:active {
+            cursor: grabbing;
         }
 
 
@@ -30,6 +37,8 @@
     </div>
 
     <script>
+// MOVENDO OBJETOS COM AS SETAS DE DIREÇÃO
+
         const $ = (seletor) => document.querySelector(seletor);
         
         const box = $("#box");
@@ -56,6 +65,7 @@
                 x += step;
             }
 
+            // IMPEDINDO O OBJETO DE SAIR DO CONTAINER
             if (x < 0) x = 0;
             if (x > 450) x = 450;
             if (y > 450) y = 450;
@@ -63,8 +73,49 @@
 
             box.style.left = x + "px";
             box.style.top = y + "px";
+        });
+
+
+// SEGURANDO E MOVENDO OBJETOS COM MOUSE
+
+        let arrastando = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        box.addEventListener("mousedown", (event) => {
+            arrastando = true;
+
+            offsetX = event.clientX - box.offsetLeft;
+            offsetY = event.clientY - box.offsetTop;
+        });
+
+        document.addEventListener("mouseup", () => {
+            arrastando = false;
         })
-        
+
+        document.addEventListener("mousemove", (event) =>{
+            if (!arrastando) return;
+
+            box.style.left = (event.clientX - offsetX) + "px";
+            box.style.top = (event.clientY - offsetY) + "px";
+        });
+
+        // IMPEDINDO O BOJETIO DE SAIR DA TELA
+
+        const largura = window.innerWidth;
+        const altura = window.innerHeight;
+
+        const larguraBox = box.offsetWidth;
+        const alturaBox = box.offsetHeight;
+
+        x = event.clientX - offsetX;
+        y = event.clientY - offsetY;
+
+      x = Math.max(0, Math.min(x, largura - larguraBox));
+        y = Math.max(0, Math.min(y, altura - alturaBox));
+
+        box.style.left = x + "px";
+        box.style.top = y + "px";
 
     </script>
 </body>
