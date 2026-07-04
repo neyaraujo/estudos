@@ -107,14 +107,42 @@
         .hidden {
             display: none;
         }
+        .tracking__list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+
+            font-size: 30px;
+
+            
+
+        }
+        .tracking__list__item {
+            
+        }
+        .tracking__item a {
+            text-decoration: none;
+            font-weight: bold;
+            
+            color: rgb(0, 78, 203);
+           text-shadow: 3px 3px 3px #00000023;
+        }
+        .tracking__title {
+            color: rgb(0, 78, 203);
+           text-shadow: 3px 3px 3px #00000023;
+        }
     </style>
 
     <main class="main">
         <section class="tracking">
-            <h2 class="tracking__title">
-                Lígue: (98) 98869-4349 <br>
-                (98) 985119-8401
-            </h2>
+            <h2 class="tracking__title">Contatos</h2>
+            <ul class="tracking__list">
+                <li class="tracking__item"><a>(98) 98869-4349</a></li>
+                <li class="tracking__item"><a>(98) 98519-8401</a></li>
+                <li class="tracking__item"><a href="https://www.instagram.com/dr.eletrica_reparador">@dr.eletrica_reparador</a></li>
+            </ul>
 
             <form class="tracking__form hide hidden" action="#" method="get">
 
