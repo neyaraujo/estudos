@@ -1,0 +1,31 @@
+@media print {
+    * {
+      margin: 0;  
+      padding: 0;
+
+    } 
+    .schedule-table__table td {
+        padding: 0;
+    }
+    .schedule-form__input {
+        padding: 0;
+    }
+    .schedule-form__group {
+        margin: 0;
+    }
+    .schedule-table__button,
+    .schedule-form__button {
+        display: none;
+    }
+    .page__header {
+        padding: 0;
+    }
+    .page__footer {
+        margin: 0;
+        padding: 0;
+    }
+    .schedule__content,
+    .schedule__panel {
+        box-shadow: none;
+    }
+}

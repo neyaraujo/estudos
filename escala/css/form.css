@@ -12,6 +12,8 @@
 
     margin-bottom:18px;
 
+    
+
 }
 
 .schedule-form__label{
@@ -19,6 +21,7 @@
     margin-bottom:6px;
 
     font-weight:600;
+
 
 }
 
@@ -34,8 +37,15 @@
     border-radius:8px;
 
     outline:none;
-
 }
+
+.schedule-form__select {
+    display: none;
+}
+.schedule-form__group .hidden {
+    display: none;
+}
+
 
 .schedule-form__input:focus,
 .schedule-form__select:focus{
@@ -63,6 +73,7 @@
     border-radius:8px;
 
     font-weight:bold;
+
 
 }
 

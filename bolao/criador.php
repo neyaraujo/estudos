@@ -212,14 +212,14 @@ $html = '
             </div>
 
             <div class="slide">
-                <img src="img/slide6.jpg"/>
+                <img src="img/eletrica.jpg"/>
             </div>
 
             <div class="slide">
-                <img src="img/slide7.jpg"/>
+                <img src="img/eletrica2.jpg"/>
             </div>
             <div class="slide">
-                <a href="rastreamento/index.html" target="_blank"><img src="img/slide8.jpg"/></a>
+                <a href="rastreamento/index.html" target="_blank"><img src="img/eletrica3.jpg"/></a>
             </div>
 
 

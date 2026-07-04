@@ -11,12 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = $("#scheduleForm");
 
     form.addEventListener("submit", (event) => {
-
+        
         event.preventDefault();
 
         Storage.save();
-
+        
         Schedule.generate();
+        
+        Storage.load();
+
+        const timer = setTimeout(() => {
+            Schedule.generate();
+        },300);  
 
     });
 
@@ -25,5 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window.print();
 
     });
+
+
+
 
 });

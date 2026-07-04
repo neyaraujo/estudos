@@ -43,9 +43,13 @@ const Storage = {
 
         $("#startDate").value = data.startDate;
 
-        $("#month").value = data.month;
+        // $("#month").value = data.month;
+        $("#month").value = new Date($("#startDate").value).getMonth() + 1;
+        
+        
 
-        $("#year").value = data.year;
+        // $("#year").value = data.year;
+        $("#year").value = new Date($("#startDate").value).getFullYear();
 
     }
 

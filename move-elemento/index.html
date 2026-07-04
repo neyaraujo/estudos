@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movendo Elementos</title>
+    <style>
+
+        #container {
+            position: relative;
+            max-width: 450px;
+            max-height: 450px;
+            background: rgb(238, 255, 0);            
+        }
+        #box {
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="box"></div>
+    </div>
+
+    <script>
+        const $ = (seletor) => document.querySelector(seletor);
+        
+        const box = $("#box");
+
+        let x = 100;
+        let y = 100;
+
+        document.addEventListener("keydown", (event) => {
+            const step = 10;
+
+            if (event.key == "ArrowUp") {
+                y -= step;
+            }
+
+            if(event.key === "ArrowDown") {
+                y += step;
+            }
+
+            if (event.key === "ArrowLeft") {
+                x -= step;
+            }
+
+            if (event.key === "ArrowRight") {
+                x += step;
+            }
+
+            if (x < 0) x = 0;
+            if (x > 450) x = 450;
+            if (y > 450) y = 450;
+            if (y < 0) y = 0;
+
+            box.style.left = x + "px";
+            box.style.top = y + "px";
+        })
+        
+
+    </script>
+</body>
+</html>
