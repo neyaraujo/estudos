@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Memoria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .jogo {
+            width: 400px;
+            height: 400px;
+            background: darkgray;
+            
+        }
+        .jogo__item {
+            top: 100px;
+            width: 50px;
+            height: 50px;
+
+            color: white;
+            text-align: center;
+        }
+        #item1 {
+            background:red;
+            position: absolute;
+            left: 0;
+
+        }
+        #item2 {
+            background: green;
+            position: absolute;
+            left: 100px;
+            
+        }
+        #item3 {
+            background: blue;
+            position: absolute;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="jogo">
+        <div class="jogo__item" id="item1">1</div>
+        <div class="jogo__item" id="item2">2</div>
+        <div class="jogo__item" id="item3">3</div>
+    </div>
+</body>
+</html>

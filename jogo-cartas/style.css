@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* GAME */
+.game {
+    width: min(1000px, 95%);
+    margin: auto;
+    padding: 30px;
+}
+
+/* HEADER */
+.game__header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.game__title {
+    font-size: 2.2rem;
+}
+
+.game__subtitle {
+    color: #cbd5e1;
+    margin-top: 8px;
+}
+
+/* DASHBOARD */
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.dashboard__card {
+    flex: 1;
+    min-width: 150px;
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stars span {
+    font-size: 1.3rem;
+    color: #facc15;
+}
+
+/* BOARD */
+.board__cards {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+    width: 120px;
+    height: 180px;
+    border-radius: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgba(255,255,255,0.9);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card.selected {
+    outline: 4px solid #fff;
+    transform: scale(1.05);
+}
+
+/* COLORS */
+.c1 { background: #ef4444; }
+.c2 { background: #3b82f6; }
+.c3 { background: #facc15; color: #000; }
+.c4 { background: #22c55e; }
+.c5 { background: #a855f7; }
+
+/* CONTROLS */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #334155;
+    color: white;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.primary {
+    background: #2563eb;
+}
+
+/* VICTORY */
+.victory {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.victory__box {
+    background: #0f172a;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.hidden {
+    display: none;
+}
