@@ -284,7 +284,7 @@ $html = '
 
         <!-- REGRAS DO BOLLAO -->
 
-        <div class="regra hidden">
+        <div class="regra">
             <h2 class="regra__titulo">
                >> Regra do Bolão <<
             </h2>
