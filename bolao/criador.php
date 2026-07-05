@@ -278,7 +278,7 @@ $html = '
 
         <section class="result">
             <h2 class="result__title">
-                <a class="result__link" href="comerciais.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
+                <a class="result__link" href="ganhadores.html">>>>&#x1f3c6; RESULTADO CLIQUI AQUI &#x1f3c6;<<<</a>
             </h2>
         </section>
 
