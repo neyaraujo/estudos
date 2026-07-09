@@ -119,6 +119,268 @@
 			card.classList.toggle('ativo');
 		});
 
+
+#MANIPUÇÃO DE TEXTO
+|----	Criar String
+		palavra chave
+			texto, string, palavra, frase
+		exemplo
+			let nome = "Franciney";
+			let cidade = "Pinheiro";
+			let frase = "Olá Mundo";
+
+	Tamanho do texto
+		palavarachave
+			quantidade de caracteres, quantidade de string, contar string, contar texto
+		exemplo
+			let texto = "JavaScript";
+			console.log(texto.length); // 10
+
+	Converter para MAIÚSCULAS
+		palavra chave
+			grande, maiuscula, caixa alta
+		exemplo
+			let texto = "javascript";
+			console.log(texto.touUpperCase()); // JAVASCRIPT
+
+	converter para minúscula
+		palavra chave
+			minuscula, menor, caixa baixa
+		exemplo
+			let texto = "JAVASCRIPT";
+			console.log(texto.toLowerCase()); // javascript
+
+|--	trim()	Remover espaços
+
+		palavra chave
+			espaços, vazios
+		exemplo
+			let texto = "    Olá Mundo    ";
+			console.log(texto.trim()); // "Olá Mundo"
+|---	trimStar() remove espaço do inicio do texto
+		exemplo
+			let texto = "    Ola";
+			console.log(texto.trimStart()); // "Olá"
+
+|--	trimEnd() remove espaço do final do texto
+		exemplo
+			let texto = "Olá     ";
+			console.log(texto.trimEnd()); // "Olá"
+
+|--	replace()	Trocar carateres
+		Trocar apenas a primeira ocorrência
+			let texto "banana";
+			console.log(texto.replave("a,"A")); // bAnana
+
+|--	replaceAll()
+		Trocar todoas as ocorrências
+			let texto = "banana";
+			console.log(texto.replaceAll("a","A")); // bAnAnA
+
+|--	expressão Regular
+		let texto = "banana";
+		console.log(texto.replace(a/g,"A")); // bAnAnA
+
+|--	repeat()	Repetir texto
+		let texto = "Olá";
+		console.log(texto.repeat(3)); // Olá Olá Olá
+
+	Concatenar textos
+		palavra chave
+			juntar, somar
+		exemplo
+			let nome = "João";
+			let sobrenome = "Silva";
+			console.log(nome.concat("", sobrenome)); // João Silva
+		exemplo 2
+			console.log(nome + " " + sobrenome);
+		exemplo 3
+			console.log(`${nome} ${sobrenome}`);
+	
+|--	slice() Extrair parte do texto
+		let texto = "JavaScript";
+		console.log(texto.slice(0,4)); // Java
+
+|--- substring() 
+		let texto = "JavaScript";
+		console.log(texto.substring(4,10)); // Script
+
+|--	substr() (obsoleto)
+		texto.substr(4,6);
+		obs: evitar usar
+
+|--	indexOf() Localizar texto
+		let texto = "JavaScript";
+		console.log(texto.indexOf("Script)); // 4
+
+|--	lastlndexOf()
+		let texto = "Ana Ana";
+		console.log(texto.lastIndexOf("Ana")); // 4
+
+|-- 	includes() Retorna veradeiro ou falso
+		let texto = "JavaScript";
+		console.log(texto.includes("java")); // true
+
+|---	startsWith()
+		let texto = "JavaScript";
+		console.log(texto.startsWith("Java")); // true
+
+|--	endsWith()
+		let texto = "javaScript";
+		console.log(texto.endsWith("Script")); // true
+
+|--	split() Separar texto
+		let texto = "maça,uva,pera";
+		console.log(texto.split(",")); // ["maça", "uva", "pera"]
+
+|--	join()	Juntar Arrays
+		let frutas = ["maça", "uva", "pera"];
+		console.log(frutas.join(", ")); // maçã, uva, pera
+|-- 	charAt() Obter caractere
+		let texto = "Java";
+		console.log(texto.charAt(0); // J
+		ou
+		console.log(texto[0]); // J
+
+|--	charCodeAt() unicode
+		let texto = "A";
+		console.log(texto.charCodeAt(0)); // 65
+
+|--	fromCharCode() converter código para caractere
+		console.log(Strig.fromCharCode(65)); // A
+
+|--	padStar() Preencher texto
+		let numero = "5";
+		console.log(numero.padStart(3,"0")); // 005
+
+|--	padEnd()
+		let numero = "5";
+		console.log(numero.padEnd(3,"0")); // 500
+
+|--	comparação de textos
+		let a = "Casa";
+		let b = "Casa";
+		console.log(a === b); // true;
+
+|---	Comparação ignorando maiusculas
+		let a = "Casa";
+		let a = "casa";
+		console.log(a.toLoweCase() === b.toLoweCase()); // true
+
+|--	Procurar utilizando Expressão Regular
+		let texto = "JavaScript";
+		console.log(texto.search("Script")); // 4
+
+|--	Extrair utilizando Regex (Expressão Regular)
+		let texto = "ABC123";
+		console.log(texto.match(/[A-Z]+/)); // ABC
+
+|--	Verificar padrão
+		let email = "teste@gmail.com";
+		console.log(/@/.test(email)); // true
+
+
+|--	Transformar em Array
+		let texto = "ABCDE";
+		console.log(Array.from(texto)); // ["A", "B", "C", "D", "E"]
+
+|--	Inverter texto
+		let texto = "Java";
+		let invertido = texto
+			.split("")
+			.reverse()
+			.join("");
+		console.log(invertido); // avaJ
+
+|--	Contar caracteres
+		let texto = "banana";
+		let quantidade = texto.split("a").length - 1;
+		console.log(quantidade); // 3
+
+|--	remover caracteres 
+		let cpf = "123.456.789-10";
+		cpf = cpf.replaceAll(".","")
+			.replace("-","");
+		console.log(cpf);
+		console.log(cpf); // 12345678910
+
+|--	Capitalar
+		let texto = "javascript";
+		texto = texto.charAt(0).toUpperCase() + 
+			texto.slice(1);
+
+|---	Capitutalar todas as plavrasc
+		let texto = "curso de javascript";
+		texto = texto
+			.split(" ")
+			.map(palavra =>
+				palavra.charAt(0).toUpperCase() + 
+				palavra.slice(1)
+			)
+			.join(" ");
+			console.log(texto); // Curso De Javascript
+
+|--	Remover acentos
+		let texto = "Informática";
+		texto = texto 
+			.normalize("NFD")
+			.replace(/[\u0300-\u036f]g,"");
+		console.log(texto); // Informatica
+
+|-- 	substituir várias caracteres
+		let texto = "A-B/C";
+		texto = texot.replace(/[-/]/g," ");
+		console.log(texto); // A B C
+
+|-- 	Ocultar parte do texto
+	let cartao = "1234567890123456"
+	let oculto = cartao.slice(-4).padStart(15,"*"); // ***********3456
+
+|---	Formatar CPF
+	let cpf = "12345678910";
+	cpf = cpf.replace(
+		/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"
+	);
+	console.log(cpf); // 123.456.789-10
+
+|--	Template String
+		let nome = "João";
+		let idade = 30;
+		console.log(`Nome: ${nome} - Idade: ${idade}`);// Nome: João - Idade: 30
+
+|--	Converter para string
+		let numero = 100;
+		console.log(String(numero)); // "100"
+
+|--	Converter String para Número
+		let valor = "150";
+		console.log(Number(valor)); // 150
+
+|--	Métodos úteis da classe String
+	
+
+		
+
+
+		
+		
+	
+
+		
+		
+		
+	
+
+
+	
+
+		
+		
+				
+
+	
+		
+
 				
 		
 

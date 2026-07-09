@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitando Cyes</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* outline: 1px solid  red; */
+    }
+    body {
+        margin: 0 auto;
+        max-width: 1080px;
+        height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .resume {
+        width: 100%;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        max-height: 150px;
+    }
+    fieldset {
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+    }
+    label { 
+        padding-bottom: 5px;
+    }
+
+    .information__text {
+        color: rebeccapurple;
+        padding: 10px;
+        font-size: 12px;
+        text-align: justify;
+    }
+    .header__contents {
+        flex: 0 0 50%;
+        align-self: flex-end;
+        position: relative;
+    }
+    .header__title {
+        position: absolute;
+        top: -50px;
+    }
+    .header__pontos {
+        display: flex;
+        gap: 10px;
+    }
+    .header__item {
+        flex: 1 1 auto;   
+    }
+    
+    .painel {
+
+    }
+</style>
+
+<body>
+    <div class="resume">
+        <div class="header">
+                <div class="header__contents">
+                    <h2 class="header__title">Ditigitando Cyes</h2>
+                    <div class="header__pontos">
+                            <fieldset class="header__item">
+                                <legend>
+                                    PPM
+                                </legend>
+                                <label id="ppm">0</label>
+                            </fieldset>
+
+                            <fieldset class="header__item">
+                                <legend>
+                                    Pontos
+                                </legend>
+                                <Label id="pontos">1</Label>
+                            </fieldset>
+    
+                            <fieldset class="header__item">
+                                <legend>
+                                    Nível
+                                </legend>
+                                <labe id="nivel" for="">1</label>
+                            </fieldset>
+                    </div>
+                </div>
+            <div class="Information">
+                    <fieldset>
+                        <legend>Como Jogar</legend>
+                        <p class="information__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic accusantium, obcaecati dolores dolor dolore quo soluta necessitatibus fugit natus explicabo beatae eligendi quas praesentium ea numquam nam repudiandae velit corporis.</p>
+                    </fieldset>
+            </div>
+        </div>
+        <style>
+            .area {
+                position: relative;
+
+                margin-top: 10px;
+                width: 100%;
+                height: 400px;
+                background: #DBF0AE;
+                border: 2px solid #ccc;                
+            }
+            .palavra {
+                position: absolute;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 22px;
+                padding: 10px;
+            }
+        </style>
+
+        <div class="area" id="area">
+            <h2 class="palavra" id="palavra">
+                <!-- texto -->
+            </h2>
+        </div>
+
+        <style>
+            .control {
+                margin-top: 5px;
+                display: flex;
+                justify-content: space-between;
+                border: 1px solid #ccc;
+                padding: 10px;
+
+                max-height: 150px;
+            }
+            .control__btn-iniciar {
+                padding: 10px 20px;
+            }
+            .control__input {
+                padding: 10px 20px;
+            }
+            .control__btn-stop {
+                padding: 10px 20px;
+            }
+        </style>
+            <div class="control">
+                <div class="control__iniciar">
+                <button id="iniciar" class="control__btn-iniciar">Iniciar o Jogo</button>
+                    <input id="entrada" class="control__input" type="text" autocomplete="off" placeholder="Digite aqui...">
+                </div>
+                <button id="parar" class="control__btn-stop">Para / Fechar</button>
+            </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

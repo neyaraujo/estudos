@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organize as Cartas</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="game">
+
+    <!-- HEADER -->
+    <header class="game__header">
+        <h1 class="game__title">Organize as Cartas</h1>
+        <p class="game__subtitle">
+            Organize as cartas pela ordem correta (pela cor).
+        </p>
+    </header>
+
+    <!-- DASHBOARD -->
+    <section class="dashboard">
+
+        <div class="dashboard__card">
+            <h2>Pontuação</h2>
+
+            <div id="stars" class="stars">
+                <span>☆</span>
+                <span>☆</span>
+                <span>☆</span>
+                <span>☆</span>
+                <span>☆</span>
+            </div>
+
+            <p id="scoreText">0 / 5</p>
+        </div>
+
+        <div class="dashboard__card">
+            <h2>Movimentos</h2>
+            <p id="moves">0</p>
+        </div>
+
+        <div class="dashboard__card">
+            <h2>Tempo</h2>
+            <p id="timer">00:00</p>
+        </div>
+
+    </section>
+
+    <!-- BOARD -->
+    <section class="board">
+        <div id="board" class="board__cards"></div>
+    </section>
+
+    <!-- CONTROLS -->
+    <section class="controls">
+
+        <button id="shuffleBtn" class="btn primary">🔀 Embaralhar</button>
+        <button id="restartBtn" class="btn">↺ Reiniciar</button>
+
+    </section>
+
+    <!-- VICTORY -->
+    <section id="victory" class="victory hidden">
+        <div class="victory__box">
+            <h2>🎉 Parabéns!</h2>
+            <p>Você venceu!</p>
+            <button id="playAgainBtn" class="btn primary">Jogar novamente</button>
+        </div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
