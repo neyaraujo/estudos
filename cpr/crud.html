@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD EM LOCALSTORAGE</title>
+</head>
+<body>
+    <h2>Cadasto de Pessoas</h2>
+
+    <!-- Formulário -->
+     <form id="formCadastro">
+        <!-- Guarda o índice do registro selecionado -->
+         <input type="hidden" id="indice">
+
+         <label for="">Nome:</label><br>
+         <input type="text" id="nome" required><br><br>
+
+         <button type="submit" id="btnSalvar">Salvar</button>
+         <button type="button" id="btnNovo">Novo</button>
+         <button type="button" id="btnExcluir">Excluir</button>
+     </form>
+
+     <hr>
+
+     <h3>Cadastro</h3>
+
+     <!-- Lista de registros -->
+      <ul id="lista"></ul>
+
+      <script>
+        // ===================================
+        // ELEMNTOS DA PÁGINA
+        // ===================================
+
+        // Formulário
+        const form = document.getElementById('formCadastro');
+
+        // Lista HTML
+        const lista = document.getElementById("lista");
+
+        // =======================================
+        // BANCO DE DADOS (LOCALSTRORAGE)
+        // =======================================
+
+        // Retorna todos os registros
+        function obterDados() {
+
+            // Se não existir nada, retorna um vetor vazio
+            return JSON.parse(localStorage.getItem("cadastros")) || [];
+        }
+
+        // Salva todos os registros
+        function salvarDados(dados) {
+            localStorage.setItem("cadastros", JSON.stringify(dados));
+        }
+
+        // ===================================
+        // AUTO INCREMENTO DO ID
+        // ===================================        
+
+        // Retorna o próximo ID disponível
+        function proximoId() {
+
+            // Caso não exista, inicia em 1
+            return Number(localStorage.getItem("proximoId")) || 1;
+        }
+
+        // Incrementa o próximo ID
+        function incrementarId() {
+            localStorage.setItem("proximoId", proximoId() + 1);
+        }
+
+        // ===================================
+        // LISTAGEM
+        // ===================================        
+
+        // Atualiza a lista na tela
+        function atualizarLista() {
+            // Limpa a lista
+            lista.innerHTML = "";
+
+            // busca todos os registros
+            const dados = obterDados();
+
+            // Percorre todos os registros
+            dados.forEach((registro, indice) => {
+
+                const li = document.createElement("li");
+
+                // Texto exibido
+                li.textContent = registro.id + " - " + registro.nome;
+
+                // Ao clicar, carrega os dados
+                li.onclick = function() {
+
+                    carregarRegistro(indice);
+
+                };
+
+                lista.appendChild(li);
+
+            });
+        }
+
+        // ===================================
+        // CARREGA UM REGISTRO
+        // ===================================        
+
+        function carregarRegistro(indice) {
+            const dados = obterDados();
+
+            // Guarda o índice de vetor
+            document.getElementById("indice").value = indice;
+
+            // Carrega apenas o nome
+            document.getElementById("nome").value = dados[indice].nome;
+        }
+
+        // ===================================
+        // BOTÃO SALVAR
+        // ===================================        
+
+        form.addEventListener("submit",(event) => {
+            // Impede o envio do formulário
+            event.preventDefault();
+            
+            const dados = obterDados();
+
+            const indice = document.getElementById("indice").value;
+
+            // ===================================
+            // NOVO CADASTRO
+            // ===================================            
+
+            if(indice == "") {
+                const registro = {
+                    // Gera automaticamente o ID
+                    id: proximoId(),
+
+                    // Nome digitado
+                    nome: document.getElementById("nome").value
+                };
+
+                dados.push(registro);
+
+                // Atualiza o próximo ID
+                incrementarId();
+            }
+
+            // ===================================
+            // ALTERAÇÃO
+            // ===================================        
+
+            else {
+
+                // Altera somente o nome
+                dados[indice].nome = document.getElementById("nome").value;
+            }
+
+            // Salva novamente
+            salvarDados(dados);
+
+            // Limpa formulário
+            form.reset();
+
+            document.getElementById("indice").value = "";
+
+            // Atualiza a lista
+            atualizarLista();
+
+        });
+
+
+        // ===================================
+        // BOTÃO EXCLUIR
+        // ===================================
+
+        document.getElementById("btnExcluir").onclick = function() {
+            const indice = document.getElementById("indice").value;
+
+            // Nada selecionado
+            if(indice == "") return;
+
+            const dados = obterDados();
+
+            // Remove o registro
+            dados.splice(indice,1);
+
+            // Salva novamente;
+            salvarDados(dados);
+
+            // Limpa formulário
+            form.reset();
+
+            document.getElementById("indice").value = "";
+
+            // Atualiza lista
+            atualizarLista();
+        }
+
+        // ===================================
+        // BOTÃO NOVO
+        // ===================================
+
+        document.getElementById("btnNovo").onclick = function() {
+            form.reset();
+            document.getElementById("indice").value = "";
+        }
+
+        // ===================================
+        // INICIALIZAÇÃO
+        // ===================================        
+
+        // Carrega a lista quando a página abrir
+        atualizarLista();
+
+      </script>
+</body>
+</html>

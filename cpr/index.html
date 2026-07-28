@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprovante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;            
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 9px;
+            /* outline: 1px solid red; */
+            /* color: red; */
+            color: black;
+        }
+
+        body {
+            /* background-image: url(assets/img/comprovante-demo.jpg); */
+            background-repeat: no-repeat;
+            background-size: 250px;
+            background-position: center 10px;
+
+        }
+
+        .comprovante {
+            margin: 0 auto;
+            width: 250px;
+
+            transform: scale(2);
+            transform-origin: top center;
+        }
+
+        /* FORMULARIO */
+
+        .form {
+            /* display: none; */
+        }
+
+        .form fieldset {
+            background: white;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            max-width: 480px;
+
+            padding: 10px;
+
+        }
+        fieldset legend {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        .form label {
+            margin-top: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100%;
+            font-size: 16px;
+        }
+        .form input {
+            width: 100%;
+            font-size: 16px;
+            padding: 5px;
+            
+        }
+        .btn-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+
+        }
+
+        .btn {
+            flex: 0 1 100px;
+            font-size: 16px;
+        }
+
+        .menu {
+        margin: 10px auto;
+        max-width: 480px;
+        /* outline: 1px solid red; */
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        }
+
+        .menu__comprovante {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .menu__list {
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+
+        }
+        .menu__item {
+            list-style: none;
+        }
+        .menu__btn {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            background: none;
+            border: none;
+            /* border-bottom: 1px solid black; */
+            cursor: pointer;
+        }
+
+        .favoritos {
+
+            max-width: 480px;
+            margin:  20px auto;
+        }
+        .favoritos li {
+            list-style: none;
+            font-size: 16px;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .efeito {
+            color: blue;
+        }
+
+        .cor-menu {
+            color: #ccc;
+        }
+
+        @media print {
+            @page {
+                size: 4A;
+            }
+             body {
+                margin: 0;
+                justify-content: center;
+             }
+             .comprovante {
+                transform: scale(2);
+                transform-origin: top center;
+             }
+             #btnPrint {
+                display: none;
+             }
+
+        }
+        
+    </style>
+</head>
+<body>
+        <section class="menu oculto" id="menu">
+            <menu class="menu__comprovante" id="menuComprovante">Comprovante</menu>
+        <ul class="menu__list" id="menuLista">
+            <li class="menu__item"><button class="menu__btn" id="menuRemetente">Remetente</button></li>
+            <li class="menu__item"><button class="menu__btn" id="menuDestinatario">Destinatário</button></li>
+            <li class="menu__item"><button class="menu__btn" id="menuFavorito">Favorítos</button></li>
+        </ul>
+    </section>
+
+    <!-- FORMULARIO REMETENTE -->
+
+    <form class="form oculto" id="formRemetente" action="" name="formRemetente">
+            <fieldset>
+                <legend>Remetente</legend>
+                <label for="form_remetente">Nome Remetente</label>
+                <input type="text" id="nomeRemetente" name="nomeRemetente">
+
+                <label for="form_idenficador">CPF/CNPJ/PHONE</label>
+                <input type="text" id="idRemetente" name="idRemetente">
+
+                <label for="form_banco">Banco</label>
+                <input type="text" id="bancoRemetente" name="bancoRemetente">
+
+                <label for="form_agencia">agencia</label>
+                <input type="text" id="agenciaRemetente" name="agenciaRemetente">
+
+                <label for="form_conta">Conta</label>
+                <input type="text" id="contaRemetente" name="contaRemetente">
+                
+                <label for="form_valor">Valor</label>
+                <input type="number" id="valorPix" name="valorPix">
+
+                <input type="submit" value="Atualizar" id="btnAtualizar" name="btnAtualizar">
+            </fieldset>
+    </form>
+
+    <!-- FORMULARIO DESTINATÁRIO -->
+
+    <form class="form oculto" name="formDestinatario" id="formDestinatario">
+        <fieldset>
+            <legend>Destinatario</legend>
+
+            <!-- <label for="indice">Id</label> -->
+            <input type="hidden" id="indice" name="indice">
+
+            <label for="nomeDestinatario">Nome Destinatario</label>
+            <input type="text" name="nomeDestinatario" id="nomeDestinatario" required>
+
+            <!-- <label for="idDestinatario">Identificador</label> -->
+            <input type="hidden" name="idDestinatario" id="idDestinatario">
+
+            <label for="chavePix">ChavePix</label>
+            <input type="text" name="chavePix" id="chavePix" required>
+
+            <!-- BOTOES DE CRUD -->
+            <div class="btn-container">
+                <input type="submit" id="btnSalvar" class="btn" type="submit" value="Salvar">
+                <button type="button" id="btnNovo" class="btn">Novo</button>
+                <button type="button" id="btnExcluir" class="btn">Excluir</button>
+                </div>
+        </fieldset>
+    </form>
+    <ul class="favoritos oculto" id="favoritos"></ul>
+
+    <!-- COMPROVANTE -->
+
+    <main class="comprovante" style="width: 250px;"  id="comprovante">
+        <section class="header" style="width: 100%; height: 78px; position: relative; top: 8px;">
+                <div style="width: 100%; white-space: nowrap;">SISBB - SISTEMA DE INFORMACOES BANCO DO BRASIL</div>
+                <div style="width: 100%; position: absolute; top: 9px;"><span class="data_transacao" id="data_transacao">XX/XX/XXXX</span> -   
+                    <span style="margin-left: 15px;">AUTOATENDIMENTO</span>
+                    <span style="position: absolute; right: 0;">- <span id="hora_transacao">XX.XX.XX</span></span>
+                </div>
+                <div style="width: 100%; position: absolute; top: 17px;">0566500566 
+                    <span style="position: absolute; right: 0;">0001</span>
+                </div>
+                <div style="width: 100%; position: absolute; top: 26px; text-align: center;">Comprovante Pix</div>
+                <div style="width: 100%; position: absolute; top: 43px;">CLIENTE: <span id="nome_remetente">XXXXXXX X XXXXX XXXX</span></div>
+                <div style="width: 100%; position: absolute; top: 52px;">AGENCIA: <span id="agencia_remetente">XXXX-X</span> CONTA: <span id="conta_remetente" style="margin-left: 20px;">XX.XXXXX-X</span></div>
+
+                <div style="width: 100%; position: absolute; top: 61px;overflow: hidden;">
+                    <script>document.write("=".repeat(50))</script>
+                </div>
+            </section>
+
+            <section class="transacao" style="width: 100%; height: 68px; position: relative">
+                    <div>SOBRE A TRANSACAO</div>
+                    <div style="width: 100%; white-space: nowrap; overflow: hidden; position: absolute; top: 8px;">
+                        <script>document.write("-".repeat(50))</script>
+                    </div>
+                    <div style="width: 100%; position: absolute; top: 17px;">ID: <span id="codigo_transacao" style="position: absolute; right: 0;">EXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></div>
+                    <div style="width: 100%; position: absolute;top: 25px;"><span id="id_tipo">XXXX</span> DO PAGADOR: <span id="identificador_remetente" style="position: absolute; right: 0;">XX.XXX.XXX/XXXX-XX</span></div>
+                    <div style="width: 100%; position: absolute;top: 34px;">VALOR:<span id="valor_pix" style="position: absolute;right: 0"> R$XXX,XX</span></div>
+                    <div style="width: 100%; position: absolute;top: 43px;">TARIFA:<span style="position: absolute;right: 0"> R$0,00</span></div>
+                    <div style="width: 100%; position: absolute;top: 52px;">DATA:<span style="position: absolute;right: 0"><span id="data_transacao_2">XX/XX/XXXX</span> - <span id="hora_transacao_2">XX:XX:XX</span></span></div>
+
+                    <div style="width: 100%; position: absolute; top: 60px;white-space: nowrap; overflow: hidden;">
+                            <script>document.write("-".repeat(50))</script>
+                    </div>
+
+            </section>
+
+            <!-- DESTINATARIO -->
+            <section class="destinatario" style="position: relative;">
+                    <div style="width: 100%; white-space: nowrap; height: 58px; position: relative;top: 1px;">
+                        PAGO PARA: <span id="nome_destinatario">XXXX XXXXX XX XXXXXX</span>
+                    </div>
+                    <div style="width: 100%; position: absolute; top:10px;">
+                        <span id="descricao_chave_destinatario">CNPJ</span>: <span id="identificador_desntinatario">XX.XXX.XX/XXXX-XX</span>
+                    </div>
+                    <div style="width: 100%; position: absolute; top:18px;">
+                        CHAVE PIX: <span id="chavepix_destinatario">XXXXXXXXXXXXXX</span>
+                    </div>
+                    <div style="width: 100%; white-space: nowrap; position: absolute; top:27px;">
+                        INSTITUICAO: 30306294 BANCO BTG PARCTUTAL S.A.
+                    </div>
+                    <div style="width: 100%; white-space: nowrap; position: absolute; top:36px;">
+                        AGENCIA: 0050 - CONTA: 00000000000004451904
+                    </div>
+                    <div style="width: 100%; position: absolute; top:45px;">
+                        TIPO DE CONTA: Conta Corrente
+                    </div>
+            </section>
+            <section class="tarifa" style="width: 100%; height: 50px; position: relative; top: 4px;">
+                <div style="width: 100%; white-space: nowrap; position: absolute; top: 0;">Esta transação pode ser tarifada em até 0,99%,</div> 
+                <div style="width: 100%; position: absolute;top: 10px;">valor máximo de R$10,00. O valor definitivo</div> 
+                <div style="width: 100%; position: absolute; left: 36px; top: 18px;">poderá ser consultado no BBDPJ. </div>
+                <div style="width: 100%; white-space: nowrap; overflow: hidden; position: absolute; top: 25px;">
+                    <script>document.write("-".repeat(50))</script>
+                </div>
+                <div style="width: 100%; position: absolute; top: 35px;">
+                    Notificado enfiado em: <span id="data_tarifa">XX/XX/XXXX</span> - <span id="hora_tarifa">XX:XX:XX</span>
+                <div style="width: 100%; white-space: nowrap; position: absolute; top: 8.5px; overflow: hidden;"><script>document.write("=".repeat(50))</script></div>
+                </div>
+            </section>
+            <section class="autenticacao" style="width: 100%; height: 32px; position: relative;">
+                <div style="width: 100%; position: absolute;top: 5.5px;">DOCUMENTO: 100901</div>
+                <div style="width: 100%; position: absolute;top: 15px;">AUTENTICACAO SISBB: <span id="autenticacao" style="position: absolute; right: 0;">5.0DA.5CE.DBA.910.DFD</span></div>
+                <div style="width: 100%; overflow: hidden; white-space: nowrap; position: absolute; top: 23.5px;"><script>document.write("=".repeat(50))</script></div>
+            </section>
+            <section class="central" style="width: 100%; height: 167px; position: relative;">
+                <div style="width: 100%;position: absolute; top:0;">Central de Atendimento BB</div>
+                <div style="position: absolute;top: 8.5px;">4004 0001</div>
+                <div style="width: 100%; position: absolute;top: 17px; white-space: nowrap; word-spacing: -2px;">Consultas, informacoes e serviços transacionais.</div>
+                <div style="width: 100%; position: absolute;top: 35px;">SAC BB</div>
+                <div style="width: 100%;position: absolute;top: 43.5px;">0800 7290722</div>
+                <div style="width: 100%;position: absolute;top: 52px; white-space: nowrap;word-spacing: -5px;">
+                    Informacoes, reclamacoes, concelamento de produto-
+                </div>
+                <div style="width: 100%;position: absolute; top: 61px;">tos e servicos.</div>
+                <div style="width: 100%; position:absolute; top:78px;">
+                    Ouvidoria
+                </div>
+                <div style="width: 100%; position: absolute; top: 87px; white-space: nowrap;">0800 729 5678</div>
+                <div style="width: 100%; position:absolute;top: 96px; text-align: justify; word-spacing: 11px; white-space: nowrap;">Reclamacoes nao solucinadas nos canais</div>
+                <div style="width: 100%;position: absolute;top: 104px; word-spacing: 5px; white-space: nowrap;">habituais agencia, SAC e Demais canais de</div>
+                <div style="width: 100%;position:absolute; top:113px;">Atendimento.</div>
+                <div style="width: 100%; position:absolute;top: 131px;">Atendimento a deficientes auditivos ou fala</div>
+                <div style="width: 100%; position: absolute;top: 139px;">0800 729 0088</div>
+                <div style="width: 100%;position: absolute;top: 148px;white-space: nowrap;word-spacing: -1px;">Informacos, reclamacoes, cancelamento de cartao</div>
+                <div style="width: 100%;position: absolute;top: 157px;">e outros produtos e serviços de Ouvidoria.</div>
+            </section>
+            <section class="controle">
+                <button id="btnPrint">print</button>
+            </section>
+    </main>
+
+    <script src="assets/js/app.js" type="module" defer></script>
+    
+</body>
+</html>
