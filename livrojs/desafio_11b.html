@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+
+<script>
+    //Elabore um programa para uma pizzaria, o qual leia o valor total de uma conta e quantos clientes vão pagá-la. Calcule e informa o valor a ser pago por cliente.
+
+    const valorConta = Number(prompt("Qual o valor da conta?"));
+    const clientes = Number(prompt("Quantos vão dividir?"));
+
+
+    //Criando um objeto
+    const pizzaria = {
+        valorConta: valorConta,
+        clientes: clientes,
+        valorPorcliente: valorConta / clientes
+    };
+
+    var resumo =  pizzaria.valorPorcliente.toFixed(2);
+
+    alert("R$ " + String(resumo).replace(".",","));
+
+    
+</script>

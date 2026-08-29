@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Delta</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- cabeçalho principal -->
+    <header class="cabecalho">
+        <div class="cabecalho__conteudo">
+
+            <div class="cabecalho__icone">
+                Δ
+            </div>
+
+            <div class="cabecalho__textos">
+                <h1 class="cabecalho__titulo">
+                    Calcula Delta
+                </h1>
+
+                <p class="cabecalho__descricao">
+                    Calcule o discriminante (Δ) de uma equação do segundo grau.
+                </p>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+     <main class="principal">
+
+        <!-- Seção explicativa -->
+         <section class="cartao" cartao--informacao>
+            <div class="cartao__cabecalho">
+                <span class="cartao__icone">
+                    i
+                </span>
+    
+                <h2 class="cartao__titulo">
+                    Sobre a equação
+                </h2>
+            </div>
+
+            <p class="cartao__texto">
+                Informe uma equação dos segundo grau no formato geral:
+            </p>
+
+            <p class="formula">
+                ax<sup>2</sup> + bx + c = 0
+            </p>
+
+            <p class="cartao__texto cartao__texto--exemplo">
+                <strong>Exemplos válidos:</strong>
+                2x<sup>2</sup> + 3x - 5 = 0,
+                -x<sup>2</sup> + 4x + 4 = 0,
+                5x<sup>2</sup> - 7x + 1 = 0.
+            </p>
+         </section>
+
+         <!-- Formulário -->
+          <section class="cartao">
+            <div class="cartao__cabecalho">
+                <span class="cartao__icone">
+                    ✎
+                </span>
+
+                <h2 class="cartao__titulo">
+                    Equadação do segundo grau
+                </h2>
+            </div>
+            
+            <form action="#" class="formulario" id="formulario-delta">
+                
+                <div class="formulario__grupo">
+
+                    <label for="equacao">digite a equação no campo abaixo</label>
+                    <textarea 
+                    class="formulario__campo formulario__campo--texto" 
+                    id="equacao"
+                    name="equacao"
+                    placeholder="Ex.: 2x^2 + 3x - 5 = 0" 
+                    rows="4"
+                    required
+                    ></textarea>
+
+                    <small class="formulario__dica">
+                        Dica: espaços são opcionais. Use o ^ para representar o expoente. Exemplo x^2
+                    </small>
+                </div>
+
+                <button
+                    class="formulario__botao"
+                    type="submit"
+                > 
+                    <span class="formulario__botao--incone">
+                        🧮
+                    </span>    
+
+                    Calcular Delta
+
+                </button>
+                
+            </form>
+          </section>
+
+          <!-- Resultado -->
+
+          <section class="cartao cartao--resultado">
+            <div class="cartao__cabecalho">
+
+                <span class="cartao__incone">
+                    Δ
+                </span>
+
+                <h2 class="cartao__titulo">
+                    Resultado do Delta (Δ)
+                </h2>
+            </div>
+
+            <div class="resultado">
+
+                <label
+                    class="resultado__rotulo"  
+                    for="resultado-delta"
+                >
+                    Valor de Δ:
+                </label>
+
+                <input
+                class="resulado__campo"
+                id="resultado-delta"
+                type="text"
+                value="--"
+                readonly>
+            </div>
+
+            <p class="formula formula--resultado">
+                 Δ = b<sup>2</sup> - 4ac
+            </p>
+
+
+            <!-- Área para mensagens de erro -->
+             <p 
+                class="resultado__mensagem"
+                id="mensagem"
+                aria-live="polite">
+
+             </p>
+
+          </section>
+
+          <!-- Rodapé -->
+
+          <footer>
+            <p class="rodape__texto">
+                <strong>Calcula Delta</strong>
+                <span>.</span>
+                Projeto em HTML, CSS e JavaScript
+            </p>
+          </footer>
+
+          <script src="js/script.js"></script>
+
+     </main>
+</body>
+</html>

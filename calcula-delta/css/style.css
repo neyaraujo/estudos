@@ -1,0 +1,498 @@
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --cor-azul: #1456d9;
+    --cor-azul-hover: #0d47b5;
+    --cor-azul-claro: #eaf1ff;
+
+    --cor-fundo: #f5f7fb;
+    --cor-branco: #ffffff;
+
+    --cor-texto: #17233d;
+    --cor-texto-secundario: #53627d;
+
+    --cor-borda: #dce2ec;
+
+    --sombra: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    --raio: 12px;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--cor-fundo);
+
+    color: var(--cor-texto);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.cabecalho {
+    margin: 24px;
+
+    padding: 28px;
+
+    background: linear-gradient(
+        135deg,
+        #164dcc,
+        #1456d9
+    );
+
+    color: var(--cor-branco);
+
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+}
+
+
+.cabecalho__conteudo {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.cabecalho__icone {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid white;
+
+    border-radius: 12px;
+
+    font-size: 42px;
+}
+
+
+.cabecalho__titulo {
+    margin-bottom: 4px;
+
+    font-size: 42px;
+}
+
+
+.cabecalho__descricao {
+    font-size: 18px;
+
+    opacity: 0.95;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+.principal {
+    width: min(1200px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   CARTÃO
+   ========================================================= */
+
+.cartao {
+    padding: 28px;
+
+    background-color: var(--cor-branco);
+
+    border: 1px solid #e5e9f0;
+
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+}
+
+
+.cartao__cabecalho {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 14px;
+}
+
+
+.cartao__icone {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--cor-azul);
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-weight: bold;
+
+    font-size: 20px;
+}
+
+
+.cartao__titulo {
+    color: var(--cor-texto);
+
+    font-size: 24px;
+}
+
+
+.cartao__texto {
+    color: var(--cor-texto-secundario);
+
+    font-size: 18px;
+
+    margin-bottom: 14px;
+}
+
+
+.cartao__texto--exemplo {
+    margin-top: 20px;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   FÓRMULA
+   ========================================================= */
+
+.formula {
+    padding: 12px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    font-style: italic;
+
+    color: var(--cor-texto);
+}
+
+
+.formula--resultado {
+    margin-top: 18px;
+
+    text-align: left;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.formulario {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.formulario__grupo {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.formulario__rotulo {
+    color: var(--cor-texto);
+
+    font-size: 18px;
+
+    font-weight: 500;
+}
+
+
+.formulario__campo {
+    width: 100%;
+
+    padding: 16px;
+
+    border: 2px solid var(--cor-borda);
+
+    border-radius: 8px;
+
+    background-color: white;
+
+    color: var(--cor-texto);
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.formulario__campo:focus {
+    border-color: var(--cor-azul);
+
+    box-shadow:
+        0 0 0 3px var(--cor-azul-claro);
+}
+
+
+.formulario__campo--texto {
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+
+.formulario__dica {
+    color: var(--cor-texto-secundario);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.formulario__botao {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: var(--cor-azul);
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.1s;
+}
+
+
+.formulario__botao:hover {
+    background-color: var(--cor-azul-hover);
+}
+
+
+.formulario__botao:active {
+    transform: scale(0.99);
+}
+
+
+.formulario__botao-icone {
+    margin-right: 8px;
+}
+
+
+/* =========================================================
+   RESULTADO
+   ========================================================= */
+
+.resultado {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.resultado__rotulo {
+    color: var(--cor-texto-secundario);
+
+    font-size: 18px;
+}
+
+
+.resultado__campo {
+    width: 100%;
+
+    padding: 16px;
+
+    border: 2px solid var(--cor-borda);
+
+    border-radius: 8px;
+
+    background-color: #f8fafc;
+
+    color: var(--cor-texto);
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    outline: none;
+}
+
+
+.resultado__mensagem {
+    min-height: 24px;
+
+    margin-top: 8px;
+
+    color: #c62828;
+
+    font-size: 15px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.rodape {
+    padding: 30px 20px;
+
+    text-align: center;
+}
+
+
+.rodape__texto {
+    color: var(--cor-texto-secundario);
+
+    font-size: 15px;
+}
+
+
+.rodape__texto strong {
+    color: var(--cor-azul);
+}
+
+
+.rodape__texto span {
+    margin: 0 8px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+        margin: 12px;
+
+        padding: 22px;
+    }
+
+
+    .cabecalho__conteudo {
+        align-items: flex-start;
+    }
+
+
+    .cabecalho__icone {
+        width: 52px;
+        height: 52px;
+
+        font-size: 30px;
+    }
+
+
+    .cabecalho__titulo {
+        font-size: 28px;
+    }
+
+
+    .cabecalho__descricao {
+        font-size: 15px;
+    }
+
+
+    .principal {
+        width: calc(100% - 24px);
+    }
+
+
+    .cartao {
+        padding: 20px;
+    }
+
+
+    .cartao__titulo {
+        font-size: 21px;
+    }
+
+
+    .formula {
+        font-size: 23px;
+    }
+
+}

@@ -1,0 +1,1 @@
+WScript.echo "Sejam bem vindos ao mundo da Programacao"

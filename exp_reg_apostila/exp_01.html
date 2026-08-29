@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conceito de Expressões Regulares - JavaScript</h1>
+
+    <button id="btn" onclick="buscarRg()">Iniciar Busca</button>
+    <p id="resposta"></p>
+</body>
+</html>
+
+<script>
+
+
+    function buscarRg() {
+        var texto = prompt("Digite seu RG 8 digitos");
+
+        //SINTAXE
+        // /[0-9] <um numero qualquer>
+        // \.? <com ou sem o ponto>
+        // [0-9]{3} <uma sequencia de 3 numeros>/
+
+        var expReg = /[0-9]\.?[0-9]{3}\.?[0-9]{3}-?[0-9]/
+
+
+        // if (<var_expressao>.teste(string_de_busca)()) {}
+    if (expReg.test(texto)) {
+        textoTratado = texto.replace(
+            /([0-9])\.?([0-9]{3})\.?([0-9]{3})-?([0-9])/,
+            "$1.$2.$3-$4"
+        );
+
+        var resp = document.getElementById("resposta");
+
+        resp.innerText = (expReg.exec(textoTratado));
+
+    }
+    }
+
+
+
+</script>

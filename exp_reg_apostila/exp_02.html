@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+
+<script> 
+
+
+
+
+// var texto = "um <b>negrito</br> aqui"
+
+// var encontrado = texto.match(/<.*>/)
+
+// console.log((encontrado)[0]);
+
+
+// Extraia o horário do texto utilizando expressões regulares
+
+var texto = "no dia 01/12/1988 as 15:00 eu conheci  o mundo da programação \n Tive muita dificuldade, por que a base de conteúdo era escarssa demais, valeu a pena!"
+
+
+
+const horario = /([01][0-9]|2[0-3]):[0-5][0-9]/
+const data =  /(?<dia>[0-1][0-9]|2[0-9]|3[0-1])\/(?<mes>0[1-9]|1[0-2])\/(?<ano>[0-9]{4})/
+
+console.log(data);
+
+if (horario.test(texto)) {
+    alert("O horário que você aprendeu foi às " + texto.match(horario)[0] + " no dia " + texto.match(data)[0]);
+}
+
+</script>

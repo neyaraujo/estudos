@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Sistema que calcula o consumo de energia
+
+    -->
+
+    <script>
+        var consultaAnterior = 10757;
+
+
+
+        var dataInicio = prompt("Digite a data ultima leitura");
+
+        numeros = dataInicio.replace(/\D/g,"") 
+
+        var dataInicio = numeros.replace(
+            /(\d{2})(\d{2})(\d{4})/, "$3-$2-$1"
+        );
+
+
+        const dataHoje = new Date(agora());
+
+        dataInicio = new Date(dataInicio);
+
+        const diferenca = (dataHoje - dataInicio);        
+        const dias = diferenca / (1000 * 60 * 60 * 24)
+
+        var consultaAtual = Number(prompt("Digite os numeros do contador"));
+
+        var consumo = consultaAtual - consultaAnterior;
+
+        var media = consumo / dias;
+
+
+        alert("Dias \t" + dias + "\nConsumo " + consumo + " kw \nMedia \t " + media.toFixed(2) + " kw/d");
+
+
+        function agora() {
+            const hoje = new Date();
+
+            const ano = hoje.getFullYear();
+            const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+            const dia = String(hoje.getDate()).padStart(2, "0");
+
+            const dataHoje = `${ano}-${mes}-${dia}`;
+
+            return dataHoje;
+
+        }
+
+
+    </script>
+</body>
+</html>
