@@ -1,0 +1,419 @@
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.cabecalho {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 40px 20px;
+}
+
+.cabecalho__container {
+    width: min(100%, 1100px);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cabecalho__titulo {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.cabecalho__descricao {
+    color: #666;
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   RIFA
+   ========================================================= */
+
+.rifa {
+    width: 100%;
+}
+
+.rifa__secao {
+    padding: 50px 20px;
+}
+
+.rifa__secao--numeros {
+    background-color: #f4f6f8;
+}
+
+.rifa__secao--cadastro {
+    background-color: #ffffff;
+}
+
+.rifa__container {
+    width: min(100%, 1100px);
+    margin: 0 auto;
+}
+
+.rifa__titulo {
+    text-align: center;
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+}
+
+.rifa__descricao {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   NÚMEROS DA RIFA
+   ========================================================= */
+
+.rifa__numeros {
+    display: grid;
+
+    /*
+     * 10 números por linha
+     */
+    grid-template-columns: repeat(10, 1fr);
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTÃO / NÚMERO
+   ========================================================= */
+
+.rifa__numero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 70px;
+    padding: 8px;
+
+    border: 2px solid #d8dde3;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+    color: #222;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/*
+ * Efeito ao passar o mouse
+ */
+.rifa__numero:hover {
+    border-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+
+/*
+ * Número selecionado pelo usuário
+ */
+.rifa__numero--selecionado {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+
+/*
+ * Número já reservado
+ */
+.rifa__numero--indisponivel {
+    background-color: #d1d5db;
+    border-color: #d1d5db;
+    color: #6b7280;
+
+    cursor: not-allowed;
+
+    opacity: 0.7;
+}
+
+
+/*
+ * Remove o efeito hover do número indisponível
+ */
+.rifa__numero--indisponivel:hover {
+    transform: none;
+    border-color: #d1d5db;
+}
+
+
+/* =========================================================
+   NÚMERO SELECIONADO
+   ========================================================= */
+
+.rifa__selecionado {
+    min-height: 28px;
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.formulario {
+    width: min(100%, 600px);
+    margin: 0 auto;
+
+    padding: 30px;
+
+    background-color: #f8f9fa;
+
+    border: 1px solid #e1e5e9;
+    border-radius: 14px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   GRUPO DO FORMULÁRIO
+   ========================================================= */
+
+.formulario__grupo {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.formulario__label {
+    margin-bottom: 7px;
+
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.formulario__input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #cfd5dc;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.formulario__input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================================
+   BOTÃO DO FORMULÁRIO
+   ========================================================= */
+
+.formulario__botao {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #2563eb;
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.formulario__botao:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+.formulario__botao:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   MENSAGEM DO FORMULÁRIO
+   ========================================================= */
+
+.formulario__mensagem {
+    min-height: 24px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.rodape {
+    background-color: #1f2937;
+    color: #ffffff;
+
+    padding: 30px 20px;
+}
+
+.rodape__container {
+    width: min(100%, 1100px);
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.rodape__texto {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.rodape__copyright {
+    color: #cbd5e1;
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+
+/*
+ * Tablets
+ */
+@media (max-width: 800px) {
+
+    .rifa__numeros {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+}
+
+
+/*
+ * Celulares
+ */
+@media (max-width: 500px) {
+
+    .cabecalho {
+        padding: 30px 15px;
+    }
+
+    .cabecalho__titulo {
+        font-size: 1.8rem;
+    }
+
+    .rifa__secao {
+        padding: 35px 15px;
+    }
+
+    .rifa__titulo {
+        font-size: 1.4rem;
+    }
+
+    .rifa__numeros {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 7px;
+    }
+
+    .rifa__numero {
+        min-height: 55px;
+        padding: 5px;
+
+        border-radius: 7px;
+
+        font-size: 0.9rem;
+    }
+
+    .formulario {
+        padding: 20px;
+    }
+
+}
+
+
+/*
+ * Celulares muito pequenos
+ */
+@media (max-width: 350px) {
+
+    .rifa__numeros {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}

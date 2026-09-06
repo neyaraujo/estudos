@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rifa beneficente online">
+    <title>Rifa Online</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <div class="cabecalho__container">
+            <h1 class="cabecalho__titulo">
+                Rifa Online
+            </h1>
+            <p class="cabecalho__descricao">
+                Escolha seu número e participe da nossa rifa beneficente.
+            </p>
+        </div>
+    </header>
+
+    <main class="rifa">
+        <section class="rifa__secao rifa__secao--numeros">
+            <div class="rifa__container">
+                <h2 class="rifa__titulo">
+                    Escolha seu número
+                </h2>
+
+                <p class="rifa__descricao">
+                    Selecione um número disponível para participar.
+                </p>
+
+                <!--
+                    Os 100 números serão criados
+                    dinamicamente pelo JavaScript.
+                -->
+                <div
+                    class="rifa__numeros"
+                    id="rifa-numeros"
+                    aria-label="Números disponíveis da rifa">
+                </div>
+
+                <!--
+                    Área utilizada pelo JavaScript
+                    para informar o número selecionado.
+                -->
+                <p
+                    class="rifa__selecionado"
+                    id="rifa-selecionado"
+                    aria-live="polite">
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="rifa__secao rifa__secao--cadastro">
+            <div class="rifa__container">
+                <h2 class="rifa__titulo">
+                    Dados do participante
+                </h2>
+
+                <p class="rifa__descricao">
+                    Preencha seus dados para reservar o número escolhido.
+                </p>
+
+
+                <form
+                    class="formulario"
+                    id="formulario-rifa"
+                    action="php/salvar.php"
+                    method="POST"
+                    novalidate>
+
+
+                    <div class="formulario__grupo">
+
+                        <label
+                            class="formulario__label"
+                            for="nome">
+                            Nome
+                        </label>
+
+                        <input
+                            class="formulario__input"
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome"
+                            autocomplete="name"
+                            required>
+
+                    </div>
+
+
+                    <div class="formulario__grupo">
+
+                        <label
+                            class="formulario__label"
+                            for="telefone">
+                            Telefone
+                        </label>
+
+                        <input
+                            class="formulario__input"
+                            type="tel"
+                            id="telefone"
+                            name="telefone"
+                            placeholder="(98) 98723-9890"
+                            autocomplete="tel"
+                            inputmode="tel"
+                            required>
+
+                    </div>
+
+
+                    <!--
+                        O JavaScript preencherá este campo
+                        com o número escolhido.
+                    -->
+                    <input
+                        type="hidden"
+                        id="numero"
+                        name="numero">
+
+
+                    <button
+                        class="formulario__botao"
+                        type="submit"
+                        id="formulario-botao">
+                        Reservar número
+                    </button>
+
+
+                    <!--
+                        Mensagens de sucesso ou erro
+                        serão inseridas pelo JavaScript.
+                    -->
+                    <div
+                        class="formulario__mensagem"
+                        id="formulario-mensagem"
+                        aria-live="polite">
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="rodape">
+
+        <div class="rodape__container">
+
+            <p class="rodape__texto">
+                Rifa Beneficente
+            </p>
+
+            <p class="rodape__copyright">
+                &copy; 2026 Rifa Online. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Estudo de Funções</h1>
+
+    <ul id="lista">
+        <li><button value="01">butão 01</button></li>
+        <li><button value="02">butão 03</button></li>
+        <li><button value="03">butão 02</button></li>
+    </ul>
+
+</body>
+
+<script>
+
+    let lista = window.document.querySelectorAll("#lista");
+
+
+    lista.forEach((item) => {
+        item.addEventListener("click", (e) =>{
+            e.target.innerText = "Teste";
+        })
+    })
+
+
+    
+
+    
+
+    // arrayNomes = ["Fabio","Domingas", "Gomes"]
+
+    // arrayNomes.forEach(function(nome) {
+    //     console.log(nome);
+    // })
+
+    // arrayNomes.forEach((nome) => {
+    //     console.log(nome);
+    // })
+
+
+</script>
+</html>

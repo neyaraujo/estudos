@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+
+.comprovante {
+    width: 100%;
+    max-width: 600px;
+}
+
+
+.comprovante__cartao {
+    background-color: #ffffff;
+
+    border: 1px solid #e1e5e9;
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+.comprovante__cabecalho {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+
+.comprovante__titulo {
+    margin-bottom: 5px;
+
+    font-size: 2rem;
+}
+
+
+.comprovante__subtitulo {
+    font-size: 1rem;
+}
+
+
+.comprovante__numero {
+    padding: 30px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.comprovante__numero-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #666;
+
+    font-size: 0.95rem;
+}
+
+
+.comprovante__numero-valor {
+    display: block;
+
+    font-size: 4rem;
+
+    color: #2563eb;
+}
+
+
+.comprovante__dados {
+    padding: 25px;
+}
+
+
+.comprovante__item {
+    display: flex;
+
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.comprovante__item:last-child {
+    border-bottom: none;
+}
+
+
+.comprovante__label {
+    color: #666;
+}
+
+
+.comprovante__valor {
+    text-align: right;
+
+    word-break: break-word;
+}
+
+
+.comprovante__rodape {
+    padding: 25px;
+
+    text-align: center;
+
+    background-color: #f8f9fa;
+}
+
+
+.comprovante__mensagem {
+    margin-bottom: 20px;
+
+    color: #333;
+}
+
+
+.comprovante__botao {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    background-color: #2563eb;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: background-color 0.2s ease;
+}
+
+
+.comprovante__botao:hover {
+    background-color: #1d4ed8;
+}
+
+
+@media (max-width: 500px) {
+
+    .comprovante__item {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .comprovante__valor {
+        text-align: left;
+    }
+
+    .comprovante__numero-valor {
+        font-size: 3rem;
+    }
+
+}
